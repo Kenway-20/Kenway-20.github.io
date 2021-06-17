@@ -154,253 +154,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-for test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="程序设计要求"><a href="#程序设计要求" class="headerlink" title="程序设计要求"></a>程序设计要求</h1><ul>
-<li><p>1.仿真场景：划定区域或基于真实地图</p>
-</li>
-<li><p>2.仿真要求：</p>
-<ul>
-<li>1）传播过程的模拟（可视化或数字指标变化）；</li>
-<li>2）通过恰当指标说明不同场景下各类防疫措施的成效；</li>
-<li>3）给出整体防疫建议。<h1 id="初期思路"><a href="#初期思路" class="headerlink" title="初期思路"></a>初期思路</h1></li>
-</ul>
-</li>
-<li><p>携带病毒人员</p>
-<ul>
-<li>已发作感染者<ul>
-<li>未送医感染者</li>
-<li>已送医感染者</li>
-</ul>
-</li>
-<li>潜伏期感染者</li>
-<li>未感染携带者</li>
-</ul>
-</li>
-<li><p>疫情防控受限因素</p>
-<ul>
-<li>群众态度<ul>
-<li>不愿意佩戴口罩</li>
-<li>出门往来走动</li>
-</ul>
-</li>
-<li>政府政策<ul>
-<li>疫情特别严重时<ul>
-<li>非重大原因禁止出行</li>
-</ul>
-</li>
-<li>疫情严重时<ul>
-<li>对高风险人群实行隔离措施</li>
-<li>限制市民日常出行</li>
-</ul>
-</li>
-<li>疫情一般时<ul>
-<li>强制要求佩戴口罩</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>医疗机构<ul>
-<li>治愈率</li>
-<li>治愈时间</li>
-<li>优化防疫政策</li>
-<li>研制疫苗</li>
-</ul>
-</li>
-<li>感染思路<ul>
-<li>以每个出门的健康市民为中心建立一个圆形区域</li>
-<li>一旦一个未被送医的感染者出现在该区域时</li>
-<li>该健康市民有概率被感染</li>
-<li>感染者出现在健康市民附近和健康市民接触感染者被感染的概率抽象化为一个函数方法<h1 id="抽象化进行设计"><a href="#抽象化进行设计" class="headerlink" title="抽象化进行设计"></a>抽象化进行设计</h1></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>用“一天”作为单位进行for循环</p>
-</li>
-<li><p>用变量表示</p>
-<ul>
-<li>疫情严重程度level</li>
-<li>感染者patient<ul>
-<li>已发作感染者</li>
-<li>未送医感染者patient_out</li>
-<li>已送医感染者patient_hospital</li>
-<li>潜伏期感染者patient_in</li>
-<li>未发作携带者patient_with</li>
-</ul>
-</li>
-<li>用函数方法表示<ul>
-<li>未感染者接触感染者而感染void spread<ul>
-<li>感染概率取决于<ul>
-<li>现有未送医感染者数量patient-patient_hospital</li>
-<li>疫苗研制情况vaccine</li>
-<li>政府政策</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>感染者被发现并送医void tocure</li>
-<li>送医后感染者的治愈结果void cure</li>
-<li>医疗资源根据疫情程度分配void cureset<ul>
-<li>优先治愈患者curepatient<ul>
-<li>提高治愈率cure_op</li>
-<li>降低死亡率death_op</li>
-</ul>
-</li>
-<li>优先研制疫苗vaccine<ul>
-<li>加快疫苗研发进程<ul>
-<li>疫苗未完成<ul>
-<li>无影响</li>
-</ul>
-</li>
-<li>疫苗完成<ul>
-<li>极大降低感染概率spread_op<h1 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h1></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>初始场景</p>
-<ul>
-<li>一个人口为people_num的未出现疫情的城市</li>
-</ul>
-</li>
-<li><p>触发事件</p>
-<ul>
-<li>今天数量为ncov_num的感染者通过飞机高铁等进入了该城市</li>
-</ul>
-</li>
-<li><p>输入</p>
-<ul>
-<li>选择政策<ul>
-<li>疫情一般时<ul>
-<li>强制要求佩戴口罩plan_mask</li>
-</ul>
-</li>
-<li>疫情严重时<ul>
-<li>对高风险人群实行隔离措施plan_keeponeself</li>
-<li>限制市民日常出行plan_limitedout</li>
-</ul>
-</li>
-<li>疫情特别严重时<ul>
-<li>非重大原因禁止出行plan_forbiddenout</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>过程输出</p>
-<ul>
-<li>疫情情况，剩余感染者数量，疫苗研制进程</li>
-</ul>
-</li>
-<li><p>最终输出</p>
-<ul>
-<li>经过时间time_day后，该城市剩余的总人口和感染者数量</li>
-<li>当前政府政策curepatienth和plan_*</li>
-<li>疫苗研制进度vaccine<h1 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h1></li>
-</ul>
-</li>
-<li><p>通过ADO类型库和MyODBC服务器程序将代码与数据库进行连接</p>
-</li>
-<li><p>添加“将数据库表中已有的数据统计分析得出最佳选择政策”的功能</p>
-</li>
-<li><p>建立一个用于继承的person类（成员：健康状态）</p>
-<ul>
-<li>感染者（成员：是否发作，方法：传染）<ul>
-<li>被送医感染者（方法：治愈）</li>
-<li>未被送医感染者（方法：被送医）</li>
-<li>潜伏期感染者</li>
-<li>未发作携带者</li>
-</ul>
-</li>
-<li>健康市民（方法：外出，自我防护程度）</li>
-</ul>
-</li>
-<li><p>合理解决每天for循环中执行方法的先后问题</p>
-</li>
-<li><p>感染方法中可用n*n的矩阵模拟健康市民的接触范围，感染者用rand（）生成随机数一旦出现矩阵中则该市民被感染</p>
-<h1 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h1></li>
-<li><p>根据提示信息，依次输入</p>
-<ul>
-<li>1（优先研制疫苗）</li>
-<li>1（强制要求佩戴口罩）</li>
-<li>1（对高风险人群实行隔离措施）</li>
-<li>0（不采取任何政策）</li>
-</ul>
-</li>
-<li><p>得到输出</p>
-<ul>
-<li>疫情一般,经过10天后,剩余89398感染者<br>疫苗研制进度:22%</li>
-<li>疫情一般,经过20天后,剩余179274感染者<br>疫苗研制进度:42%</li>
-<li>疫情严重,经过30天后,剩余249738感染者<br>疫苗研制进度:62%</li>
-<li>疫情严重,经过40天后,剩余311092感染者<br>疫苗研制进度:82%</li>
-<li>政府政策:<br>强制要求佩戴口罩 对高风险人群实行隔离措施 医疗资源优先研发疫苗 经过50天后,剩余总人口980703人,剩余364889感染者<br>疫苗研制成功</li>
-</ul>
-</li>
-<li><p>ps:初始化条件为</p>
-<ul>
-<li>people_num=1000000; 城市本地人口总数一百万</li>
-<li>ncov_num=100; 外来感染者100人</li>
-<li>time_day=50; 时间长度50天</li>
-<li>out_op=0.5; 人们外出的概率0.5</li>
-<li>tocure_op=0.5; 感染者被发现送医的概率0.5</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/17/for%20test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -619,6 +372,68 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/06/17/README/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-another test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/17/another%20test/">我的文章</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/17/another%20test/" class="archive-article-date">
+  	<time datetime="2021-06-17T01:15:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/17/another%20test/">展开全文 >></a>
         </p>
       
 
