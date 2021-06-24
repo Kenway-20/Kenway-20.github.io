@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ava.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="目录一、前期环境准备二、建站三、Hexo主题配置四、发布一篇新博客步骤一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【工具】使用Hexo+Github搭建个人博客">
+<meta property="og:url" content="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Kenway&#39; Blog">
+<meta property="og:description" content="目录一、前期环境准备二、建站三、Hexo主题配置四、发布一篇新博客步骤一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/4.png">
+<meta property="article:published_time" content="2021-06-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-21T16:00:00.000Z">
+<meta property="article:author" content="Kenway">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="博客搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/1.png">
+
+<link rel="canonical" href="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【工具】使用Hexo+Github搭建个人博客 | Kenway' Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kenway' Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【工具】使用Hexo+Github搭建个人博客
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-20 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-20T00:00:00+08:00">2021-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-22 00:00:00" itemprop="dateModified" datetime="2021-06-22T00:00:00+08:00">2021-06-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">备忘录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><h2 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h2><h2 id="三、Hexo主题配置"><a href="#三、Hexo主题配置" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><h2 id="四、发布一篇新博客步骤"><a href="#四、发布一篇新博客步骤" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h2 id="一、前期环境准备-1"><a href="#一、前期环境准备-1" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
+<li>一个github账号</li>
+<li>安装node.js</li>
+<li>安装npm</li>
+<li>安装git for windows</li>
+</ul>
+<span id="more"></span>
+
+<p>参考配置：</p>
+<ul>
+<li>os: Windows10</li>
+<li>node: 14.17.1</li>
+<li>npm: 6.14.13</li>
+<li>git for windows: 2.32.0</li>
+<li>hexo: 4.2.0</li>
+</ul>
+<h2 id="二、建站-1"><a href="#二、建站-1" class="headerlink" title="二、建站"></a>二、建站</h2><h3 id="Github部分"><a href="#Github部分" class="headerlink" title="Github部分:"></a>Github部分:</h3><h4 id="新建一个github仓库"><a href="#新建一个github仓库" class="headerlink" title="新建一个github仓库"></a>新建一个github仓库</h4><p>仓库名用你的github用户名.github.io的格式（注意是用户名，不是注册邮箱）</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/1.png"></p>
+<p>这样最后就可以用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github用户名.github.io/</span><br></pre></td></tr></table></figure>
+<p>从互联网上访问你的个人博客</p>
+<h4 id="SSH秘钥配置"><a href="#SSH秘钥配置" class="headerlink" title="SSH秘钥配置"></a>SSH秘钥配置</h4><ol>
+<li>若之前有过SSH秘钥，直接使用<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/. ssh</span><br></pre></td></tr></table></figure>
+查询即可</li>
+<li>第一次使用SSH秘钥就使用<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+（注意这个邮箱是你github的注册邮箱）<br>执行后会有操作提示，连续三次敲击回车即可。执行完成后去C盘用户文件夹寻找.ssh\id_rsa.pub文件，用记事本打开就能看到你的秘钥。</li>
+</ol>
+<p>无论是哪种情况，获得秘钥后然后回到github进入个人设置页面，选择SSH and GPG keys，title名可以任意取，key则输入刚才生成的秘钥。<br>完成上述步骤后，可用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>测试SSH是否配置成功</p>
+<h3 id="Hexo部分："><a href="#Hexo部分：" class="headerlink" title="Hexo部分："></a>Hexo部分：</h3><p>安装Hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>在你希望存放本地博客文件的位置新建一个文件夹Hexo（名字可任意取），使用控制台cd命令进入该文件夹并执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init bolg</span><br></pre></td></tr></table></figure>
+<p>然后进行本地部署测试，依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>执行成功后就可打开网址localhost:4000查看你的博客了！</p>
+<h3 id="远程部署部分："><a href="#远程部署部分：" class="headerlink" title="远程部署部分："></a>远程部署部分：</h3><p>上一步虽然已经将博客搭建成功，但是只能本地浏览，如何将你的博客部署到互联网上呢？这就需要之前我们配置的github部分：</p>
+<p>首先打开你的博客目录（下文统一用Hexo文件夹代替），找到名为_config.yml的文件，用记事本打开即可（注意：博客的大部分设置主要就通过修改该文件实现）</p>
+<p>找到deploy关键字，并将其修改为下述形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/github用户名/github用户名.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>当然repo可以写成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: https://github用户名:密码@github.com/github用户名/github用户名.github.io.git</span><br></pre></td></tr></table></figure>
+<p>这样可以省略每次部署都需要验证登录的繁琐操作。</p>
+<p>找到url关键字，并将其修改为下述形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: http://github用户名.github.io</span><br></pre></td></tr></table></figure>
+<p>接下来在Hexo文件夹右键Git Bash Here呼出git控制台依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>来将本地博客远程部署到互联网上，任何人都可以通过<a target="_blank" rel="noopener" href="https://github用户名.github.io/%E6%9D%A5%E8%AE%BF%E9%97%AE%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81">https://github用户名.github.io/来访问你的博客！</a></p>
+<h2 id="三、Hexo主题配置-1"><a href="#三、Hexo主题配置-1" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><p>经过上述步骤，已经实现了个人博客的搭建，如对Hexo默认简约主题满意可跳过该节，该节主要介绍如何为博客配置主题NexT和yilia。</p>
+<h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><p>NexT是目前Hexo用户使用最多的主题，比较稳定，也支持一些字数统计、评论功能等附加模块。</p>
+<p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">Next官方文档</a></p>
+<h4 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h4><p>首先打开你的博客文件夹唤出git运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>该命令会生成一个用于存放next主题的/themes/next文件夹</p>
+<p>接着打开博客文件夹根目录下的_config.yml，找到theme字段，将其修改成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>NexT主题风格有：Muse、Mist、Pisces、Gemini，推荐使用Gemini，更换风格只需修改\themes\next下的_config.yml的scheme字段即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<h4 id="配置NexT"><a href="#配置NexT" class="headerlink" title="配置NexT"></a>配置NexT</h4><h5 id="title设置"><a href="#title设置" class="headerlink" title="title设置"></a>title设置</h5><p>修改博客文件夹根目录下的_config.yml中的# Site字段可修改博客文字描述<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/2.png"><br>对应<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/3.png"></p>
+<h5 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h5><p>先将头像文件重命名为ava.png并放到\themes\next\source\uploads文件夹内（uploads文件夹不存在就新建一个）</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/4.png"></p>
+<p>打开\themes\next文件夹内的_config.yml，找avatar: 下的url： 将其修改成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: /uploads/ava.png</span><br></pre></td></tr></table></figure>
+<p>（<em><strong>注意是主题文件夹的_config.yml，不是博客根目录的_config.yml！！！</strong></em>）</p>
+<p>另将avatar下的rounded和rotated设置为true可使头像变为圆形边框，并在鼠标指针置于其上时采用默认旋转</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rounded: true</span><br><span class="line">rotated: true</span><br></pre></td></tr></table></figure>
+<h4 id="创建归档、分类、标签及关于子页面"><a href="#创建归档、分类、标签及关于子页面" class="headerlink" title="创建归档、分类、标签及关于子页面"></a>创建归档、分类、标签及关于子页面</h4><p>在找到menu:字段，去掉归档、分类、标签及关于的注释修改成下述形式（||后面是使用的图标）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  #commonweal: /404/ || fa fa-heartbeat</span><br></pre></td></tr></table></figure>
+<p>在博客根目录用git控制台分别执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>会在\source生成三个文件夹about、tags、categories，每个文件夹里有一个index.md文件，分别将其修改成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">tags/index.md</span><br><span class="line">---</span><br><span class="line">title: 标签 //title可以随意改</span><br><span class="line">date: 2021-06-18 11:36:58 //日期不动</span><br><span class="line">type: tags //增加一个type属性</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">categories/index.md</span><br><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2021-06-18 11:32:39</span><br><span class="line">type: categories</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">about/index.md</span><br><span class="line">---</span><br><span class="line">title: 个人资料</span><br><span class="line">date: 2021-06-18 11:32:46</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>常见问题：打开分类、标签和关于页面显示404错误</p>
+<p>检查两个地方：</p>
+<ul>
+<li>index.md文件内的type: xx中：后面有一个空格，检查是否遗漏</li>
+<li>把博客根目录的_config.yml文件的timezone属性修改成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone: Asia/Shanghai </span><br></pre></td></tr></table></figure>
+<h2 id="四、发布一篇新博客步骤-1"><a href="#四、发布一篇新博客步骤-1" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h3 id="第一步-撰写博客"><a href="#第一步-撰写博客" class="headerlink" title="第一步 撰写博客"></a>第一步 撰写博客</h3></li>
+</ul>
+<p><strong>注意：Markdown文件头部要加上以下内容（且冒号：后面一定不要忘加一个空格）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 【面经】个人面经全记录</span><br><span class="line">tags: [技术, 工作, 记录]</span><br><span class="line">categories: 面试</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p><strong>title是文章标题，tages是标签，categories是分类</strong></p>
+<p>把Markdown语言编写的.md文件放到博客文件夹（例如我的是C:\Users\HP\Hexo）</p>
+<h3 id="第二步-上传"><a href="#第二步-上传" class="headerlink" title="第二步 上传"></a>第二步 上传</h3><p>在博客文件夹呼出git控制台,即在你的博客文件夹根目录右键点击<strong>Git Bash Here</strong></p>
+<p>依次执行以下代码即可完成上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>若只用本地预览则只需执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><strong>注意：退出本地预览快捷键为Ctrl + C</strong></p>
+<p>其中可采用简写形式</p>
+<ul>
+<li>hexo generate -&gt; hexo g</li>
+<li>hexo deploy -&gt; hexo d</li>
+<li>hexo server -&gt; hexo s</li>
+</ul>
+<h3 id="第三步-检查网站"><a href="#第三步-检查网站" class="headerlink" title="第三步 检查网站"></a>第三步 检查网站</h3><ul>
+<li>若上传则登录自己博客网址检查（例如我的是<a href="https://kenway-20.github.io/%EF%BC%89">https://kenway-20.github.io/）</a></li>
+<li>若本地预览则登录<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"><i class="fa fa-tag"></i> 博客搭建</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/07/%E3%80%90%E9%9D%A2%E7%BB%8F%E3%80%91%E4%B8%AA%E4%BA%BA%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" rel="prev" title="【面经】个人面经全记录">
+      <i class="fa fa-chevron-left"></i> 【面经】个人面经全记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/22/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E5%8E%9F%E5%88%9B%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/" rel="next" title="【置顶】原创版权声明">
+      【置顶】原创版权声明 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">一、前期环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E7%AB%99"><span class="nav-number">1.2.</span> <span class="nav-text">二、建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">三、Hexo主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.</span> <span class="nav-text">四、发布一篇新博客步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="nav-number">1.5.</span> <span class="nav-text">一、前期环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E7%AB%99-1"><span class="nav-number">1.6.</span> <span class="nav-text">二、建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github%E9%83%A8%E5%88%86"><span class="nav-number">1.6.1.</span> <span class="nav-text">Github部分:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAgithub%E4%BB%93%E5%BA%93"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">新建一个github仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH%E7%A7%98%E9%92%A5%E9%85%8D%E7%BD%AE"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">SSH秘钥配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">Hexo部分：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">1.6.3.</span> <span class="nav-text">远程部署部分：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1"><span class="nav-number">1.7.</span> <span class="nav-text">三、Hexo主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98"><span class="nav-number">1.7.1.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85NexT"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">安装NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AENexT"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">配置NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#title%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.1.2.1.</span> <span class="nav-text">title设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.1.2.2.</span> <span class="nav-text">头像设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%BD%92%E6%A1%A3%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E6%A0%87%E7%AD%BE%E5%8F%8A%E5%85%B3%E4%BA%8E%E5%AD%90%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">创建归档、分类、标签及关于子页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">1.8.</span> <span class="nav-text">四、发布一篇新博客步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%92%B0%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.8.1.</span> <span class="nav-text">第一步 撰写博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8A%E4%BC%A0"><span class="nav-number">1.8.2.</span> <span class="nav-text">第二步 上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E6%A3%80%E6%9F%A5%E7%BD%91%E7%AB%99"><span class="nav-number">1.8.3.</span> <span class="nav-text">第三步 检查网站</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kenway"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Kenway</p>
+  <div class="site-description" itemprop="description">这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kenway-20" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kenway-20" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:UniverseEddy@outlook.com" title="E-Mail → mailto:UniverseEddy@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-chess-pawn"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kenway</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">感谢你的阅读，全站内容约3.9k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
