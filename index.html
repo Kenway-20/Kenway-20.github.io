@@ -294,56 +294,14 @@
       
           <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h4 id="一、安装Anaconda"><a href="#一、安装Anaconda" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h4><h4 id="二、安装Pytorch"><a href="#二、安装Pytorch" class="headerlink" title="二、安装Pytorch"></a>二、安装Pytorch</h4><h2 id="一、安装Anaconda-1"><a href="#一、安装Anaconda-1" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h2><p>进入<br><a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual">Anaconda官网</a><br>下载Anaconda</p>
 <p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch1.png"></p>
-<p>安装过程：</p>
-<ul>
-<li>第一个选择勾选All User</li>
-<li>第二个选择勾选Register Anaconda3 as my default Python 3.8</li>
-<li>安装路径选择D:\Anaconda3</li>
-<li>安装完成界面两个选择都取消勾选</li>
-</ul>
-<p>在用户变量的Path中添加如图几个变量</p>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch2.png"></p>
-<p>在cmd控制台依次输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">exit()</span><br><span class="line">conda</span><br></pre></td></tr></table></figure>
-<p>没有出现warning信息就表示Anaconda安装完成</p>
-<h2 id="二、安装Pytorch-1"><a href="#二、安装Pytorch-1" class="headerlink" title="二、安装Pytorch"></a>二、安装Pytorch</h2><p>打开开始菜单栏找到Anaconda Prompt(Anaconda3)</p>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch3.png"></p>
-<p>在Anaconda控制台键入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
-<p>创建一个用于安装Pytorch的环境，再使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
-<p>将工作环境从base切换到新建的pytorch中</p>
-<p>打开<a target="_blank" rel="noopener" href="https://pytorch.org/">pytorch官网</a>选择自身需要的配置后，会在Run this Command一栏中生成用于在Anaconda控制台运行的命令</p>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch4.png"></p>
-<p>将该命令输入到Anaconda控制台中执行（注意要在刚才新建的pytorch环境下执行）</p>
-<p>然后就是漫长的等待了，等待时间取决于网络</p>
-<p>（亲身经历下了一整天两个包卡在80%失败，第二天重头下载半小时就安装好了）</p>
-<p>安装成功后Anaconda控制台会打印一个done</p>
-<p>检验pytorch和cuda是否运行正常：</p>
-<ul>
-<li><p>在pytorch环境输入python，再导入pytorch包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch</span><br></pre></td></tr></table></figure></li>
-<li><p>保持在python环境下输入下述命令检测CUDA是否可用，可用会返回一个True值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch5.png"><br>如上图则表示pytorch和cuda均可用</p>
-</li>
-</ul>
-<p>可能会遇到的问题</p>
-<ul>
-<li><p>torch.cuda.is_available()时返回False并提示显卡驱动过低</p>
-<p>  解决办法：到<a target="_blank" rel="noopener" href="https://www.nvidia.cn/Download/index.aspx?lang=cn">NVIDIA官网</a>根据自己的显卡型号下载最新的驱动程序</p>
-</li>
-<li><p>torch.cuda.is_available()时只返回False并无其它提示信息</p>
-<p>  解决办法：原因一般是pytorch环境下的cudatoolkit不支持当前安装的cuda版本，下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal">CUDA10.2</a>并安装即可，</p>
-<p>  CUDA10.2安装注意事项：</p>
-<ul>
-<li>选择默认路径</li>
-<li>选择自定义安装并取消安装CUDA下的Visual Studio Integration组件</li>
-<li>安装完成后在用户变量的Path中添加以下路径  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64</span><br><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include</span><br><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\extras\CUPTI\lib64</span><br><span class="line">C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.2\bin\win64</span><br><span class="line">C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.2\common\lib\x64</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -433,17 +391,14 @@
 <p>  再逐渐进化，扩大规模，最终实现一个完整的成果</p>
 </li>
 </ul>
-<ol start="2">
-<li>一味埋头苦干不睁眼看看世界，发展注定有限，正如如果同一份工作已经干了很久，我们很可能正在错失其他一些更好的机会。</li>
-</ol>
-<ol start="3">
-<li><blockquote>
-<p>我认为最困难的事情就是成功函数是非常不连续的。例如，你努力了几个月绞尽脑汁要找出提高用户增长率的方法，尝试引入一些新特性，觉得可以让指标<br>曲线“向上和向右”移动，但实际却一点儿作用都没有。长期以来，一无所获。<br>然后突然之间，巨大的成功就毫无征兆地到来了。<br>既然我们无法提前知道这些间断点会出现在什么地方，那么唯一合理的行为<br>似乎就是真正努力去工作了。时间的长度是有限的，所以只能尽可能多地去<br>做事情，让自己在倒下之前碰到下一个断点的机会尽可能地大。如果你在到<br>达下一个断点之前就已经倒下了，你也知道自己已经努力过，不可能更快地<br>实现目标了。</p>
-</blockquote>
-</li>
-<li>作为程序员，把赌注压在几家创业公司身上，是找到成功职业的最佳方式之一。因为员工可以加入三四家创业公司，每家公司待上几年，这样找到成功创业公司的机会将显著增加。</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
