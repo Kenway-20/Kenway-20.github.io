@@ -228,8 +228,7 @@
 <span id="more"></span>
 
 <h1 id="初期思路"><a href="#初期思路" class="headerlink" title="初期思路"></a>初期思路</h1><ul>
-<li><p>携带病毒人员</p>
-<ul>
+<li>携带病毒人员<ul>
 <li>已发作感染者<ul>
 <li>未送医感染者</li>
 <li>已送医感染者</li>
@@ -239,8 +238,7 @@
 <li>未感染携带者</li>
 </ul>
 </li>
-<li><p>疫情防控受限因素</p>
-<ul>
+<li>疫情防控受限因素<ul>
 <li>群众态度<ul>
 <li>不愿意佩戴口罩</li>
 <li>出门往来走动</li>
@@ -273,15 +271,15 @@
 <li>以每个出门的健康市民为中心建立一个圆形区域</li>
 <li>一旦一个未被送医的感染者出现在该区域时</li>
 <li>该健康市民有概率被感染</li>
-<li>感染者出现在健康市民附近和健康市民接触感染者被感染的概率抽象化为一个函数方法<h1 id="抽象化进行设计"><a href="#抽象化进行设计" class="headerlink" title="抽象化进行设计"></a>抽象化进行设计</h1></li>
+<li>感染者出现在健康市民附近和健康市民接触感染者被感染的概率抽象化为一个函数方法</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>用“一天”作为单位进行for循环</p>
-</li>
-<li><p>用变量表示</p>
-<ul>
+</ul>
+<h1 id="抽象化进行设计"><a href="#抽象化进行设计" class="headerlink" title="抽象化进行设计"></a>抽象化进行设计</h1><ul>
+<li>用“一天”作为单位进行for循环</li>
+<li>用变量表示<ul>
 <li>疫情严重程度level</li>
 <li>感染者patient<ul>
 <li>已发作感染者</li>
@@ -316,7 +314,7 @@
 </ul>
 </li>
 <li>疫苗完成<ul>
-<li>极大降低感染概率spread_op<h1 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h1></li>
+<li>极大降低感染概率spread_op</li>
 </ul>
 </li>
 </ul>
@@ -329,18 +327,17 @@
 </li>
 </ul>
 </li>
-<li><p>初始场景</p>
-<ul>
+</ul>
+<h1 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h1><ul>
+<li>初始场景<ul>
 <li>一个人口为people_num的未出现疫情的城市</li>
 </ul>
 </li>
-<li><p>触发事件</p>
-<ul>
+<li>触发事件<ul>
 <li>今天数量为ncov_num的感染者通过飞机高铁等进入了该城市</li>
 </ul>
 </li>
-<li><p>输入</p>
-<ul>
+<li>输入<ul>
 <li>选择政策<ul>
 <li>疫情一般时<ul>
 <li>强制要求佩戴口罩plan_mask</li>
@@ -359,18 +356,18 @@
 </li>
 </ul>
 </li>
-<li><p>过程输出</p>
-<ul>
+<li>过程输出<ul>
 <li>疫情情况，剩余感染者数量，疫苗研制进程</li>
 </ul>
 </li>
-<li><p>最终输出</p>
-<ul>
+<li>最终输出<ul>
 <li>经过时间time_day后，该城市剩余的总人口和感染者数量</li>
 <li>当前政府政策curepatienth和plan_*</li>
-<li>疫苗研制进度vaccine<h1 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h1></li>
+<li>疫苗研制进度vaccine</li>
 </ul>
 </li>
+</ul>
+<h1 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h1><ul>
 <li><p>通过ADO类型库和MyODBC服务器程序将代码与数据库进行连接</p>
 </li>
 <li><p>添加“将数据库表中已有的数据统计分析得出最佳选择政策”的功能</p>
@@ -499,7 +496,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">程序设计要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E6%9C%9F%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">初期思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">抽象化进行设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%9C%BA%E6%99%AF"><span class="nav-number">4.</span> <span class="nav-text">模拟场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF"><span class="nav-number">5.</span> <span class="nav-text">优化思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%BC%94%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">实例演示</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="nav-text">程序设计要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E6%9C%9F%E6%80%9D%E8%B7%AF"><span class="nav-text">初期思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1"><span class="nav-text">抽象化进行设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%9C%BA%E6%99%AF"><span class="nav-text">模拟场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF"><span class="nav-text">优化思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%BC%94%E7%A4%BA"><span class="nav-text">实例演示</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -515,20 +512,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -576,7 +573,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约3.9k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约5.1k字</span>
 </div>
         
 

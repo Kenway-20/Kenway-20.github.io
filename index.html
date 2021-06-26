@@ -238,6 +238,296 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">【工具】深度学习框架Pytorch的环境搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-25T00:00:00+08:00">2021-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-26 00:00:00" itemprop="dateModified" datetime="2021-06-26T00:00:00+08:00">2021-06-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">环境搭建</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h4 id="一、安装Anaconda"><a href="#一、安装Anaconda" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h4><h4 id="二、安装Pytorch"><a href="#二、安装Pytorch" class="headerlink" title="二、安装Pytorch"></a>二、安装Pytorch</h4><h2 id="一、安装Anaconda-1"><a href="#一、安装Anaconda-1" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h2><p>进入<br><a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual">Anaconda官网</a><br>下载Anaconda</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch1.png"></p>
+<p>安装过程：</p>
+<ul>
+<li>第一个选择勾选All User</li>
+<li>第二个选择勾选Register Anaconda3 as my default Python 3.8</li>
+<li>安装路径选择D:\Anaconda3</li>
+<li>安装完成界面两个选择都取消勾选</li>
+</ul>
+<p>在用户变量的Path中添加如图几个变量</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch2.png"></p>
+<p>在cmd控制台依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">exit()</span><br><span class="line">conda</span><br></pre></td></tr></table></figure>
+<p>没有出现warning信息就表示Anaconda安装完成</p>
+<h2 id="二、安装Pytorch-1"><a href="#二、安装Pytorch-1" class="headerlink" title="二、安装Pytorch"></a>二、安装Pytorch</h2><p>打开开始菜单栏找到Anaconda Prompt(Anaconda3)</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch3.png"></p>
+<p>在Anaconda控制台键入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
+<p>创建一个用于安装Pytorch的环境，再使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+<p>将工作环境从base切换到新建的pytorch中</p>
+<p>打开<a target="_blank" rel="noopener" href="https://pytorch.org/">pytorch官网</a>选择自身需要的配置后，会在Run this Command一栏中生成用于在Anaconda控制台运行的命令</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch4.png"></p>
+<p>将该命令输入到Anaconda控制台中执行（注意要在刚才新建的pytorch环境下执行）</p>
+<p>然后就是漫长的等待了，等待时间取决于网络</p>
+<p>（亲身经历下了一整天两个包卡在80%失败，第二天重头下载半小时就安装好了）</p>
+<p>安装成功后Anaconda控制台会打印一个done</p>
+<p>检验pytorch和cuda是否运行正常：</p>
+<ul>
+<li><p>在pytorch环境输入python，再导入pytorch包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch</span><br></pre></td></tr></table></figure></li>
+<li><p>保持在python环境下输入下述命令检测CUDA是否可用，可用会返回一个True值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch5.png"><br>如上图则表示pytorch和cuda均可用</p>
+</li>
+</ul>
+<p>可能会遇到的问题</p>
+<ul>
+<li><p>torch.cuda.is_available()时返回False并提示显卡驱动过低</p>
+<p>  解决办法：到<a target="_blank" rel="noopener" href="https://www.nvidia.cn/Download/index.aspx?lang=cn">NVIDIA官网</a>根据自己的显卡型号下载最新的驱动程序</p>
+</li>
+<li><p>torch.cuda.is_available()时只返回False并无其它提示信息</p>
+<p>  解决办法：原因一般是pytorch环境下的cudatoolkit不支持当前安装的cuda版本，下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal">CUDA10.2</a>并安装即可，</p>
+<p>  CUDA10.2安装注意事项：</p>
+<ul>
+<li>选择默认路径</li>
+<li>选择自定义安装并取消安装CUDA下的Visual Studio Integration组件</li>
+<li>安装完成后在用户变量的Path中添加以下路径  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64</span><br><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include</span><br><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\extras\CUPTI\lib64</span><br><span class="line">C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.2\bin\win64</span><br><span class="line">C:\ProgramData\NVIDIA Corporation\CUDA Samples\v10.2\common\lib\x64</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【规划】职业生涯规划笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-25T00:00:00+08:00">2021-06-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="目前规划（持续更新）："><a href="#目前规划（持续更新）：" class="headerlink" title="目前规划（持续更新）："></a>目前规划（持续更新）：</h2><ul>
+<li>2024毕业：<ul>
+<li>往一线大厂、大公司里挤</li>
+<li>目标：完善自己的技术栈，学习行业规则，借鉴大公司成功经验，结交行业内的人，为下一阶段打好人脉基础</li>
+</ul>
+</li>
+<li>2026-2027：<ul>
+<li>加入创业公司</li>
+<li>目标：挣钱和锻炼抗压和其他综合能力</li>
+</ul>
+</li>
+</ul>
+<h3 id="2021-6-25"><a href="#2021-6-25" class="headerlink" title="2021.6.25"></a>2021.6.25</h3><ol>
+<li>不管是打造产品、开发技术抑或建立团队，最好的起步方式都是是先做出一个<strong>大概可以工作的最小的东西</strong>（最简可行产品，简称MVP），然后再根据</li>
+</ol>
+<ul>
+<li><p>产品类：客户的反馈</p>
+</li>
+<li><p>技术类：代码的评审和测试情况</p>
+</li>
+<li><p>团队类：员工情况</p>
+<p>  再逐渐进化，扩大规模，最终实现一个完整的成果</p>
+</li>
+</ul>
+<ol start="2">
+<li>一味埋头苦干不睁眼看看世界，发展注定有限，正如如果同一份工作已经干了很久，我们很可能正在错失其他一些更好的机会。</li>
+</ol>
+<ol start="3">
+<li><blockquote>
+<p>我认为最困难的事情就是成功函数是非常不连续的。例如，你努力了几个月绞尽脑汁要找出提高用户增长率的方法，尝试引入一些新特性，觉得可以让指标<br>曲线“向上和向右”移动，但实际却一点儿作用都没有。长期以来，一无所获。<br>然后突然之间，巨大的成功就毫无征兆地到来了。<br>既然我们无法提前知道这些间断点会出现在什么地方，那么唯一合理的行为<br>似乎就是真正努力去工作了。时间的长度是有限的，所以只能尽可能多地去<br>做事情，让自己在倒下之前碰到下一个断点的机会尽可能地大。如果你在到<br>达下一个断点之前就已经倒下了，你也知道自己已经努力过，不可能更快地<br>实现目标了。</p>
+</blockquote>
+</li>
+<li>作为程序员，把赌注压在几家创业公司身上，是找到成功职业的最佳方式之一。因为员工可以加入三四家创业公司，每家公司待上几年，这样找到成功创业公司的机会将显著增加。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/24/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%9E%84%E5%BB%BA%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/24/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%9E%84%E5%BB%BA%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" class="post-title-link" itemprop="url">【实战】构建一个小规模知识图谱及其应用系统</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-24T00:00:00+08:00">2021-06-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="数据爬取及处理"><a href="#数据爬取及处理" class="headerlink" title="数据爬取及处理"></a>数据爬取及处理</h2><h2 id="构建知识图谱"><a href="#构建知识图谱" class="headerlink" title="构建知识图谱"></a>构建知识图谱</h2><h2 id="应用开发：智能问答及生成特定关系模型"><a href="#应用开发：智能问答及生成特定关系模型" class="headerlink" title="应用开发：智能问答及生成特定关系模型"></a>应用开发：智能问答及生成特定关系模型</h2><h2 id="Django-Echarts实现可视化"><a href="#Django-Echarts实现可视化" class="headerlink" title="Django+Echarts实现可视化"></a>Django+Echarts实现可视化</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +582,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><h2 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h2><h2 id="三、Hexo主题配置"><a href="#三、Hexo主题配置" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><h2 id="四、发布一篇新博客步骤"><a href="#四、发布一篇新博客步骤" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h2 id="一、前期环境准备-1"><a href="#一、前期环境准备-1" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>一、前期环境准备</p>
+<p>二、建站</p>
+<p>三、Hexo主题配置</p>
+<p>四、发布一篇新博客步骤</p>
+<h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
 <li>一个github账号</li>
 <li>安装node.js</li>
 <li>安装npm</li>
@@ -320,192 +614,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/07/%E3%80%90%E9%9D%A2%E7%BB%8F%E3%80%91%E4%B8%AA%E4%BA%BA%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway' Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/07/%E3%80%90%E9%9D%A2%E7%BB%8F%E3%80%91%E4%B8%AA%E4%BA%BA%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">【面经】个人面经全记录</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-07T00:00:00+08:00">2021-06-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-20 00:00:00" itemprop="dateModified" datetime="2021-06-20T00:00:00+08:00">2021-06-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="【面经】个人面经全记录"><a href="#【面经】个人面经全记录" class="headerlink" title="【面经】个人面经全记录"></a>【面经】个人面经全记录</h1><h2 id="21年大四找日常实习"><a href="#21年大四找日常实习" class="headerlink" title="21年大四找日常实习"></a>21年大四找日常实习</h2><h3 id="道远课堂6-7（Python后端）"><a href="#道远课堂6-7（Python后端）" class="headerlink" title="道远课堂6.7（Python后端）"></a>道远课堂6.7（Python后端）</h3><h4 id="简历面"><a href="#简历面" class="headerlink" title="简历面"></a>简历面</h4><p>已过</p>
-<h4 id="技术面"><a href="#技术面" class="headerlink" title="技术面"></a>技术面</h4><ul>
-<li>对简历上写的知识图谱项目感兴趣，询问了采用的图数据库和数据规模以及最后实现功能。</li>
-</ul>
-<p>共计10分钟。开始询问得知只能实习3个月而且距离我毕业时间还早后，就告知不便录取了，后多聊了几句问了一些项目上的问题，说我的简历没问题挺好的，提到现在Python开发多用docket，以后应聘有类似经验会突出一些。</p>
-<h3 id="滴滴6-17（C-后端）"><a href="#滴滴6-17（C-后端）" class="headerlink" title="滴滴6.17（C++后端）"></a>滴滴6.17（C++后端）</h3><h4 id="简历面-1"><a href="#简历面-1" class="headerlink" title="简历面"></a>简历面</h4><p>已过</p>
-<h4 id="技术面-1"><a href="#技术面-1" class="headerlink" title="技术面"></a>技术面</h4><ul>
-<li>1.C++的多态是什么意思，通过什么样的形式实现的？</li>
-<li>2.什么是虚函数，怎么样使用虚函数？</li>
-<li>3.说一下const关键字的作用和一般使用情景</li>
-<li>4.说一下static关键字的作用和一般使用情景</li>
-<li>5.了解构造函数和析构函数吗？它们俩可以是虚函数吗？</li>
-<li>6.incline函数和宏的区别是什么？</li>
-<li>7.说一下你了解的Vector和map实现方式和功能</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/07/%E3%80%90%E9%9D%A2%E7%BB%8F%E3%80%91%E4%B8%AA%E4%BA%BA%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2020/07/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway' Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF/" class="post-title-link" itemprop="url">【实战】新冠病毒传播模拟程序思路</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-22 00:00:00" itemprop="dateModified" datetime="2021-06-22T00:00:00+08:00">2021-06-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="程序设计要求"><a href="#程序设计要求" class="headerlink" title="程序设计要求"></a>程序设计要求</h1><ul>
-<li>1.仿真场景：划定区域或基于真实地图</li>
-<li>2.仿真要求：<ul>
-<li>1）传播过程的模拟（可视化或数字指标变化）；</li>
-<li>2）通过恰当指标说明不同场景下各类防疫措施的成效；</li>
-<li>3）给出整体防疫建议。</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -572,20 +685,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -633,7 +746,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约3.9k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约5.1k字</span>
 </div>
         
 

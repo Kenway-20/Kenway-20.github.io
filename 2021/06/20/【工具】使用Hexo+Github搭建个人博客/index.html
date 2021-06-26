@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录一、前期环境准备二、建站三、Hexo主题配置四、发布一篇新博客步骤一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
+  <meta name="description" content="目录一、前期环境准备 二、建站 三、Hexo主题配置 四、发布一篇新博客步骤 一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【工具】使用Hexo+Github搭建个人博客">
 <meta property="og:url" content="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="目录一、前期环境准备二、建站三、Hexo主题配置四、发布一篇新博客步骤一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
+<meta property="og:description" content="目录一、前期环境准备 二、建站 三、Hexo主题配置 四、发布一篇新博客步骤 一、前期环境准备 一个github账号 安装node.js 安装npm 安装git for windows">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/2.png">
@@ -221,7 +221,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><h2 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h2><h2 id="三、Hexo主题配置"><a href="#三、Hexo主题配置" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><h2 id="四、发布一篇新博客步骤"><a href="#四、发布一篇新博客步骤" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h2 id="一、前期环境准备-1"><a href="#一、前期环境准备-1" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>一、前期环境准备</p>
+<p>二、建站</p>
+<p>三、Hexo主题配置</p>
+<p>四、发布一篇新博客步骤</p>
+<h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
 <li>一个github账号</li>
 <li>安装node.js</li>
 <li>安装npm</li>
@@ -237,7 +241,7 @@
 <li>git for windows: 2.32.0</li>
 <li>hexo: 4.2.0</li>
 </ul>
-<h2 id="二、建站-1"><a href="#二、建站-1" class="headerlink" title="二、建站"></a>二、建站</h2><h3 id="Github部分"><a href="#Github部分" class="headerlink" title="Github部分:"></a>Github部分:</h3><h4 id="新建一个github仓库"><a href="#新建一个github仓库" class="headerlink" title="新建一个github仓库"></a>新建一个github仓库</h4><p>仓库名用你的github用户名.github.io的格式（注意是用户名，不是注册邮箱）</p>
+<h2 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h2><h3 id="Github部分"><a href="#Github部分" class="headerlink" title="Github部分:"></a>Github部分:</h3><h4 id="新建一个github仓库"><a href="#新建一个github仓库" class="headerlink" title="新建一个github仓库"></a>新建一个github仓库</h4><p>仓库名用你的github用户名.github.io的格式（注意是用户名，不是注册邮箱）</p>
 <p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/1.png"></p>
 <p>这样最后就可以用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github用户名.github.io/</span><br></pre></td></tr></table></figure>
@@ -270,7 +274,7 @@
 <p>接下来在Hexo文件夹右键Git Bash Here呼出git控制台依次输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>来将本地博客远程部署到互联网上，任何人都可以通过<a target="_blank" rel="noopener" href="https://github用户名.github.io/%E6%9D%A5%E8%AE%BF%E9%97%AE%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81">https://github用户名.github.io/来访问你的博客！</a></p>
-<h2 id="三、Hexo主题配置-1"><a href="#三、Hexo主题配置-1" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><p>经过上述步骤，已经实现了个人博客的搭建，如对Hexo默认简约主题满意可跳过该节，该节主要介绍如何为博客配置主题NexT和yilia。</p>
+<h2 id="三、Hexo主题配置"><a href="#三、Hexo主题配置" class="headerlink" title="三、Hexo主题配置"></a>三、Hexo主题配置</h2><p>经过上述步骤，已经实现了个人博客的搭建，如对Hexo默认简约主题满意可跳过该节，该节主要介绍如何为博客配置主题NexT和yilia。</p>
 <h3 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h3><p>NexT是目前Hexo用户使用最多的主题，比较稳定，也支持一些字数统计、评论功能等附加模块。</p>
 <p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">Next官方文档</a></p>
 <h4 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h4><p>首先打开你的博客文件夹唤出git运行</p>
@@ -299,7 +303,7 @@
 <ul>
 <li>index.md文件内的type: xx中：后面有一个空格，检查是否遗漏</li>
 <li>把博客根目录的_config.yml文件的timezone属性修改成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone: Asia/Shanghai </span><br></pre></td></tr></table></figure>
-<h2 id="四、发布一篇新博客步骤-1"><a href="#四、发布一篇新博客步骤-1" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h3 id="第一步-撰写博客"><a href="#第一步-撰写博客" class="headerlink" title="第一步 撰写博客"></a>第一步 撰写博客</h3></li>
+<h2 id="四、发布一篇新博客步骤"><a href="#四、发布一篇新博客步骤" class="headerlink" title="四、发布一篇新博客步骤"></a>四、发布一篇新博客步骤</h2><h3 id="第一步-撰写博客"><a href="#第一步-撰写博客" class="headerlink" title="第一步 撰写博客"></a>第一步 撰写博客</h3></li>
 </ul>
 <p><strong>注意：Markdown文件头部要加上以下内容（且冒号：后面一定不要忘加一个空格）</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 【面经】个人面经全记录</span><br><span class="line">tags: [技术, 工作, 记录]</span><br><span class="line">categories: 面试</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -318,7 +322,7 @@
 <li>hexo server -&gt; hexo s</li>
 </ul>
 <h3 id="第三步-检查网站"><a href="#第三步-检查网站" class="headerlink" title="第三步 检查网站"></a>第三步 检查网站</h3><ul>
-<li>若上传则登录自己博客网址检查（例如我的是<a href="https://kenway-20.github.io/%EF%BC%89">https://kenway-20.github.io/）</a></li>
+<li>若上传则登录自己博客网址检查,例如我的是<a href="https://kenway-20.github.io/">https://kenway-20.github.io/</a></li>
 <li>若本地预览则登录<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></li>
 </ul>
 
@@ -405,7 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">一、前期环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E7%AB%99"><span class="nav-number">1.2.</span> <span class="nav-text">二、建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">三、Hexo主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.</span> <span class="nav-text">四、发布一篇新博客步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87-1"><span class="nav-number">1.5.</span> <span class="nav-text">一、前期环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E7%AB%99-1"><span class="nav-number">1.6.</span> <span class="nav-text">二、建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github%E9%83%A8%E5%88%86"><span class="nav-number">1.6.1.</span> <span class="nav-text">Github部分:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAgithub%E4%BB%93%E5%BA%93"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">新建一个github仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH%E7%A7%98%E9%92%A5%E9%85%8D%E7%BD%AE"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">SSH秘钥配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">Hexo部分：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">1.6.3.</span> <span class="nav-text">远程部署部分：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-1"><span class="nav-number">1.7.</span> <span class="nav-text">三、Hexo主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98"><span class="nav-number">1.7.1.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85NexT"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">安装NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AENexT"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">配置NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#title%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.1.2.1.</span> <span class="nav-text">title设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.1.2.2.</span> <span class="nav-text">头像设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%BD%92%E6%A1%A3%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E6%A0%87%E7%AD%BE%E5%8F%8A%E5%85%B3%E4%BA%8E%E5%AD%90%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">创建归档、分类、标签及关于子页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">1.8.</span> <span class="nav-text">四、发布一篇新博客步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%92%B0%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.8.1.</span> <span class="nav-text">第一步 撰写博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8A%E4%BC%A0"><span class="nav-number">1.8.2.</span> <span class="nav-text">第二步 上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E6%A3%80%E6%9F%A5%E7%BD%91%E7%AB%99"><span class="nav-number">1.8.3.</span> <span class="nav-text">第三步 检查网站</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%9C%9F%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">一、前期环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BB%BA%E7%AB%99"><span class="nav-text">二、建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github%E9%83%A8%E5%88%86"><span class="nav-text">Github部分:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAgithub%E4%BB%93%E5%BA%93"><span class="nav-text">新建一个github仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH%E7%A7%98%E9%92%A5%E9%85%8D%E7%BD%AE"><span class="nav-text">SSH秘钥配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-text">Hexo部分：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-text">远程部署部分：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-text">三、Hexo主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98"><span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85NexT"><span class="nav-text">安装NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AENexT"><span class="nav-text">配置NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#title%E8%AE%BE%E7%BD%AE"><span class="nav-text">title设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E8%AE%BE%E7%BD%AE"><span class="nav-text">头像设置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%BD%92%E6%A1%A3%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E6%A0%87%E7%AD%BE%E5%8F%8A%E5%85%B3%E4%BA%8E%E5%AD%90%E9%A1%B5%E9%9D%A2"><span class="nav-text">创建归档、分类、标签及关于子页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4"><span class="nav-text">四、发布一篇新博客步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%92%B0%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-text">第一步 撰写博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E4%B8%8A%E4%BC%A0"><span class="nav-text">第二步 上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E6%A3%80%E6%9F%A5%E7%BD%91%E7%AB%99"><span class="nav-text">第三步 检查网站</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,20 +425,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -482,7 +486,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约3.9k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约5.1k字</span>
 </div>
         
 
