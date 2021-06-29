@@ -20,18 +20,37 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录数据爬取及处理构建知识图谱应用开发：智能问答及生成特定关系模型Django+Echarts实现可视化">
+  <meta name="description" content="目录一、项目概述二、数据爬取及处理三、构建知识图谱四、应用开发：智能问答五、Django+Echarts实现可视化六、总结一、项目概述本文搭建知识图谱使用技术有：  爬虫技术 Neo4j图数据库 Django框架 Echarts可视化库 Lac词法分析工具  整体结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【实战】构建一个小规模知识图谱及其应用系统">
 <meta property="og:url" content="http://kenway-20.github.io/2021/06/24/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%9E%84%E5%BB%BA%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/index.html">
 <meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="目录数据爬取及处理构建知识图谱应用开发：智能问答及生成特定关系模型Django+Echarts实现可视化">
+<meta property="og:description" content="目录一、项目概述二、数据爬取及处理三、构建知识图谱四、应用开发：智能问答五、Django+Echarts实现可视化六、总结一、项目概述本文搭建知识图谱使用技术有：  爬虫技术 Neo4j图数据库 Django框架 Echarts可视化库 Lac词法分析工具  整体结构">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg12.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg14.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg15.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg16.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg17.png">
 <meta property="article:published_time" content="2021-06-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-25T16:00:00.000Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg8.png">
 
 <link rel="canonical" href="http://kenway-20.github.io/2021/06/24/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%9E%84%E5%BB%BA%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
 
@@ -187,6 +206,13 @@
 
               <time title="创建时间：2021-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-24T00:00:00+08:00">2021-06-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-26 00:00:00" itemprop="dateModified" datetime="2021-06-26T00:00:00+08:00">2021-06-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -208,7 +234,121 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="数据爬取及处理"><a href="#数据爬取及处理" class="headerlink" title="数据爬取及处理"></a>数据爬取及处理</h2><h2 id="构建知识图谱"><a href="#构建知识图谱" class="headerlink" title="构建知识图谱"></a>构建知识图谱</h2><h2 id="应用开发：智能问答及生成特定关系模型"><a href="#应用开发：智能问答及生成特定关系模型" class="headerlink" title="应用开发：智能问答及生成特定关系模型"></a>应用开发：智能问答及生成特定关系模型</h2><h2 id="Django-Echarts实现可视化"><a href="#Django-Echarts实现可视化" class="headerlink" title="Django+Echarts实现可视化"></a>Django+Echarts实现可视化</h2>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h4 id="一、项目概述"><a href="#一、项目概述" class="headerlink" title="一、项目概述"></a>一、项目概述</h4><h4 id="二、数据爬取及处理"><a href="#二、数据爬取及处理" class="headerlink" title="二、数据爬取及处理"></a>二、数据爬取及处理</h4><h4 id="三、构建知识图谱"><a href="#三、构建知识图谱" class="headerlink" title="三、构建知识图谱"></a>三、构建知识图谱</h4><h4 id="四、应用开发：智能问答"><a href="#四、应用开发：智能问答" class="headerlink" title="四、应用开发：智能问答"></a>四、应用开发：智能问答</h4><h4 id="五、Django-Echarts实现可视化"><a href="#五、Django-Echarts实现可视化" class="headerlink" title="五、Django+Echarts实现可视化"></a>五、Django+Echarts实现可视化</h4><h4 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h4><h2 id="一、项目概述-1"><a href="#一、项目概述-1" class="headerlink" title="一、项目概述"></a>一、项目概述</h2><p>本文搭建知识图谱使用技术有：</p>
+<ul>
+<li>爬虫技术</li>
+<li>Neo4j图数据库</li>
+<li>Django框架</li>
+<li>Echarts可视化库</li>
+<li>Lac词法分析工具</li>
+</ul>
+<p>整体结构<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg8.png"></p>
+<span id="more"></span>
+
+
+
+<p>自从2012年Google在知识库的基础上首次提出“知识图谱”的概念并将其用于其搜索引擎中以来，知识图谱技术的发展迅速，社会各行各业对大规模数据存储和使用的需求也让知识图谱技术显得更加重要</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg1.png"></p>
+<p>当前网络上公开的小型知识图谱搭建大多采用电影演员相关的数据，为与之区别本文采用自己爬取的军事数据集（<em><strong>资料来源于互联网公开数据，不涉及任何保密信息</strong></em>）</p>
+<h2 id="二、数据爬取及处理-1"><a href="#二、数据爬取及处理-1" class="headerlink" title="二、数据爬取及处理"></a>二、数据爬取及处理</h2><p>构建军事数据集时本文主要采用从环球军事网爬取的武器装备信息，因为环球军事的武器装备已呈半结构数据。以“喀秋莎”火箭炮为例，可以利用爬虫就能便捷地从获得它的射程、口径、研发单位、生产国等信息</p>
+<p>而百度百科和维基百科则存在一是数据不全仅有生产国和口径信息，二是数据结构复杂没有一定的标准，后期处理难度大的问题</p>
+<p>爬虫运行逻辑如下：</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg2.png"></p>
+<ol>
+<li><p>使用Python编写的爬虫代码爬取存有武器装备信息的html页面</p>
+</li>
+<li><p>对该页面使用Request和BeautifulSoup进行网页解析得到某武器装备属性和存有其他武器装备信息的url</p>
+</li>
+<li><p>将武器装备实体和其属性信息封装、存储，将url添加到待爬虫读取的url列表中</p>
+</li>
+</ol>
+<p>最终得到具有一定程度标准化的军事数据集</p>
+<p>构建过程参考liuhuanyong的<a target="_blank" rel="noopener" href="https://github.com/liuhuanyong/QAonMilitaryKG">QAonMilitaryKG</a></p>
+<p>（该数据集已上传github）<br><a href="">环球军事数据集下载</a></p>
+<h2 id="三、构建知识图谱-1"><a href="#三、构建知识图谱-1" class="headerlink" title="三、构建知识图谱"></a>三、构建知识图谱</h2><p>通过代码提取出实体和实体间关系并通过pymysql库批量导入MySql数据库</p>
+<p>实体和关系分别存放在MySql中</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg3.png"></p>
+<p>单个实体在MySql中的存储形式：</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg4.png"></p>
+<p>利用MySql的输出功能将实体表和关系表分别输出为.csv文件</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg5.png"></p>
+<p>将.csv文件放到图数据库Neo4j的import文件夹中，并通过load命令根据实体表和关系表批量建立节点和边</p>
+<p>载入用的Cypher语句格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load csv with headers from &quot;file:///aircraft.csv&quot; as line create (a:aircraft&#123;weapon_id:line.weapon_id, aircraft_name:line.aircraft_name, aircraft_borncountry:line.aircraft_borncountry, aircraft_borntime:line.aircraft_borntime, aircraft_borncompany:line.aircraft_borncompany, aircraft_maxspeed:line.aircraft_maxspeed, aircraft_reach:line.aircraft_reach, aircraft_intro:line.aircraft_intro&#125;)</span><br><span class="line"></span><br><span class="line">load csv with headers from &quot;file:///warship.csv&quot; as line create (a:warship&#123;weapon_id:line.weapon_id, warship_name:line.warship_name, warship_borncountry:line.warship_borncountry, warship_borntime:line.warship_borntime, warship_borncompany:line.warship_borncompany, warship_speed:line.warship_speed, warship_reach:line.warship_reach, warship_intro:line.warship_intro&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上命令仅作参考，实际已编写好批量处理的代码，直接执行python_code_kg项目里的save_to_neo4j.py即可</p>
+<p>最终得到下图效果：</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg6.png"></p>
+<p>（仅展示部分，实际包含万余实体、万余关系）</p>
+<h3 id="原理说明"><a href="#原理说明" class="headerlink" title="原理说明"></a>原理说明</h3><p>通过上述的数据获取与处理，军事知识以[实体-关系-实体]三元组的形式表示,即</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">G=(E,R,S)</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li>E是军事实体的集合，实体是知识图谱的基本组成，知识图谱以实体为基础形成</li>
+<li>R是实体之间关系的集合，关系是不同实体之间的联系，共包含|E|种不同实体和|R|种不同关系</li>
+<li>S⊆E×R×E则代表了知识图谱的三元组集合</li>
+</ul>
+<p>除了以上提及的元素，知识图谱一般还包括：将事物的特征抽象化形成的概念，一般也作为实体来表示，这类实体的特征是并没有指向现实中的具体个体，例如火箭炮、火炮等；实体具有的属性和属性值，例如射程、研发时间、5000米、1988-09-08等。</p>
+<p>为便于管理和符合规范，本文为武器装备实体增添weapon_id字段来作为知识图谱中它们独有的标识ID</p>
+<h2 id="四、应用开发：智能问答-1"><a href="#四、应用开发：智能问答-1" class="headerlink" title="四、应用开发：智能问答"></a>四、应用开发：智能问答</h2><p>前文已经构建完成一个小型的知识图谱，下面在其基础上进行简单的应用开发</p>
+<h3 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h3><p>智能问答一般为解决使用自然语言提出的口语化问题而服务，而这些问题往往以复杂问题居多，往往需要将复杂问题分解成多个子问题再进行解答</p>
+<h4 id="问句分词、词性标注"><a href="#问句分词、词性标注" class="headerlink" title="问句分词、词性标注"></a>问句分词、词性标注</h4><p>不同于英文语法每个词语是自然隔开的，在中文中一个字可以表达一个词，多个字也能表达一个词，而且不同的组词方式往往会导致得到不同的语义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">问题1：What is the range of the BM-21？</span><br><span class="line">问题2：BM-21的射程范围是多少？</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>处理问题1，计算机通过标识符空格得知range是一个词语，接下来通过字典匹配就能得到语义</p>
+</li>
+<li><p>处理问题2，计算机却不能得知“射”、“程”、“范”、“围”四个字表达的是一个与range同义的词语</p>
+</li>
+</ul>
+<p>因此当用户对军事知识图谱提出一个由自然语言描述的问句时，智能问答系统首先需要对问句进行分词，然后识别出每个词的词性（即词性标注）</p>
+<p>分词、词性标注部分工作采用方案：<strong>百度LAC库</strong>和<strong>字典</strong>结合的形式</p>
+<h4 id="基于模板的问题理解"><a href="#基于模板的问题理解" class="headerlink" title="基于模板的问题理解"></a>基于模板的问题理解</h4><p>现实中的复杂问题是往往具备多个特征，本文基于军事知识图谱的实用性和军事领域问题的特殊性，将具体问答语句分为以下五种类型：</p>
+<ol>
+<li><strong>单实体单属性问答</strong>：“喀秋莎的射程是多远？”</li>
+<li><strong>单实体多属性问答</strong>：“喀秋莎的射程和研发国是什么？”</li>
+<li><strong>多实体同属性问答</strong>：“歼11战斗机和喀秋莎的生产国是什么？”</li>
+<li><strong>多实体不同属性问答</strong>：“喀秋莎的射程和歼11战斗机的研发时间是什么？”</li>
+<li><strong>属性最值筛选问答</strong>:“请问全球范围内射程最远的火箭炮是什么？”</li>
+</ol>
+<p>为每种问句类型编写对应模板，其中除单实体单属性问答和属性最值筛选问答以外都运用到复杂问题分解技术，即将完整问句分解成多个符合单实体单属性类型的子问句，再分别查询，最后组合答案</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg7.png"></p>
+<p>具体匹配流程为</p>
+<ul>
+<li>对问句进行分词和词性标注以及识别出要查询的武器装备主体</li>
+<li>结合实体名称数量和关键字识别，识别具体问句对应的模板类型</li>
+<li>调用对应的问句模板对其进行解析</li>
+<li>最终构建出对应的回答语句。</li>
+</ul>
+<h2 id="五、可视化"><a href="#五、可视化" class="headerlink" title="五、可视化"></a>五、可视化</h2><h3 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h3><p>将上述成果部署成一个网站实现可视化，因为爬虫和智能问答的代码都用Python编写因此采用Django框架可以省去很多麻烦</p>
+<p>主页如下所示</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg9.png"></p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg10.png"></p>
+<h3 id="关系模型页面"><a href="#关系模型页面" class="headerlink" title="关系模型页面"></a>关系模型页面</h3><p>军事知识图谱规模较大具有一万零六百多个实体、一万四千六百多条关系，若每次展示或查询模型都要可视化整个知识图谱，会产生以下问题：</p>
+<ul>
+<li>本文搭建的军事知识图谱包含的知识数量级庞大，普通计算机不支持一次性展示如此庞大的信息页面</li>
+<li>对特定知识的获取效率过低</li>
+</ul>
+<p>因此期望获得一个能通过输入实体自动重新生成一个以输入实体为中心，包含输入实体所有关系的关系模型的功能</p>
+<p>虽然在Neo4j图数据库中通过Cypher语言可以直接从之前建立的大型军事知识图谱中截取有关部分</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg11.png"></p>
+<p>但由于Neo4j封装度太高不利于后续可视化系统的开发，因此采用从Neo4j中获取相关节点和关系信息，通过Django作为传输平台，在网页上使用Echarts重新生成特定关系模型的方法实现功能</p>
+<h4 id="基于BFS的关系搜索"><a href="#基于BFS的关系搜索" class="headerlink" title="基于BFS的关系搜索"></a>基于BFS的关系搜索</h4><p>广度优先搜索（BFS）属于一种盲目搜寻法，适用于事先并不知道要获得的信息具体数量，正好适用于本文中实体的关系名称和数量未知的情形。以命名体识别获得的实体节点为起点，记录下它所拥有的所有关系，选择其中一条关系进入并保存终点节点信息，然后再返回来进入另外一条关系，并重复这样的操作直到所有关系的终点节点信息都被记录下来。</p>
+<h4 id="基于树状图的节点查询"><a href="#基于树状图的节点查询" class="headerlink" title="基于树状图的节点查询"></a>基于树状图的节点查询</h4><p>仅显示包含实体所有关系信息的模型显示内容过少且不够直观，因此需要进行更深层次的查询，期望获得一个包含更多与该实体有间接关系的其它实体节点信息的模型来体现武器装备之间的关联性</p>
+<p>在之前基于BFS的关系搜索中已经获得了各个关系终点的节点信息，考虑到图数据库具有与树状图相似的原理，采用类似树状图的查询方法，以每个关系终点的节点为起点记录下它拥有的所有子树节点，并筛选出与用户查询实体具有相同关系的节点将其信息记录下来</p>
+<h4 id="基于Echarts的关系模型生成"><a href="#基于Echarts的关系模型生成" class="headerlink" title="基于Echarts的关系模型生成"></a>基于Echarts的关系模型生成</h4><p>Echarts使用上述获得的节点信息去除重复节点后，构造出关系模型</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg12.png"></p>
+<p>整体流程为：<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg13.png"></p>
+<p>最终实现效果：<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg14.png"></p>
+<h3 id="智能页面"><a href="#智能页面" class="headerlink" title="智能页面"></a>智能页面</h3><p>智能问答系统通过对用户输入的用自然语言提出的问题进行处理，将符合人类语言逻辑的句子转换成计算机能识别的语句，从而与存储在Neo4j里的军事知识图谱主体进行交互，采用基于模板的问题理解获得问题答案</p>
+<p>整体流程为：<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg15.png"></p>
+<p>最终实现效果：<br>查询前：<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg16.png"></p>
+<p>查询后：<br><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/kg17.png"></p>
+<h2 id="六、总结-1"><a href="#六、总结-1" class="headerlink" title="六、总结"></a>六、总结</h2><ul>
+<li>对开放式军事数据进行了收集和整理工作。</li>
+<li>搭建起一个小规模知识图谱。使用已结构化的军事实体数据集，在Neo4j图数据库中建立起一个具有一万零六百多个实体、一万四千六百多条关系的军事知识图谱。图谱中包含各实体之间的相互关系，也包含了具体武器装备的属性。</li>
+<li>实现基于知识图谱的智能问答系统。采用自然语言处理技术对符合人类逻辑语言的问句进行分词、词性标注处理，将其转换成计算机能够理解的搜索指令，通过后台对Neo4j图数据库进行检索得到问题的答案。</li>
+<li>搭建了军事知识图谱的应用系统，并实现其可视化。通过Django框架实现前、后端之间的数据交换，使用Echarts处理后端传输数据并重新在网页上绘制符合用户需要的小型军事知识图谱模型。实现在该军事知识图谱应用系统上用户可以便捷地使用生成关系模型和智能问答功能。</li>
+</ul>
+
     </div>
 
     
@@ -218,6 +358,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           </div>
 
         
@@ -291,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96%E5%8F%8A%E5%A4%84%E7%90%86"><span class="nav-text">数据爬取及处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="nav-text">构建知识图谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%EF%BC%9A%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E5%8F%8A%E7%94%9F%E6%88%90%E7%89%B9%E5%AE%9A%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="nav-text">应用开发：智能问答及生成特定关系模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django-Echarts%E5%AE%9E%E7%8E%B0%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-text">Django+Echarts实现可视化</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">一、项目概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96%E5%8F%8A%E5%A4%84%E7%90%86"><span class="nav-text">二、数据爬取及处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9E%84%E5%BB%BA%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="nav-text">三、构建知识图谱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%EF%BC%9A%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94"><span class="nav-text">四、应用开发：智能问答</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81Django-Echarts%E5%AE%9E%E7%8E%B0%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-text">五、Django+Echarts实现可视化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-text">六、总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0-1"><span class="nav-text">一、项目概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96%E5%8F%8A%E5%A4%84%E7%90%86-1"><span class="nav-text">二、数据爬取及处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%9E%84%E5%BB%BA%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1-1"><span class="nav-text">三、构建知识图谱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%E8%AF%B4%E6%98%8E"><span class="nav-text">原理说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%EF%BC%9A%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94-1"><span class="nav-text">四、应用开发：智能问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94"><span class="nav-text">智能问答</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E5%8F%A5%E5%88%86%E8%AF%8D%E3%80%81%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8"><span class="nav-text">问句分词、词性标注</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%97%AE%E9%A2%98%E7%90%86%E8%A7%A3"><span class="nav-text">基于模板的问题理解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-text">五、可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5"><span class="nav-text">主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E9%A1%B5%E9%9D%A2"><span class="nav-text">关系模型页面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EBFS%E7%9A%84%E5%85%B3%E7%B3%BB%E6%90%9C%E7%B4%A2"><span class="nav-text">基于BFS的关系搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A0%91%E7%8A%B6%E5%9B%BE%E7%9A%84%E8%8A%82%E7%82%B9%E6%9F%A5%E8%AF%A2"><span class="nav-text">基于树状图的节点查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EEcharts%E7%9A%84%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90"><span class="nav-text">基于Echarts的关系模型生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E9%A1%B5%E9%9D%A2"><span class="nav-text">智能页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93-1"><span class="nav-text">六、总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -307,20 +448,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -368,7 +509,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约5.1k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约9.7k字</span>
 </div>
         
 
