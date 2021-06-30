@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="这世界上的东西，你不去搬它，它就不动 。一张桌子，你不搬它，它不走;一把茶壶，你不拿它，它起不来。">
+  <meta name="description" content="端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，所以通信失败。 为了区分不同的网络程序，计算机会为每个网络程序分配一个独一无二的端口号 常用数据传输方式SOCK_STREAM 和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【实战】搭建Web Server笔记">
 <meta property="og:url" content="http://kenway-20.github.io/2021/06/29/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%90%AD%E5%BB%BAWeb%20Server%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="这世界上的东西，你不去搬它，它就不动 。一张桌子，你不搬它，它不走;一把茶壶，你不拿它，它起不来。">
+<meta property="og:description" content="端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，所以通信失败。 为了区分不同的网络程序，计算机会为每个网络程序分配一个独一无二的端口号 常用数据传输方式SOCK_STREAM 和">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-06-28T16:00:00.000Z">
@@ -209,7 +209,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，所以通信失败。</p>
+<p>为了区分不同的网络程序，计算机会为每个网络程序分配一个独一无二的端口号</p>
+<h2 id="常用数据传输方式"><a href="#常用数据传输方式" class="headerlink" title="常用数据传输方式"></a>常用数据传输方式</h2><p>SOCK_STREAM 和 SOCK_DGRAM。</p>
+<ol>
+<li>SOCK_STREAM表示面向连接的数据传输方式。数据可以准确无误地到达另一台计算机，如果损坏或丢失，可以重新发送，但效率相对较慢。常见的 http 协议就使用 SOCK_STREAM 传输数据，因为要确保数据的正确性，否则网页不能正常解析</li>
+<li>SOCK_DGRAM 表示无连接的数据传输方式。计算机只管传输数据，不作数据校验，如果数据在传输中损坏，或者没有到达另一台计算机，是没有办法补救的。也就是说，数据错了就错了，无法重传。因为 SOCK_DGRAM所做的校验工作少，所以效率比 SOCK_STREAM高</li>
+</ol>
+<p>在 socket 编程中，需要同时指明数据传输方式和协议。</p>
+<p>IP地址和端口能够在广袤的互联网中定位到要通信的程序，协议和数据传输方式规定了如何传输数据，有了这些，两台计算机就可以通信了。</p>
+<h2 id="一个简单的Linux下的socket程序"><a href="#一个简单的Linux下的socket程序" class="headerlink" title="一个简单的Linux下的socket程序"></a>一个简单的Linux下的socket程序</h2><p>服务器端代码server.cpp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line">#include &lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    //创建套接字，参数AF_INET表示使用IPv4 地址，SOCK_STREAM 表示使用面向连接的数据传输方式，IPPROTO_TCP表示使用TCP协议</span><br><span class="line">    int serv_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);</span><br><span class="line">    //将套接字和IP、端口绑定</span><br><span class="line">    struct sockaddr_in serv_addr;</span><br><span class="line">    //每个字节都用0填充</span><br><span class="line">    memset(&amp;serv_addr, 0, sizeof(serv_addr));</span><br><span class="line">    //使用IPv4地址</span><br><span class="line">    serv_addr.sin_family = AF_INET;</span><br><span class="line">    //具体的IP地址</span><br><span class="line">    serv_addr.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);</span><br><span class="line">    //端口</span><br><span class="line">    serv_addr.sin_port = htons(1234);</span><br><span class="line">    //通过 bind() 函数将套接字 serv_sock 与特定的IP地址和端口绑定，IP地址和端口都保存在 sockaddr_in 结构体中</span><br><span class="line">    bind(serv_sock, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr));</span><br><span class="line">    //进入监听状态(处在睡眠)，等待用户发起请求才会被唤醒</span><br><span class="line">    listen(serv_sock, 20);</span><br><span class="line">    //接收客户端请求</span><br><span class="line">    struct sockaddr_in clnt_addr;</span><br><span class="line">    socklen_t clnt_addr_size = sizeof(clnt_addr);</span><br><span class="line">    int clnt_sock = accept(serv_sock, (struct sockaddr*)&amp;clnt_addr, &amp;clnt_addr_size);</span><br><span class="line">    char str[] = &quot;Hello World!&quot;;</span><br><span class="line">    //write() 函数用来向套接字文件中写入数据，也就是向客户端发送数据</span><br><span class="line">    write(clnt_sock, str, sizeof(str));</span><br><span class="line">       </span><br><span class="line">    //关闭套接字</span><br><span class="line">    close(clnt_sock);</span><br><span class="line">    close(serv_sock);</span><br><span class="line">    return 0;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>socket() 函数确定了套接字的各种属性，bind() 函数让套接字与特定的IP地址和端口对应起来，这样客户端才能连接到该套接字。</p>
+<p>客户端代码client.cpp：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line">#include &lt;sys/socket.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    //创建套接字</span><br><span class="line">    int sock = socket(AF_INET, SOCK_STREAM, 0);</span><br><span class="line">    //向服务器（特定的IP和端口）发起请求</span><br><span class="line">    struct sockaddr_in serv_addr;</span><br><span class="line">    //每个字节都用0填充</span><br><span class="line">    memset(&amp;serv_addr, 0, sizeof(serv_addr));</span><br><span class="line">    //使用IPv4地址</span><br><span class="line">    serv_addr.sin_family = AF_INET;</span><br><span class="line">    //具体的IP地址</span><br><span class="line">    serv_addr.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);</span><br><span class="line">    //端口</span><br><span class="line">    serv_addr.sin_port = htons(1234);</span><br><span class="line">    //通过 connect() 向服务器发起请求，服务器的IP地址和端口号保存在 sockaddr_in 结构体中。直到服务器传回数据后，connect() 才运行结束</span><br><span class="line">    connect(sock, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr));</span><br><span class="line">    </span><br><span class="line">    char buffer[40];</span><br><span class="line">    //通过 read() 从套接字文件中据读取服务器传回的数据</span><br><span class="line">    read(sock, buffer, sizeof(buffer)-1);</span><br><span class="line">       </span><br><span class="line">    printf(&quot;Message form server: %s\n&quot;, buffer);</span><br><span class="line">       </span><br><span class="line">    //关闭套接字</span><br><span class="line">    close(sock);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>验证步骤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ server -o server</span><br><span class="line">./server</span><br></pre></td></tr></table></figure>
+<p>再打开另一个控制台</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ client -o client</span><br><span class="line">./client</span><br></pre></td></tr></table></figure>
+<p>若打印出现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Messege from sercer:Hello World</span><br></pre></td></tr></table></figure>
+<p>则表示客户端和服务端通过socket完成了通信</p>
+<p>Windows和Linux下socket的区别</p>
+<ul>
+<li><p>Windows下的socket程序依赖Winsock.dll或ws2_32.dll，必须提前加载。DLL 有两种加载方式</p>
+</li>
+<li><p>Linux 使用“文件描述符”的概念，而 Windows 使用“文件句柄”的概念；Linux 不区分 socket 文件和普通文件，而 Windows 区分；Linux 下 socket() 函数的返回值为 int 类型，而 Windows 下为 SOCKET 类型，也就是句柄</p>
+</li>
+<li><p>Linux 下使用 read() / write() 函数读写，而 Windows 下使用 recv() / send() 函数发送和接收</p>
+</li>
+<li><p>关闭 socket 时，Linux 使用 close() 函数，而 Windows 使用 closesocket() 函数</p>
+</li>
+</ul>
+
     </div>
 
     
@@ -231,7 +263,10 @@
     <a href="/2021/06/29/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Clion%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="prev" title="【工具】Clion环境搭建">
       <i class="fa fa-chevron-left"></i> 【工具】Clion环境搭建
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】C++学习笔记">
+      【笔记】C++学习笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -290,6 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="nav-text">常用数据传输方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Linux%E4%B8%8B%E7%9A%84socket%E7%A8%8B%E5%BA%8F"><span class="nav-text">一个简单的Linux下的socket程序</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -305,7 +341,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -318,7 +354,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -366,7 +402,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约9.7k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约12.4k字</span>
 </div>
         
 
