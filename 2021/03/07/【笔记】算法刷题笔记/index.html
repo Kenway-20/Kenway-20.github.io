@@ -231,12 +231,32 @@
 <span id="more"></span>
 
 <p>2.判断链表是否有环/找出链表中环起点问题</p>
+<p>解法:</p>
 <ul>
 <li>使用快慢指针，慢指针一次走一步，快指针一次走两步，两个指针同时从起点出发，若最后相遇则表示一定有环</li>
 <li>相遇时，一个指针原地不动，一个指针指向头节点，然后两个指针偶读改为一次走一步，它们再次相遇的地方就是环的起点</li>
 </ul>
 <p>证明：设慢指针走了k步与快指针走了2k步在O点相遇，2k-k=k则为环的长度，m为O点与头节点的距离</p>
 <p>此时无论是从头结点到环起点，还是O点到环起点的距离都为k-m，所以第二次相遇的地方即为环起点</p>
+<p>3.信封嵌套问题，即俄罗斯套娃，长、宽都大于才能装进去，求最多能嵌套几层</p>
+<p>解法:</p>
+<ul>
+<li>以宽度为标准从下到大排序，若宽度相同则比较长度，长度大的在前，长度小的在后</li>
+<li>对排好序的数组，以长度为标准求最长递增子序列的长度即为答案</li>
+</ul>
+<p>4.连续子数组的最大和问题</p>
+<p>解法:</p>
+<ul>
+<li>dp[i]表示以nums[i]为结尾的连续最大子数组和，注意该和中把nums[i]也算进去了</li>
+<li>状态转移方程:dp[i] = max(dp[i-1]+nums[i], nums[i]);</li>
+<li>遍历dp[]找出最大值即为答案</li>
+</ul>
+<p>5.求二叉树最大值(没有负值)</p>
+<p>解法:</p>
+<ul>
+<li>采用递归法</li>
+<li>自顶向下，主干是根节点与两子树比较<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int maxVal(TreeNode root)&#123;</span><br><span class="line">    if(root == nullptr) return -1;</span><br><span class="line">    int left = maxVal(root-&gt;left);</span><br><span class="line">    int right = maxVal(root-&gt;right);</span><br><span class="line">    return max(root-&gt;val, left, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 <h2 id="典型题"><a href="#典型题" class="headerlink" title="典型题"></a>典型题</h2><p>1.求小岛数量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,1],</span><br><span class="line">[0,1,1],</span><br><span class="line">[1,0,0]]</span><br><span class="line"></span><br><span class="line"># 0表示水，1表示陆地</span><br><span class="line"># 该实例答案为2</span><br></pre></td></tr></table></figure>
 <p>解法:</p>
@@ -245,10 +265,39 @@
 <li>dfs()中将数过的1变为0，然后对其上、下、左、右再分别判断，若为1就继续调用dfs()</li>
 <li>main()双层循环外return ans</li>
 </ul>
-<p>2.找出一个数组里的峰值元素(即前后元素都比它要小),不存在nums[i]==nums[i+1],nums[0]和nums[nums.size()-1]视为负无穷大<br>解法：</p>
+<p>2.找出一个数组里的峰值元素(即前后元素都比它要小),不存在nums[i]==nums[i+1],nums[0]和nums[nums.size()-1]视为负无穷大</p>
+<p>解法：</p>
 <ul>
 <li>遍历数组nums:当nums[i] &gt; nums[i+1]时，return nums[i]</li>
 <li>若遍历结束仍未有符合条件nums[i]返回，则return nums[nums.size()-1]</li>
+</ul>
+<p>3.判断s中含有t的所有字符的最小子串问题</p>
+<p>解法：</p>
+<ul>
+<li>使用滑动窗口，新建两个哈希表need(t中含有字符)、window(当前窗口含有字符)，用下述语句判断当前窗口是否符合要求<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(auto&amp; i:need) if(window[i.first]&lt;i.second) return false</span><br><span class="line">return true</span><br></pre></td></tr></table></figure></li>
+<li>符合就left+1，直到不符合，记录；不符合就right+1，直到再一次符合并重复上述循环(直到遍历到s末尾)</li>
+</ul>
+<p>4.给定一个int数组，求它的最长递增子序列</p>
+<p>解法：</p>
+<ul>
+<li>用动态规划，dp[i]表示以nums[i]这个数结尾的最长递增子序列长度</li>
+<li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    for(int j = 0; j &lt; i; j++)&#123;   </span><br><span class="line">        if(nums[i]&gt;nums[j]) dp[i] = max(dp[i], dp[j]+1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>5.求两字符串的最长公共子序列问题(连线不能相交问题也是一模一样的解法)</p>
+<p>解法:</p>
+<ul>
+<li>dp[i][j]表示str1[0,1,…,i-1]与str2[0,1,…,j-1]的最长公共子序列长度(当i或j任一为0时，dp[i][j]=0，因为””与任何字符串的公共子序列长度都为0)</li>
+<li>判断<ul>
+<li>如果str1[i]==str2[j]，即两个str前进一步的字符相同，那么该字符肯定在公共子序列lcs里<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = dp[i-1][j-1] + 1;</span><br></pre></td></tr></table></figure></li>
+<li>如果str1[i]!=str2[j]，那么又分两种情况<ul>
+<li>str1[i]在lcs里<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = dp[i][j-1];</span><br></pre></td></tr></table></figure></li>
+<li>str2[j]在lcs里<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = dp[i-1][j];</span><br></pre></td></tr></table></figure></li>
+<li>综上可得当str1[i]!=str2[j]时<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = max(dp[i][j-1], dp[i-1][j]);</span><br><span class="line">    </span><br><span class="line"># 不用考虑str1[i]和str2[j]都不在lcs的情形，因为max取大值，不影响结果</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结果为dp[str1.size()][str2.size()]</li>
 </ul>
 <h2 id="结构设计"><a href="#结构设计" class="headerlink" title="结构设计"></a>结构设计</h2><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.求公共前缀(字符串仅由a-z组成)取巧方法：先对每个字符串sort排序，排序后第一个字符串与最后一个字符串的公共前缀就是所有字符串的最长公共前缀</p>
 <p>2.判断二叉树是否为对称二叉树时，用递归：</p>
@@ -440,7 +489,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约15.6k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约16.3k字</span>
 </div>
         
 
