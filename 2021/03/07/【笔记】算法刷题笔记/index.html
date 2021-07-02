@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ava.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="必背1.传递信息  给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回 0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出：3解释：信息从小 A 编号 0 处开始，经 3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】算法刷题笔记">
+<meta property="og:url" content="http://kenway-20.github.io/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Kenway&#39; Blog">
+<meta property="og:description" content="必背1.传递信息  给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回 0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出：3解释：信息从小 A 编号 0 处开始，经 3">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-30T16:00:00.000Z">
+<meta property="article:author" content="Kenway">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://kenway-20.github.io/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【笔记】算法刷题笔记 | Kenway' Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Kenway' Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【笔记】算法刷题笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 00:00:00" itemprop="dateModified" datetime="2021-07-01T00:00:00+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="必背"><a href="#必背" class="headerlink" title="必背"></a>必背</h2><p>1.传递信息</p>
+<blockquote>
+<p>给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回 0</p>
+</blockquote>
+<blockquote>
+<p>示例：输入：n = 5, relation = [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k = 3<br>输出：3<br>解释：信息从小 A 编号 0 处开始，经 3 轮传递，到达编号 4。共有 3 种方案，分别是 0-&gt;2-&gt;0-&gt;4， 0-&gt;2-&gt;1-&gt;4， 0-&gt;2-&gt;3-&gt;4。</p>
+</blockquote>
+<p>解法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int numWays(int n, vector&lt;vector&lt;int&gt;&gt;&amp; relation, int k) &#123;</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; dp(k+1,vector&lt;int&gt;(n));</span><br><span class="line">    dp[0][0] = 1;</span><br><span class="line">    for(int i = 0; i &lt; k; i++)&#123;</span><br><span class="line">        for(auto t:relation)&#123;</span><br><span class="line">            int start = t[0], target = t[1];</span><br><span class="line">            dp[i+1][target] += dp[i][start]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[k][n-1];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"># dp[i][j]表示在第i轮能到达编号j的方案数</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>2.判断链表是否有环/找出链表中环起点问题</p>
+<ul>
+<li>使用快慢指针，慢指针一次走一步，快指针一次走两步，两个指针同时从起点出发，若最后相遇则表示一定有环</li>
+<li>相遇时，一个指针原地不动，一个指针指向头节点，然后两个指针偶读改为一次走一步，它们再次相遇的地方就是环的起点</li>
+</ul>
+<p>证明：设慢指针走了k步与快指针走了2k步在O点相遇，2k-k=k则为环的长度，m为O点与头节点的距离</p>
+<p>此时无论是从头结点到环起点，还是O点到环起点的距离都为k-m，所以第二次相遇的地方即为环起点</p>
+<h2 id="典型题"><a href="#典型题" class="headerlink" title="典型题"></a>典型题</h2><p>1.求小岛数量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,1],</span><br><span class="line">[0,1,1],</span><br><span class="line">[1,0,0]]</span><br><span class="line"></span><br><span class="line"># 0表示水，1表示陆地</span><br><span class="line"># 该实例答案为2</span><br></pre></td></tr></table></figure>
+<p>解法:</p>
+<ul>
+<li>main()中双层循环遍历，每遇到一个1就调用一次dfs()且ans++</li>
+<li>dfs()中将数过的1变为0，然后对其上、下、左、右再分别判断，若为1就继续调用dfs()</li>
+<li>main()双层循环外return ans</li>
+</ul>
+<p>2.找出一个数组里的峰值元素(即前后元素都比它要小),不存在nums[i]==nums[i+1],nums[0]和nums[nums.size()-1]视为负无穷大<br>解法：</p>
+<ul>
+<li>遍历数组nums:当nums[i] &gt; nums[i+1]时，return nums[i]</li>
+<li>若遍历结束仍未有符合条件nums[i]返回，则return nums[nums.size()-1]</li>
+</ul>
+<h2 id="结构设计"><a href="#结构设计" class="headerlink" title="结构设计"></a>结构设计</h2><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.求公共前缀(字符串仅由a-z组成)取巧方法：先对每个字符串sort排序，排序后第一个字符串与最后一个字符串的公共前缀就是所有字符串的最长公共前缀</p>
+<p>2.判断二叉树是否为对称二叉树时，用递归：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box(TreeNode* zuo, TreeNode* you)&#123;</span><br><span class="line">return zuo-&gt;val == you-&gt;val &amp;&amp; box(zuo-&gt;left, you-&gt;right) &amp;&amp; box(zuo-&gt;right, you-&gt;left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.求一个字符串内无重复的最长子串，用滑动窗口法：定义两个指针，当下一个遍历字符不在窗口内时，右指针++，当下一个遍历字符在窗口内时左指针加到老字符不存在窗口为止，记录下过程中出现的最大结果，遍历完成返回最大结果</p>
+<p>4.盛最多水容器问题，用双指针：初始left=0，right=nums.size()-1,然后比较nums[left]和nums[right]，哪个小哪个指针就往内缩，记录下过程中出现的最大结果，遍历完成返回最大结果</p>
+<p>5.对于首尾不能同时存在的问题，最优解决办法是分别求出没有首和没有尾两种情况的结果，再比较两个结果哪个更符合题意</p>
+<p>6.对无序链表进行排序</p>
+<ul>
+<li>box():用快慢指针将链表分成两段</li>
+<li>merge():将两个有序链表合并成一个更长的有序链表</li>
+<li>在box()里面写成return merge*=(box(第一段), box(第二段))</li>
+</ul>
+<p>7.异或题重要规律</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a^b = b^a</span><br><span class="line">a^a = 0</span><br><span class="line">a^0 = a</span><br><span class="line">a^b = c =&gt; a^c = b</span><br></pre></td></tr></table></figure>
+
+<p>8.涉及异或数组的问题，首先想到用前缀和异或数组来作辅助</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xor[i] = 0, i == 0时</span><br><span class="line">xor[i] = arr[i-1]^xor[i-1], i &gt; 0时</span><br><span class="line"># arr[]是题目给的用来异或的数组</span><br><span class="line"># 即xor[i] = arr[0]^......^ar</span><br></pre></td></tr></table></figure>
+
+<p>9.宽度搜索(bfs)核心思想</p>
+<ul>
+<li>该层全部压入队列</li>
+<li>然后一次弹出</li>
+<li>每个弹出的节点延伸的子节点全压入队列<br>双向bfs</li>
+<li> 奇数次扩散从起点开始，偶数次扩散从终点开始</li>
+<li> 直到两个方向的扩散出现交集</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF/" rel="prev" title="【实战】新冠病毒传播模拟程序思路">
+      <i class="fa fa-chevron-left"></i> 【实战】新冠病毒传播模拟程序思路
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%9E%84%E5%BB%BA%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="next" title="【实战】构建一个小规模知识图谱及其应用系统">
+      【实战】构建一个小规模知识图谱及其应用系统 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%83%8C"><span class="nav-text">必背</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E9%A2%98"><span class="nav-text">典型题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-text">思路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kenway"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Kenway</p>
+  <div class="site-description" itemprop="description">这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kenway-20" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kenway-20" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:UniverseEddy@outlook.com" title="E-Mail → mailto:UniverseEddy@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-chess-pawn"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kenway</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">感谢你的阅读，全站内容约15.6k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

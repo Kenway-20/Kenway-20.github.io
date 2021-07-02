@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="C++中主程序要写成 123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了 且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告 memset()用于填充字符串,原型是void *memset(void *str,">
+  <meta name="description" content="C++中主程序要写成123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了  且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】C++学习笔记">
 <meta property="og:url" content="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="C++中主程序要写成 123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了 且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告 memset()用于填充字符串,原型是void *memset(void *str,">
+<meta property="og:description" content="C++中主程序要写成123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了  且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-29T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-06-29T16:00:00.000Z">
@@ -119,14 +119,9 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -134,9 +129,14 @@
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
@@ -209,12 +209,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>C++中主程序要写成</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    return 0；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了</p>
+        <ol>
+<li>C++中主程序要写成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    return 0；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了</li>
+</ol>
 <p>且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告</p>
-<p>memset()用于填充字符串,原型是void *memset(void *str, int c, size_t n)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char str[50];</span><br><span class="line"> </span><br><span class="line">strcpy(str,&quot;This is string.h library function&quot;);</span><br><span class="line"># str = &quot;This is string.h library function&quot;</span><br><span class="line"> </span><br><span class="line">memset(str,&#x27;$&#x27;,7);</span><br><span class="line"># str = &quot;$$$$$$$ string.h library function&quot;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<ol start="2">
+<li><p>memset()用于填充字符串,原型是void *memset(void *str, int c, size_t n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char str[50];</span><br><span class="line"> </span><br><span class="line">strcpy(str,&quot;This is string.h library function&quot;);</span><br><span class="line"># str = &quot;This is string.h library function&quot;</span><br><span class="line"> </span><br><span class="line">memset(str,&#x27;$&#x27;,7);</span><br><span class="line"># str = &quot;$$$$$$$ string.h library function&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>(struct 类型名*)&amp;变量名表示把该变量强转成该类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># serv_addr是sockaddr_in类型的变量</span><br><span class="line">struct sockaddr_in serv_addr;</span><br><span class="line"># 第二个参数传进去的实际是sockaddr类型</span><br><span class="line">bind(serv_sock, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr))</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>4.GCC中有gcc(c编译器)和g++(c++编译器)</p>
+<ul>
+<li>后缀为.c的文件，gcc当成c文件处理，g++当成c++处理</li>
+<li>在编译阶段，g++会自动链接STL库，而gcc不会</li>
+<li>gcc在编译c文件时，可用的预定义宏是比较少的 </li>
+</ul>
+<p>5.数组元素个数一般用nums.size()，使用sizeof(nums)/sizeof(int)的形式在某些时刻不保险</p>
+<p>6.队列的两种实现形式</p>
+<ul>
+<li>使用循环数组</li>
+<li>使用链表</li>
+</ul>
+<p>7.sort()自定排序规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end(), [](xx a, xxb)&#123;</span><br><span class="line">    语句规则</span><br><span class="line">&#125;);</span><br><span class="line"># xx是a、b的类型名</span><br><span class="line"># 语句规则return true时表示不变，return false表示会交换a、b的位置</span><br></pre></td></tr></table></figure>
+
+<p>8.二维vector的初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 第一种</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; nums(n,vector(m));</span><br><span class="line"># 第二种</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; nums;</span><br><span class="line">for(int i = 0; i &lt; m ; i++)&#123;</span><br><span class="line">    nums.push_back(vector&lt;int&gt;());</span><br><span class="line">    for(int j = 0; j &lt; n; j++)&#123;</span><br><span class="line">        nums[i].push_back(0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>9.使用以下形式赋vector初值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; hash = vector&lt;int&gt; (1000, 1);</span><br></pre></td></tr></table></figure>
+<p>可以避免产生歧义而编译不通过</p>
+<p>10.哈希表特殊用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unordered_map &lt;TreeNode*, int&gt; f;</span><br></pre></td></tr></table></figure>
+<p>则有f[root]是一个int值，root是一个树节点指针</p>
+<p>11.数组用==、!=会比较首内存地址(即是不是指向同一内存)，而vector数组就可以用==、!=比较数组中包含的元素是否一样</p>
 
     </div>
 
@@ -234,12 +266,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/29/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%90%AD%E5%BB%BAWeb%20Server%E7%AC%94%E8%AE%B0/" rel="prev" title="【实战】搭建Web Server笔记">
-      <i class="fa fa-chevron-left"></i> 【实战】搭建Web Server笔记
+    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Linux学习笔记">
+      <i class="fa fa-chevron-left"></i> 【笔记】Linux学习笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Linux学习笔记">
-      【笔记】Linux学习笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Socket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Socket学习笔记">
+      【笔记】Socket学习笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -314,7 +346,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -327,7 +359,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -375,7 +407,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约12.4k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约15.6k字</span>
 </div>
         
 

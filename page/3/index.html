@@ -115,14 +115,9 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -130,9 +125,14 @@
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/28/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Pytorch%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -172,7 +172,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【规划】职业生涯规划笔记</a>
+            <a href="/2021/06/28/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Pytorch%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】Pytorch的使用</a>
         </h2>
 
         <div class="post-meta">
@@ -182,22 +182,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-25T00:00:00+08:00">2021-06-25</time>
+              <time title="创建时间：2021-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-28T00:00:00+08:00">2021-06-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-26 00:00:00" itemprop="dateModified" datetime="2021-06-26T00:00:00+08:00">2021-06-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
                 </span>
             </span>
 
@@ -212,38 +205,257 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="目前规划（持续更新）："><a href="#目前规划（持续更新）：" class="headerlink" title="目前规划（持续更新）："></a>目前规划（持续更新）：</h2><ul>
-<li>2024毕业：<ul>
-<li>往一线大厂、大公司里挤</li>
-<li>目标：完善自己的技术栈，学习行业规则，借鉴大公司成功经验，结交行业内的人，为下一阶段打好人脉基础</li>
-</ul>
-</li>
-<li>2026-2027：<ul>
-<li>加入创业公司</li>
-<li>目标：挣钱和锻炼抗压和其他综合能力</li>
-</ul>
-</li>
-</ul>
-<h3 id="2021-6-25"><a href="#2021-6-25" class="headerlink" title="2021.6.25"></a>2021.6.25</h3><ol>
-<li>不管是打造产品、开发技术抑或建立团队，最好的起步方式都是是先做出一个<strong>大概可以工作的最小的东西</strong>（最简可行产品，简称MVP），然后再根据</li>
-</ol>
+          <p>torch.cat()用于将多个张量在某维拼接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># C为A和B在0维拼接的张量</span><br><span class="line">C=torch.cat((A,B),0)</span><br><span class="line"></span><br><span class="line">即</span><br><span class="line">A=torch.ones(2,3)</span><br><span class="line"># A = [[ 1.,  1.,  1.],[ 1.,  1.,  1.]]</span><br><span class="line"></span><br><span class="line">B=2*torch.ones(4,3)</span><br><span class="line"># B = [[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.]]</span><br><span class="line"></span><br><span class="line">C=torch.cat((A,B),0)</span><br><span class="line"># C = [[ 1.,  1.,  1.],[ 1.,  1.,  1.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>torch.tensor()用于生成新的张量，函数原型是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor(data, dtype=None, device=None, requires_grad=False)</span><br><span class="line"># data可以是list, tuple, array, scalar</span><br></pre></td></tr></table></figure>
+
+<p>unsqueeze()函数意味在x维新增一个维度为1</p>
+<p>例已有一个二维张量a的维度为[2,3]，</p>
+<p>即[<br>[0,1,2], [3,4,5]<br>]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unsqueeze(1)</span><br></pre></td></tr></table></figure>
+<p>a变成三维张量，维度变成[2,1,3],</p>
+<p>即[<br>[<br>[0,1,2]<br>],<br>[<br>[3,4,5]<br>]<br>]</p>
+<p>squeeze()函数意味若x维维度为1则将其去掉</p>
+<p>Anaconda中更换Pytorch版本命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda uninstall pytorch</span><br><span class="line">conda install pytotch==1.3.1 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>Pytorch中关于GPU的常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line"></span><br><span class="line"># 返回CUDA是否可用；</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"></span><br><span class="line"># 返回GPU的数量；</span><br><span class="line">torch.cuda.device_count()</span><br><span class="line"></span><br><span class="line"># 返回GPU名字，即显卡型号；</span><br><span class="line">torch.cuda.get_device_name(0)</span><br><span class="line"></span><br><span class="line"># 返回当前gpu设备索引，默认从0开始；</span><br><span class="line">torch.cuda.current_device()</span><br><span class="line"></span><br><span class="line"># 返回tensor或者model所在的GPU索引</span><br><span class="line">torch.tensor([0]).get_device()</span><br></pre></td></tr></table></figure>
+
+<p>Pytorch版本与CUDA版本对应表</p>
+<table>
+<thead>
+<tr>
+<th align="center">CUDA版本</th>
+<th align="center">Pytorch版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7.5</td>
+<td align="center">0.4.1 ，0.3.0， 0.2.0，0.1.12 - 0.1.6</td>
+</tr>
+<tr>
+<td align="center">8.0</td>
+<td align="center">1.0.0 ，0.4.1</td>
+</tr>
+<tr>
+<td align="center">9.0</td>
+<td align="center">1.1.0，1.0.1, 1.0.0，0.4.1</td>
+</tr>
+<tr>
+<td align="center">9.2</td>
+<td align="center">1.4.0，1.2.0，0.4.1</td>
+</tr>
+<tr>
+<td align="center">10.0</td>
+<td align="center">1.2.0，1.1.0，1.0.1 ,1.0.0</td>
+</tr>
+<tr>
+<td align="center">10.1</td>
+<td align="center">1.6.0 ,1.5.0 , 1.4.0,1.3.0</td>
+</tr>
+<tr>
+<td align="center">10.2</td>
+<td align="center">1.6.0, 1.5.0</td>
+</tr>
+</tbody></table>
+<p>Anaconda查看当前环境下的包除了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
+<p>还可用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<p>显示内容略有区别</p>
+<p>Anaconda安装指定包指定命令格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 例：安装cudatoolkit10.1.243</span><br><span class="line">conda install cudatoolkit=10.1.243</span><br></pre></td></tr></table></figure>
+
+
+<p>可能遇到的问题</p>
+<ol>
+<li><p>报错’LSTM’ object has no attribute ‘_flat_weights_names’</p>
+<p> 解决办法：一般原因是Pytorch版本不兼容，将Pytorch降级为低版本即可</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda uninstall pytorch</span><br><span class="line">conda install pytorch==1.3.1 -c pytorch</span><br></pre></td></tr></table></figure></li>
+<li><p>Pytorch降级后，torch.cuda.is_available()又返回False</p>
+<p> 解决办法：</p>
 <ul>
-<li><p>产品类：客户的反馈</p>
+<li>重新安装降级后的Pytorch支持的CUDA</li>
+<li>const list检查cudatoolkit版本是否正确，若不正确使用下述命令安装正确版本<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install cudatoolkit=10.1.243</span><br></pre></td></tr></table></figure></li>
+<li>检查pytorch是否安装成了CPU版本</li>
+</ul>
+<p> 图8</p>
+<p> conda命令安装的一般默认为CPU版本。可在<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/">此处</a>下载正确版本离线包放在D:\Anaconda3\pkgs里，然后本地安装</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --use-local D:\Anaconda3\pkgs\离线包名字(包括完整后缀)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>技术类：代码的评审和测试情况</p>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/28/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96BGCN%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/28/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96BGCN%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【实战】事件抽取BGCN笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-28T00:00:00+08:00">2021-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>Batch大小是在更新模型之前处理的多个样本</p>
 </li>
-<li><p>团队类：员工情况</p>
-<p>  再逐渐进化，扩大规模，最终实现一个完整的成果</p>
+<li><p>Epoch大小是通过训练数据集的完整传递次数，可以理解为Epoch=重复多少次完整的训练集批处理，Epoch大小必须大于或等于1且小于或等于训练数据集中的样本数。可以将Epoch设置为1和无穷大之间的整数值。</p>
+</li>
+<li><p>模型权重更新次数= Epoch* (数据集样本数/每个Batch大小)</p>
 </li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/25/%E3%80%90%E8%A7%84%E5%88%92%E3%80%91%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<p>例:有一个包含200个样本（即200个数据行）的数据集，选择Batch大小为5，Epoch为1000</p>
+<p>这意味着数据集:</p>
+<ul>
+<li><p>分为200/5=40个Batch，即每一个epoch将涉及40次模型更新</p>
+</li>
+<li><p>每个Batch有5个样本</p>
+</li>
+<li><p>经过五个样本后，模型将更新一次它的权重</p>
+</li>
+<li><p>1000个Epoch，表示模型将整个数据集反复传递1000次</p>
+</li>
+<li><p>在整个训练过程中，总共有40000个Batch，即40000次模型更新</p>
+</li>
+</ul>
+<p>1.安装Anaconda并在Anaconda中配置Pytorch环境</p>
+<p>2.在Pytorch环境中导入pytorch_pretrained_bert方便后续使用bert模型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytorch_pretrained_bert</span><br></pre></td></tr></table></figure>
+
+<p>3.在Pycharm项目中将解释器路径设置为Anaconda/envs/pytorch/python.exe</p>
+<p>ipdb的使用<br>ipdb是一个python调试工具，运行程序后, 会在执行到set_trace()这一行时中断程序 并出现提示符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipdb&gt;</span><br></pre></td></tr></table></figure>
+<p>常用的ipdb命令</p>
+<ul>
+<li>n(下一个)</li>
+<li>ENTER(重复上次命令)</li>
+<li>q(退出)</li>
+<li>p&lt;变量&gt;(打印变量)</li>
+<li>c(继续)</li>
+<li>l(查找当前位于哪里)</li>
+<li>s(进入子程序)</li>
+<li>r(运行直到子程序结束)</li>
+<li>!</li>
+</ul>
+<p>安装sklearn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sklearn</span><br></pre></td></tr></table></figure>
+
+<p>Stanford CoreNLP的使用</p>
+<ul>
+<li>在<a target="_blank" rel="noopener" href="https://stanfordnlp.github.io/CoreNLP/">CoreNLP</a>下载最新版本的CoreNLP并解压到一个纯英文路径(例D:\Anaconda3\envs\pytorch\stanford-corenlp-4.2.2)<ul>
+<li>若需对非英文语言进行处理则还需在<a target="_blank" rel="noopener" href="https://stanfordnlp.github.io/CoreNLP/">CoreNLP</a>下载对应的语言包并解压至\stanford-corenlp-4.2.2</li>
+</ul>
+</li>
+<li>安装stanfordcorenlp  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install stanfordcorenlp </span><br></pre></td></tr></table></figure></li>
+<li>Python代码中使用形式  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from stanfordcorenlp import StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"># 处理英文语句</span><br><span class="line">nlp = StanfordCoreNLP(&quot;D:\Anaconda3\envs\pytorch\stanford-corenlp-4.2.2&quot;)</span><br><span class="line"># 处理中文语句</span><br><span class="line">nlp_ch = StanfordCoreNLP(&quot;D:\Anaconda3\envs\pytorch\stanford-corenlp-4.2.2&quot;, lang=&#x27;zh&#x27;)</span><br></pre></td></tr></table></figure></li>
+<li>分词  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = nlp.word_tokenize(&#x27;This is an example of tokenziation.&#x27;)</span><br><span class="line"># result = [&#x27;This&#x27;, &#x27;is&#x27;, &#x27;an&#x27;, &#x27;example&#x27;, &#x27;of&#x27;, &#x27;tokenziation&#x27;, &#x27;.&#x27;]</span><br></pre></td></tr></table></figure></li>
+<li>词性标注  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = nlp.pos_tag(&#x27;This is an example of tokenziation.&#x27;)</span><br><span class="line"># result = [(&#x27;This&#x27;, &#x27;DT&#x27;), (&#x27;is&#x27;, &#x27;VBZ&#x27;), (&#x27;an&#x27;, &#x27;DT&#x27;), (&#x27;example&#x27;, &#x27;NN&#x27;), (&#x27;of&#x27;, &#x27;IN&#x27;), (&#x27;tokenziation&#x27;, &#x27;NN&#x27;), (&#x27;.&#x27;, &#x27;.&#x27;)]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>词性解释：</p>
+<pre><code>ROOT :    要处理文本的语句
+IP   :    简单从句
+NP   :    名词短语
+VP   :    动词短语
+PU   :    断句符，通常是句号、问号、感叹号等标点符号
+LCP  :    方位词短语
+PP   :    介词短语
+CP   :    由‘的’构成的表示修饰性关系的短语
+DNP  :    由‘的’构成的表示所属关系的短语
+ADVP :    副词短语
+ADJP :    形容词短语
+DP   :    限定词短语
+QP   :    量词短语
+NN   :    常用名词
+NT   :    时间名词
+PN   :    代词
+VV   :    动词
+VC   :    是
+CC   :    表示连词
+VE   :    有
+VA   :    表语形容词
+VRD  :    动补复合词
+CD   :     表示基数词
+DT   :     determiner 表示限定词
+EX   :     existential there 存在句
+FW   :     foreign word 外来词
+IN   :     preposition or conjunction, subordinating 介词或从属连词
+JJ   :     adjective or numeral, ordinal 形容词或序数词
+JJR  :     adjective, comparative 形容词比较级
+JJS  :     adjective, superlative 形容词最高级
+LS   :     list item marker 列表标识
+MD   :     modal auxiliary 情态助动词
+PDT  :     pre-determiner 前位限定词
+POS  :     genitive marker 所有格标记
+PRP  :     pronoun, personal 人称代词
+RB   :     adverb 副词
+RBR  :     adverb, comparative 副词比较级
+RBS  :     adverb, superlative 副词最高级
+RP   :     particle 小品词
+SYM  :     symbol 符号
+TO   :    ”to” as preposition or infinitive marker 作为介词或不定式标记
+WDT  :     WH-determiner WH限定词
+WP   :     WH-pronoun WH代词
+WP$  :     WH-pronoun, possessive WH所有格代词
+WRB  :    Wh-adverb WH副词
+</code></pre>
+<h2 id="一、Bert预训练"><a href="#一、Bert预训练" class="headerlink" title="一、Bert预训练"></a>一、Bert预训练</h2><p>以ACE2005数据集为数据源使用Bert预训练出一个语言模型</p>
+
       
     </div>
 
@@ -357,6 +569,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway' Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【笔记】算法刷题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-07T00:00:00+08:00">2021-03-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-01 00:00:00" itemprop="dateModified" datetime="2021-07-01T00:00:00+08:00">2021-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="必背"><a href="#必背" class="headerlink" title="必背"></a>必背</h2><p>1.传递信息</p>
+<blockquote>
+<p>给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回 0</p>
+</blockquote>
+<blockquote>
+<p>示例：输入：n = 5, relation = [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k = 3<br>输出：3<br>解释：信息从小 A 编号 0 处开始，经 3 轮传递，到达编号 4。共有 3 种方案，分别是 0-&gt;2-&gt;0-&gt;4， 0-&gt;2-&gt;1-&gt;4， 0-&gt;2-&gt;3-&gt;4。</p>
+</blockquote>
+<p>解法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int numWays(int n, vector&lt;vector&lt;int&gt;&gt;&amp; relation, int k) &#123;</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; dp(k+1,vector&lt;int&gt;(n));</span><br><span class="line">    dp[0][0] = 1;</span><br><span class="line">    for(int i = 0; i &lt; k; i++)&#123;</span><br><span class="line">        for(auto t:relation)&#123;</span><br><span class="line">            int start = t[0], target = t[1];</span><br><span class="line">            dp[i+1][target] += dp[i][start]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[k][n-1];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"># dp[i][j]表示在第i轮能到达编号j的方案数</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2020/07/20/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E4%BC%A0%E6%92%AD%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -388,7 +689,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-22 00:00:00" itemprop="dateModified" datetime="2021-06-22T00:00:00+08:00">2021-06-22</time>
+                <time title="修改时间：2021-07-01 15:26:24" itemprop="dateModified" datetime="2021-07-01T15:26:24+08:00">2021-07-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -513,7 +814,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -526,7 +827,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -574,7 +875,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约12.4k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约15.6k字</span>
 </div>
         
 
