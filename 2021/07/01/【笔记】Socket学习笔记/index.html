@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录一、Socket主要概念二、Linux下的socket代码分析三、实现一个Linux的socket程序一、Socket主要概念端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，">
+  <meta name="description" content="目录一、Socket主要概念 二、Linux下的socket代码分析 三、实现一个Linux的socket程序 一、Socket主要概念端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Socket学习笔记">
 <meta property="og:url" content="http://kenway-20.github.io/2021/07/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Socket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="目录一、Socket主要概念二、Linux下的socket代码分析三、实现一个Linux的socket程序一、Socket主要概念端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，">
+<meta property="og:site_name" content="Kenway&#39;s Blog">
+<meta property="og:description" content="目录一、Socket主要概念 二、Linux下的socket代码分析 三、实现一个Linux的socket程序 一、Socket主要概念端口有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/socket1.png">
 <meta property="article:published_time" content="2021-06-30T16:00:00.000Z">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>【笔记】Socket学习笔记 | Kenway' Blog</title>
+  <title>【笔记】Socket学习笔记 | Kenway's Blog</title>
   
 
 
@@ -101,7 +101,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Kenway' Blog</h1>
+      <h1 class="site-title">Kenway's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -175,7 +175,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway' Blog">
+      <meta itemprop="name" content="Kenway's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -212,7 +212,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h4 id="一、Socket主要概念"><a href="#一、Socket主要概念" class="headerlink" title="一、Socket主要概念"></a>一、Socket主要概念</h4><h4 id="二、Linux下的socket代码分析"><a href="#二、Linux下的socket代码分析" class="headerlink" title="二、Linux下的socket代码分析"></a>二、Linux下的socket代码分析</h4><h4 id="三、实现一个Linux的socket程序"><a href="#三、实现一个Linux的socket程序" class="headerlink" title="三、实现一个Linux的socket程序"></a>三、实现一个Linux的socket程序</h4><h2 id="一、Socket主要概念-1"><a href="#一、Socket主要概念-1" class="headerlink" title="一、Socket主要概念"></a>一、Socket主要概念</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，所以通信失败。</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>一、Socket主要概念</p>
+<p>二、Linux下的socket代码分析</p>
+<p>三、实现一个Linux的socket程序</p>
+<h2 id="一、Socket主要概念"><a href="#一、Socket主要概念" class="headerlink" title="一、Socket主要概念"></a>一、Socket主要概念</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>有了 IP 地址，虽然可以找到目标计算机，但仍然不能进行通信。一台计算机可以同时提供多种网络服务，例如Web服务、FTP服务（文件传输服务）、SMTP服务（邮箱服务）等，仅有 IP 地址，计算机虽然可以正确接收到数据包，但是却不知道要将数据包交给哪个网络程序来处理，所以通信失败。</p>
 <p>为了区分不同的网络程序，计算机会为每个网络程序分配一个独一无二的端口号</p>
 <h3 id="常用数据传输方式"><a href="#常用数据传输方式" class="headerlink" title="常用数据传输方式"></a>常用数据传输方式</h3><p>SOCK_STREAM 和 SOCK_DGRAM。</p>
 <span id="more"></span>
@@ -233,7 +236,7 @@
 <li><p>关闭 socket 时，Linux 使用 close() 函数，而 Windows 使用 closesocket() 函数</p>
 </li>
 </ul>
-<h2 id="二、Linux下的socket代码分析-1"><a href="#二、Linux下的socket代码分析-1" class="headerlink" title="二、Linux下的socket代码分析"></a>二、Linux下的socket代码分析</h2><h3 id="Linux创建socket-程序的核心函数"><a href="#Linux创建socket-程序的核心函数" class="headerlink" title="Linux创建socket()程序的核心函数"></a>Linux创建socket()程序的核心函数</h3><h4 id="socket-函数创建套接字-返回一个套接字-服务器端int-serv-sock，客户端-int-sock"><a href="#socket-函数创建套接字-返回一个套接字-服务器端int-serv-sock，客户端-int-sock" class="headerlink" title="socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)"></a>socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)</h4><p>socket()存在于头文件&lt;sys/socket.h&gt;中，函数原型为</p>
+<h2 id="二、Linux下的socket代码分析"><a href="#二、Linux下的socket代码分析" class="headerlink" title="二、Linux下的socket代码分析"></a>二、Linux下的socket代码分析</h2><h3 id="Linux创建socket-程序的核心函数"><a href="#Linux创建socket-程序的核心函数" class="headerlink" title="Linux创建socket()程序的核心函数"></a>Linux创建socket()程序的核心函数</h3><h4 id="socket-函数创建套接字-返回一个套接字-服务器端int-serv-sock，客户端-int-sock"><a href="#socket-函数创建套接字-返回一个套接字-服务器端int-serv-sock，客户端-int-sock" class="headerlink" title="socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)"></a>socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)</h4><p>socket()存在于头文件&lt;sys/socket.h&gt;中，函数原型为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int socket(int af, int type, int protocol);</span><br><span class="line"></span><br><span class="line"># af：AF_INET、AF_INET6</span><br><span class="line"># type：SOCK_STREAM、SOCK_DGRAM</span><br><span class="line"># protocol：IPPROTO_TCP、IPPTOTO_UDP、0((0表示自动选择)</span><br></pre></td></tr></table></figure>
 
 <h4 id="服务器端的bind-函数"><a href="#服务器端的bind-函数" class="headerlink" title="服务器端的bind()函数"></a>服务器端的bind()函数</h4><p>bind() 函数将套接字与特定的IP地址和端口绑定起来，函数原型</p>
@@ -265,7 +268,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssize_t read(int fd, void *buf, size_t nbytes);</span><br><span class="line"></span><br><span class="line"># fd是client.cpp开头定义的套接字sock</span><br><span class="line"># *buf是预先声明的为数据准备的缓冲区，即变量buffer</span><br><span class="line"># nbytes是要读取的字节数，一般用sizeof(buffer)-1</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="三、实现一个Linux的socket程序-1"><a href="#三、实现一个Linux的socket程序-1" class="headerlink" title="三、实现一个Linux的socket程序"></a>三、实现一个Linux的socket程序</h2><p>服务器端代码server.cpp</p>
+<h2 id="三、实现一个Linux的socket程序"><a href="#三、实现一个Linux的socket程序" class="headerlink" title="三、实现一个Linux的socket程序"></a>三、实现一个Linux的socket程序</h2><p>服务器端代码server.cpp</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line">#include &lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    //创建套接字，参数AF_INET表示使用IPv4 地址，SOCK_STREAM 表示使用面向连接的数据传输方式，IPPROTO_TCP表示使用TCP协议</span><br><span class="line">    int serv_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);</span><br><span class="line">    //将套接字和IP、端口绑定</span><br><span class="line">    struct sockaddr_in serv_addr;</span><br><span class="line">    //每个字节都用0填充</span><br><span class="line">    memset(&amp;serv_addr, 0, sizeof(serv_addr));</span><br><span class="line">    //使用IPv4地址</span><br><span class="line">    serv_addr.sin_family = AF_INET;</span><br><span class="line">    //具体的IP地址</span><br><span class="line">    serv_addr.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);</span><br><span class="line">    //端口</span><br><span class="line">    serv_addr.sin_port = htons(1234);</span><br><span class="line">    //通过 bind() 函数将套接字 serv_sock 与特定的IP地址和端口绑定，IP地址和端口都保存在 sockaddr_in 结构体中</span><br><span class="line">    bind(serv_sock, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr));</span><br><span class="line">    //进入监听状态(处在睡眠)，等待用户发起请求才会被唤醒</span><br><span class="line">    listen(serv_sock, 20);</span><br><span class="line">    //接收客户端请求</span><br><span class="line">    struct sockaddr_in clnt_addr;</span><br><span class="line">    socklen_t clnt_addr_size = sizeof(clnt_addr);</span><br><span class="line">    int clnt_sock = accept(serv_sock, (struct sockaddr*)&amp;clnt_addr, &amp;clnt_addr_size);</span><br><span class="line">    char str[] = &quot;Hello World!&quot;;</span><br><span class="line">    //write() 函数用来向套接字文件中写入数据，也就是向客户端发送数据</span><br><span class="line">    write(clnt_sock, str, sizeof(str));</span><br><span class="line">       </span><br><span class="line">    //关闭套接字</span><br><span class="line">    close(clnt_sock);</span><br><span class="line">    close(serv_sock);</span><br><span class="line">    return 0;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>socket() 函数确定了套接字的各种属性，bind() 函数让套接字与特定的IP地址和端口对应起来，这样客户端才能连接到该套接字。</p>
 <p>客户端代码client.cpp：</p>
@@ -316,12 +319,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】C++学习笔记">
-      <i class="fa fa-chevron-left"></i> 【笔记】C++学习笔记
+    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Linux学习笔记">
+      <i class="fa fa-chevron-left"></i> 【笔记】Linux学习笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="【工具】图数据库Neo4j和py2neo库的使用">
-      【工具】图数据库Neo4j和py2neo库的使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Echarts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="【工具】Django框架及结合Echarts库的使用">
+      【工具】Django框架及结合Echarts库的使用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -381,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81Socket%E4%B8%BB%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="nav-text">一、Socket主要概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Linux%E4%B8%8B%E7%9A%84socket%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">二、Linux下的socket代码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALinux%E7%9A%84socket%E7%A8%8B%E5%BA%8F"><span class="nav-text">三、实现一个Linux的socket程序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Socket%E4%B8%BB%E8%A6%81%E6%A6%82%E5%BF%B5-1"><span class="nav-text">一、Socket主要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-text">端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="nav-text">常用数据传输方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows%E5%92%8CLinux%E4%B8%8Bsocket%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Windows和Linux下socket的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Linux%E4%B8%8B%E7%9A%84socket%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90-1"><span class="nav-text">二、Linux下的socket代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E5%88%9B%E5%BB%BAsocket-%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0"><span class="nav-text">Linux创建socket()程序的核心函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#socket-%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%A5%97%E6%8E%A5%E5%AD%97-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%A5%97%E6%8E%A5%E5%AD%97-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFint-serv-sock%EF%BC%8C%E5%AE%A2%E6%88%B7%E7%AB%AF-int-sock"><span class="nav-text">socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84bind-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的bind()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93sockaddr-in"><span class="nav-text">结构体sockaddr_in</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93in-addr"><span class="nav-text">结构体in_addr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%87%E7%94%A8sockaddr-in%E5%BC%BA%E8%BD%AC%E6%88%90sockaddr%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">采用sockaddr_in强转成sockaddr形式的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84connect-%E5%87%BD%E6%95%B0"><span class="nav-text">客户端的connect()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84listen-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的listen()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84accept-%E5%87%BD%E6%95%B0-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%A5%97%E6%8E%A5%E5%AD%97-int-clnt-sock"><span class="nav-text">服务器端的accept()函数-返回一个套接字(int clnt_sock &#x3D;)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84write-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的write()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84read-%E5%87%BD%E6%95%B0"><span class="nav-text">客户端的read()函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALinux%E7%9A%84socket%E7%A8%8B%E5%BA%8F-1"><span class="nav-text">三、实现一个Linux的socket程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A01%EF%BC%9A%E5%9B%9E%E5%A3%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">附加1：回声客户端的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A02%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">附加2：迭代服务器端和客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Socket%E4%B8%BB%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="nav-text">一、Socket主要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-text">端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="nav-text">常用数据传输方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows%E5%92%8CLinux%E4%B8%8Bsocket%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Windows和Linux下socket的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Linux%E4%B8%8B%E7%9A%84socket%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">二、Linux下的socket代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E5%88%9B%E5%BB%BAsocket-%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%A0%B8%E5%BF%83%E5%87%BD%E6%95%B0"><span class="nav-text">Linux创建socket()程序的核心函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#socket-%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%A5%97%E6%8E%A5%E5%AD%97-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%A5%97%E6%8E%A5%E5%AD%97-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFint-serv-sock%EF%BC%8C%E5%AE%A2%E6%88%B7%E7%AB%AF-int-sock"><span class="nav-text">socket()函数创建套接字-返回一个套接字(服务器端int serv_sock，客户端 int sock)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84bind-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的bind()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93sockaddr-in"><span class="nav-text">结构体sockaddr_in</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93in-addr"><span class="nav-text">结构体in_addr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%87%E7%94%A8sockaddr-in%E5%BC%BA%E8%BD%AC%E6%88%90sockaddr%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">采用sockaddr_in强转成sockaddr形式的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84connect-%E5%87%BD%E6%95%B0"><span class="nav-text">客户端的connect()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84listen-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的listen()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84accept-%E5%87%BD%E6%95%B0-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%A5%97%E6%8E%A5%E5%AD%97-int-clnt-sock"><span class="nav-text">服务器端的accept()函数-返回一个套接字(int clnt_sock &#x3D;)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84write-%E5%87%BD%E6%95%B0"><span class="nav-text">服务器端的write()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84read-%E5%87%BD%E6%95%B0"><span class="nav-text">客户端的read()函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALinux%E7%9A%84socket%E7%A8%8B%E5%BA%8F"><span class="nav-text">三、实现一个Linux的socket程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A01%EF%BC%9A%E5%9B%9E%E5%A3%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">附加1：回声客户端的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A02%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">附加2：迭代服务器端和客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -397,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -410,7 +413,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -458,8 +461,31 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约16.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约25.4k字</span>
 </div>
+
+<br/>
+
+    <!-- 网站运行时间的设置 -->
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>  
+    <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("06/17/2021 18:03:00");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站建立于2021年06月17日，已安全运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+
         
 
 

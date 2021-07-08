@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录Django框架Echarts库Django框架初始文件介绍1234567templates &#x2F;&#x2F;HTML文件安置目录__init__.py &#x2F;&#x2F;空文件asgi.py &#x2F;&#x2F;异步settings.py &#x2F;&#x2F;主配置文件urls.py &#x2F;&#x2F;主路由文件wsgi.py &#x2F;&#x2F;网关接口manage.py &#x2F;&#x2F;项目管理脚本  一个简单的Django程序一、新建一个APP在每个Django项目中可能会包含多个A">
+  <meta name="description" content="1.TCP&#x2F;IP中包含一系列通信协议  TCP传输控制协议：应用程序之间通信 UDP用户数据包协议：应用程序之间简单通信 IP网际协议：计算机之间通信 ICMP因特网消息控制协议：针对错误和状态 DHCP动态主机配置协议：针对动态寻址  2.TCP使用固定连接  某应用程序发送一个通信请求，该请求必须被送到一个确定的地址 双方“握手” TCP在两个应用程序之间建立一个全双工的通信(半双工是双发可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【工具】Django框架及结合Echarts库的使用">
-<meta property="og:url" content="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Pycharts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
-<meta property="og:site_name" content="Kenway&#39; Blog">
-<meta property="og:description" content="目录Django框架Echarts库Django框架初始文件介绍1234567templates &#x2F;&#x2F;HTML文件安置目录__init__.py &#x2F;&#x2F;空文件asgi.py &#x2F;&#x2F;异步settings.py &#x2F;&#x2F;主配置文件urls.py &#x2F;&#x2F;主路由文件wsgi.py &#x2F;&#x2F;网关接口manage.py &#x2F;&#x2F;项目管理脚本  一个简单的Django程序一、新建一个APP在每个Django项目中可能会包含多个A">
+<meta property="og:title" content="【笔记】计算机网络笔记">
+<meta property="og:url" content="http://kenway-20.github.io/2021/07/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Kenway&#39;s Blog">
+<meta property="og:description" content="1.TCP&#x2F;IP中包含一系列通信协议  TCP传输控制协议：应用程序之间通信 UDP用户数据包协议：应用程序之间简单通信 IP网际协议：计算机之间通信 ICMP因特网消息控制协议：针对错误和状态 DHCP动态主机配置协议：针对动态寻址  2.TCP使用固定连接  某应用程序发送一个通信请求，该请求必须被送到一个确定的地址 双方“握手” TCP在两个应用程序之间建立一个全双工的通信(半双工是双发可以">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-01T16:00:00.000Z">
+<meta property="article:published_time" content="2021-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-07T16:00:00.000Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Pycharts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="http://kenway-20.github.io/2021/07/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>【工具】Django框架及结合Echarts库的使用 | Kenway' Blog</title>
+  <title>【笔记】计算机网络笔记 | Kenway's Blog</title>
   
 
 
@@ -98,7 +99,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Kenway' Blog</h1>
+      <h1 class="site-title">Kenway's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -163,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Pycharts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -172,11 +173,11 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway' Blog">
+      <meta itemprop="name" content="Kenway's Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【工具】Django框架及结合Echarts库的使用
+          【笔记】计算机网络笔记
         </h1>
 
         <div class="post-meta">
@@ -186,15 +187,22 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+              <time title="创建时间：2021-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-07T00:00:00+08:00">2021-07-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-08 00:00:00" itemprop="dateModified" datetime="2021-07-08T00:00:00+08:00">2021-07-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
                 </span>
             </span>
 
@@ -209,29 +217,113 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h4 id="Django框架"><a href="#Django框架" class="headerlink" title="Django框架"></a>Django框架</h4><h4 id="Echarts库"><a href="#Echarts库" class="headerlink" title="Echarts库"></a>Echarts库</h4><h2 id="Django框架-1"><a href="#Django框架-1" class="headerlink" title="Django框架"></a>Django框架</h2><h3 id="初始文件介绍"><a href="#初始文件介绍" class="headerlink" title="初始文件介绍"></a>初始文件介绍</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">templates //HTML文件安置目录</span><br><span class="line">__init__.py //空文件</span><br><span class="line">asgi.py //异步</span><br><span class="line">settings.py //主配置文件</span><br><span class="line">urls.py //主路由文件</span><br><span class="line">wsgi.py //网关接口</span><br><span class="line">manage.py //项目管理脚本</span><br></pre></td></tr></table></figure>
-
-<h3 id="一个简单的Django程序"><a href="#一个简单的Django程序" class="headerlink" title="一个简单的Django程序"></a>一个简单的Django程序</h3><h4 id="一、新建一个APP"><a href="#一、新建一个APP" class="headerlink" title="一、新建一个APP"></a>一、新建一个APP</h4><p>在每个Django项目中可能会包含多个APP，APP共享项目资源</p>
-<p>在Pycharm下方的Terminal中输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py start login</span><br></pre></td></tr></table></figure>
-
+        <p>1.TCP/IP中包含一系列通信协议</p>
+<ul>
+<li>TCP传输控制协议：应用程序之间通信</li>
+<li>UDP用户数据包协议：应用程序之间简单通信</li>
+<li>IP网际协议：计算机之间通信</li>
+<li>ICMP因特网消息控制协议：针对错误和状态</li>
+<li>DHCP动态主机配置协议：针对动态寻址</li>
+</ul>
+<p>2.TCP使用固定连接</p>
+<ul>
+<li>某应用程序发送一个通信请求，该请求必须被送到一个确定的地址</li>
+<li>双方“握手”</li>
+<li>TCP在两个应用程序之间建立一个全双工的通信(半双工是双发可以互发，但同一时间只能有一个互发)，这个通信将占用两个计算机之间的通信线路</li>
+</ul>
+<p>(UDP与TCP相似，但更简单，可靠性也更低)</p>
 <span id="more"></span>
 
-<p>表示创建一个叫做login的APP，最好在settings.py的INSTALLEN_APPS中也添加一个’login’</p>
-<h4 id="二、编写路由-在urls-py中编写"><a href="#二、编写路由-在urls-py中编写" class="headerlink" title="二、编写路由(在urls.py中编写)"></a>二、编写路由(在urls.py中编写)</h4><ul>
-<li>先在头部加入以下代码，表示导入login APP中的views文件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from login import views</span><br></pre></td></tr></table></figure></li>
-<li>然后在urlpatterns里添加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path(&#x27;index/&#x27;, views.index),</span><br></pre></td></tr></table></figure></li>
+<p>3.IP是无连接的：</p>
+<ul>
+<li>IP不会占用计算机之间的通信线路；</li>
+<li>通过IP，数据被分割为小的独立的包，并通过因特网在计算机之间传送；</li>
 </ul>
-<h4 id="三、编写视图函数-在login-views-py中编写"><a href="#三、编写视图函数-在login-views-py中编写" class="headerlink" title="三、编写视图函数(在login/views.py中编写)"></a>三、编写视图函数(在login/views.py中编写)</h4><ul>
-<li>先在头部加入以下代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from django.shortcuts import HttResponse</span><br></pre></td></tr></table></figure></li>
-<li>编写上一步路由中调用的index函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def index(request):</span><br><span class="line">    return HttpResponse(&quot;Hello, it&#x27;s me!&quot;) </span><br><span class="line"></span><br><span class="line"># 参数是固定格式，request参数封装了用户请求的所有内容</span><br><span class="line"># 字符串不能直接返回，要由HttpResonse类封装起来才能被HTTP协议识别</span><br></pre></td></tr></table></figure></li>
+<p>4.IP路由器：</p>
+<ul>
+<li>当一个IP包从一台计算机被发送，它会到达一个IP路由器，然后由IP路由器负责将这个包路由至它的目的地，过程中还可能会经过其他的路由器</li>
+<li>在一个相同的通信中，一个包所经由的路径可能会和其他的包不同，而路由器负责根据通信量、网络中的错误或其他参数来进行正确寻址</li>
 </ul>
-<h4 id="四、启动Web服务"><a href="#四、启动Web服务" class="headerlink" title="四、启动Web服务"></a>四、启动Web服务</h4><p>启动有两种方法：</p>
-<ol>
-<li>命令行输入python manage.py runserver 127.0.0.1:8000</li>
-<li>在Pycharm中，点击右上角edit configurations，配置host为127.0.0.1，port为8000后，点击绿色三角启动</li>
-</ol>
-<h2 id="Echarts库-1"><a href="#Echarts库-1" class="headerlink" title="Echarts库"></a>Echarts库</h2>
+<p>5.TCP/IP工作协同:</p>
+<ul>
+<li>TCP负责应用软件和网络软件之间的通信，IP负责计算机之间的通信</li>
+<li>TCP负责将数据分割成IP包，在它们到达时再重新组合，IP负责将包发送到接受者</li>
+</ul>
+<p>6.TCP/IP用4个数字来作为计算机编址:XXX.XXX.XXX.XXX(每个XXX在0~255之间，因为每个XXX用8位二进制表示)</p>
+<ul>
+<li>每个计算机必须有一个IP地址才能连入因特网</li>
+<li>每个IP包必须有一个地址才能发送到另一台计算机</li>
+</ul>
+<p>7.域名的存在是为了方便记忆，域名要经过DNS程序翻译成数字形式的TCP/IP地址</p>
+<p>当一个新的域名连同TCP/IP地址一起注册后，全世界的DNS服务器都会对此信息进行更新</p>
+<p>8.一个电子邮件程序使用的TCP/IP协议:</p>
+<ul>
+<li>使用SMTP来发送邮件</li>
+<li>使用IMAP连接到邮件服务器</li>
+<li>使用POP从邮件服务器下载邮件</li>
+</ul>
+<p>9.OSI七层模型</p>
+<ul>
+<li>应用层：<ul>
+<li>提供网络服务接口</li>
+<li>FTP、Telnet、DNS、SMTP、POP、HTTP协议</li>
+</ul>
+</li>
+<li>表示层：规范数据格式</li>
+<li>会话层：管理会话</li>
+<li>传输层：<ul>
+<li>网关</li>
+<li>TCP、UDP协议</li>
+</ul>
+</li>
+<li>网络层：<ul>
+<li>数据单位为IP数据报</li>
+<li>寻址、选路由、连接的建立保持与终止</li>
+<li>IP、ICMP、ARP、RARP协议</li>
+</ul>
+</li>
+<li>数据链路层：<ul>
+<li>数据单位为帧</li>
+<li>网桥、交换机、网卡</li>
+<li>以太网协议</li>
+</ul>
+</li>
+<li>物理层：提供物理媒体中继器、集线器</li>
+</ul>
+<p>TCP/IP 5层模型：应用层、传输层、网络层、数据链路层、物理层</p>
+<p>TCP/IP 4层模型：应用层、传输层、网络层、网络接口层</p>
+<p>10.ARP/RARP协议：是一个根据IP地址获取物理地址的协议，ARP命令可用于查询本机ARP缓存中IP地址和MAC地址的对应关系或进行修改</p>
+<ul>
+<li>ARP缓存中会保存当前网络上所有主机IP地址与物理地址的对应信息，有生存期</li>
+<li>ARP解析会先检查ARP缓存，缓存中没有再去访问IP地址对应的硬件地址并广播ARP请求帧，找到后还会更新缓存</li>
+<li>RARP与ARP相反：将局域网某个主机的物理地址转换为IP地址</li>
+</ul>
+<p>11.TCP负责发现传输问题，一旦有异常就发信号要求重新传输，还采用滑动窗口的方式进行流量限制</p>
+<ul>
+<li>三次握手<ul>
+<li>Client发送请求报文SYN</li>
+<li>Server接受后发送SYN+ACK</li>
+<li>Client接受后发送ACK</li>
+</ul>
+</li>
+</ul>
+<p>为什么是三次握手？</p>
+<p>答：三次握手是为了确保双方都知道彼此都已经准备好。若改为两次握手的话，在Server发送SYN+ACK出去时就已经满足，但这个SYN+ACK可能会在中途丢失，导致Client不知道Server是否准备好，从而一直在等待形成死锁。而三次握手的话，即使最后一次Client发送的ACK丢失也不受影响</p>
+<ul>
+<li>四次挥手<ul>
+<li>Client发送中断连接请求报文FIN并进入FIN_WAIT状态</li>
+<li>Server接受后发送ACK(此时仍在传数据)，Client进入FIN_WAIT状态(第二次)</li>
+<li>Server发送中断报文FIN</li>
+<li>Client收到后发送ACK，并进入TIME_WAIT状态(进入该状态后2msl默认4分钟后会中断连接)</li>
+</ul>
+</li>
+</ul>
+<p>为什么是四次挥手?</p>
+<p>答：因为发送端提出FIN报文后，接收端很有可能还有数据未传完，因此先回一个ACK，然后传完数据后再回FIN，因此比三次握手额外多一步操作</p>
+<p>TIME_WAIT状态的意义是什么?</p>
+<p>答：TIME_WAIT是以防第四次挥手的ACK中途丢失而导致Server不知道要关闭连接，所以Client会在此状态多等2msl，在此期间若没有收到Server发送过来的回复则表明Server收到了ACK，明白此时关闭连接是安全的再关闭连接</p>
+<p>(ps：在连接建立与关闭的过程中，TCP具有超时重传机制，即若该端规定时间内没有收到预期报文，它会默认上一次自己发送的报文丢失从而再重新发一次)</p>
+
     </div>
 
     
@@ -241,7 +333,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> 基础知识</a>
           </div>
 
         
@@ -253,7 +346,10 @@
     <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="【工具】图数据库Neo4j和py2neo库的使用">
       <i class="fa fa-chevron-left"></i> 【工具】图数据库Neo4j和py2neo库的使用
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】操作系统笔记">
+      【笔记】操作系统笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -312,7 +408,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Django%E6%A1%86%E6%9E%B6"><span class="nav-text">Django框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Echarts%E5%BA%93"><span class="nav-text">Echarts库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django%E6%A1%86%E6%9E%B6-1"><span class="nav-text">Django框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">初始文件介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Django%E7%A8%8B%E5%BA%8F"><span class="nav-text">一个简单的Django程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAAPP"><span class="nav-text">一、新建一个APP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E5%86%99%E8%B7%AF%E7%94%B1-%E5%9C%A8urls-py%E4%B8%AD%E7%BC%96%E5%86%99"><span class="nav-text">二、编写路由(在urls.py中编写)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BC%96%E5%86%99%E8%A7%86%E5%9B%BE%E5%87%BD%E6%95%B0-%E5%9C%A8login-views-py%E4%B8%AD%E7%BC%96%E5%86%99"><span class="nav-text">三、编写视图函数(在login&#x2F;views.py中编写)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%90%AF%E5%8A%A8Web%E6%9C%8D%E5%8A%A1"><span class="nav-text">四、启动Web服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Echarts%E5%BA%93-1"><span class="nav-text">Echarts库</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -328,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -341,7 +436,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -389,8 +484,31 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约16.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约25.4k字</span>
 </div>
+
+<br/>
+
+    <!-- 网站运行时间的设置 -->
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>  
+    <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("06/17/2021 18:03:00");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站建立于2021年06月17日，已安全运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+
         
 
 

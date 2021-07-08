@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="C++中主程序要写成123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了  且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告">
+  <meta name="description" content="1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个数据集上的程序执行，是一个动态实">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【笔记】C++学习笔记">
-<meta property="og:url" content="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="【笔记】操作系统笔记">
+<meta property="og:url" content="http://kenway-20.github.io/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39;s Blog">
-<meta property="og:description" content="C++中主程序要写成123int main()&amp;#123;    return 0；&amp;#125; 不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了  且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告">
+<meta property="og:description" content="1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个数据集上的程序执行，是一个动态实">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-29T16:00:00.000Z">
+<meta property="article:published_time" content="2021-07-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-07T16:00:00.000Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://kenway-20.github.io/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>【笔记】C++学习笔记 | Kenway's Blog</title>
+  <title>【笔记】操作系统笔记 | Kenway's Blog</title>
   
 
 
@@ -163,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -176,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【笔记】C++学习笔记
+          【笔记】操作系统笔记
         </h1>
 
         <div class="post-meta">
@@ -186,7 +187,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-30T00:00:00+08:00">2021-06-30</time>
+              <time title="创建时间：2021-07-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-08T00:00:00+08:00">2021-07-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -194,7 +195,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
                 </span>
             </span>
 
@@ -209,48 +210,150 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li>C++中主程序要写成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    return 0；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了</li>
-</ol>
-<p>且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告</p>
+        <p>1.进程与线程的区别</p>
+<ul>
+<li>构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址)</li>
+<li>功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位</li>
+<li>开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小</li>
+</ul>
+<p>2.程序是一组指令的集合，是一个静态实体；</p>
+<p>进程则是某个数据集上的程序执行，是一个动态实体；</p>
+<p>运行的程序至少会有一个进程</p>
 <span id="more"></span>
 
-<ol start="2">
-<li><p>memset()用于填充字符串,原型是void *memset(void *str, int c, size_t n)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">char str[50];</span><br><span class="line"> </span><br><span class="line">strcpy(str,&quot;This is string.h library function&quot;);</span><br><span class="line"># str = &quot;This is string.h library function&quot;</span><br><span class="line"> </span><br><span class="line">memset(str,&#x27;$&#x27;,7);</span><br><span class="line"># str = &quot;$$$$$$$ string.h library function&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>(struct 类型名*)&amp;变量名表示把该变量强转成该类型</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># serv_addr是sockaddr_in类型的变量</span><br><span class="line">struct sockaddr_in serv_addr;</span><br><span class="line"># 第二个参数传进去的实际是sockaddr类型</span><br><span class="line">bind(serv_sock, (struct sockaddr*)&amp;serv_addr, sizeof(serv_addr))</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>4.GCC中有gcc(c编译器)和g++(c++编译器)</p>
+<p>3.操作系统的储存:</p>
 <ul>
-<li>后缀为.c的文件，gcc当成c文件处理，g++当成c++处理</li>
-<li>在编译阶段，g++会自动链接STL库，而gcc不会</li>
-<li>gcc在编译c文件时，可用的预定义宏是比较少的 </li>
+<li>容量从大到小：硬盘、内存、缓存、寄存器</li>
+<li>速度从快到慢：寄存器、缓存、内存、硬盘</li>
 </ul>
-<p>5.数组元素个数一般用nums.size()，使用sizeof(nums)/sizeof(int)的形式在某些时刻不保险</p>
-<p>6.队列的两种实现形式</p>
+<p>即容量越小速度越快</p>
+<p>4.操作系统的寻址操作</p>
 <ul>
-<li>使用循环数组</li>
-<li>使用链表</li>
+<li>首先根据指针访问进程中的逻辑地址(逻辑地址是虚拟的)</li>
+<li>由逻辑地址解析得到物理内存中的地址(但这个地址也可能是系统虚拟处理的内存，以分页的形式存放在物理内存中)</li>
+<li>将该地址拿给CPU的寄存器处理</li>
 </ul>
-<p>7.sort()自定排序规则</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end(), [](xx a, xxb)&#123;</span><br><span class="line">    语句规则</span><br><span class="line">&#125;);</span><br><span class="line"># xx是a、b的类型名</span><br><span class="line"># 语句规则return true时表示不变，return false表示会交换a、b的位置</span><br></pre></td></tr></table></figure>
+<p>5.进程间的通信方式</p>
+<ul>
+<li>共享内存：两进程共享一块内存，该内存上数据可以共同修改和读取</li>
+<li>管道通信：实现进程间通信的一种共享文件，用于连接一个读进程和一个写进程</li>
+<li>消息队列：是消息的链表，有标识符标记并存在内核中</li>
+<li>套接字(socket)：是网络编程的api，通过它可实现不同机器、不同进程之间的通信</li>
+<li>信号：操作系统通过信号来通知进程系统中发生某种预先规定好的事件</li>
+</ul>
+<p>6.线程同步的方式</p>
+<ul>
+<li>互斥量：采用互斥对象机制，只有拥有互斥对象的线程才被允许访问公共资源，因为互斥对象只有一个所以保证了同一时间只有一个线程访问</li>
+<li>信号量：运行同一时刻多个线程访问同一资源，但需要控制允许的最大线程数量</li>
+<li>事件(信号)：通过通知操作的方式来保持多线程同步，还可以方便实现多线程优先级的比较</li>
+<li>临界区：通过对多线程的串行化来访问公共资源，速度快</li>
+</ul>
+<p>7.进程的三种状态</p>
+<ul>
+<li>运行状态</li>
+<li>就绪状态(等待被调度使用CPU的运行权)</li>
+<li>阻塞状态</li>
+</ul>
+<p>8.线程的六种状态</p>
+<ul>
+<li>初始：还没有调用start()方法</li>
+<li>运行</li>
+<li>阻塞：线程阻塞于锁</li>
+<li>等待：等待其他线程做出一些特定动作</li>
+<li>超时等待：在超过时间后会自动返回</li>
+<li>终止：表示该线程已执行完毕</li>
+</ul>
+<p>9.CPU的调度算法</p>
+<ul>
+<li>先来先服务：先来的先执行</li>
+<li>短作业优先：运行完成当前作业会去找最短的作业执行(这个短的由用户定义，实际不一定短)</li>
+<li>时间片轮转：设定一个时间片大小，把任务分割成n部分，选取等待时间最长的先执行</li>
+</ul>
+<p>10.死锁：指两个或两个以上的进程在执行过程中，由于竞争资源或由于彼此通信而造成的阻塞，若无外力作用无法推进下去</p>
+<p>产生条件</p>
+<ul>
+<li>互斥条件：一段时间内某资源只能由一个进程占有</li>
+<li>请求和保持：进程已经占有至少一个资源，但又对其他进程占有的资源提出要求，此时进程阻塞，但又对已经获得的资源保持不放</li>
+<li>不可抢占：进程已获得的资源，在它使用完之前不能剥夺</li>
+<li>环路条件：在一个环形链中，每个进程都在等待一个被占用的资源</li>
+</ul>
+<p>死锁处理方法</p>
+<ul>
+<li>鸵鸟策略(大部分采用)：直接忽略死锁</li>
+<li>预防死锁<ul>
+<li>破坏互斥，让资源静态分配可以共享使用(一般无法破坏)</li>
+<li>破坏请求与保持，规定所有进程在它们执行之前要请求所有它们需要的资源</li>
+<li>破坏不可抢占，让高优先级可以剥夺低优先级的资源</li>
+<li>破坏环路：给资源编号，按顺序申请资源</li>
+</ul>
+</li>
+<li>避免死锁：安全序列、银行家算法</li>
+<li>检测和接触死锁<ul>
+<li>一次消除与不阻塞进程相连的边，最后剩下的就是出现死锁的进程(也叫资源分配图)</li>
+<li>资源剥夺、终止进程、进程回退</li>
+</ul>
+</li>
+</ul>
+<p>11.操作系统的四个特性</p>
+<ul>
+<li>并发：同一段时间内多个程序执行(并行指的是同一时刻)</li>
+<li>共享：系统中资源可以被内存中多个并发执行的进程共同使用</li>
+<li>虚拟：通过时分复用(分时系统)以及空分复用(虚拟内存)实现把一个物理实体虚拟成多个虚拟实体</li>
+<li>异步：系统中的进程以走走停停方式执行，且以一种不可预知的速度推进</li>
+</ul>
+<p>12.操作系统主要功能</p>
+<ul>
+<li>处理机管理</li>
+<li>存储器管理(又叫内存管理)</li>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>提供用户接口</li>
+</ul>
+<p>13.什么是内存?</p>
+<p>答：内存是一种高速存储设备，仅次于寄存器和缓存。因为CPU处理速度与外存读取程序速度存在差异，所以程序执行前要先放入内存后再被CPU处理，内存用于缓和CPU与外存的速度矛盾，提高CPU利用率</p>
+<p>14.采用段页式存储，将进程按逻辑模块分段，再将各段分页，将内存空间分为大小相同的页框，将程序按页装入页框，分页分段都是为虚拟内存服务的。</p>
+<ul>
+<li>分页：指将内存空间分为一个个大小相等的分区，每个分区叫页框(一般为1kb)，将用户进程的地址空间分为与页框相等的一个个称为页的区域。<ul>
+<li>进程的每一个页都要放入一个页框里</li>
+<li>程序使用的仍是逻辑地址，通过页表地址加页内偏移才能得到物理地址</li>
+</ul>
+</li>
+<li>分段：指程序按自身逻辑关系划分为若干段，例如代码段、数据段、堆栈段</li>
+<li>分页和分段区别<ul>
+<li>分页是系统为利用内存空间，将程序按页装入内存，是系统行为；分段是按程序逻辑意义划分，要用户来划分每个段</li>
+<li>页的大小是固定的，段的大小则取决于用户编写的程序</li>
+<li>分页是一维地址空间，分段是二维地址空间(即第0页最后一个地址与第1页第一个地址是连续的，而段号0最后一个地址与段号1第一个地址不是连续的)</li>
+</ul>
+</li>
+<li>缺页中断：当前指令想要访问的页面没有调入内存，而发生的中断</li>
+</ul>
+<p>15.页面置换算法</p>
+<ul>
+<li>最佳置换算法(OPT)：每次淘汰的页面都是最长时间内不再被访问的页面，保证最低缺页率(但因为一般无法预知页面访问序列，因此无法实现)</li>
+<li>先进先出算法(FIFO)：每次淘汰的页面都是最早进入内存的页面(较简单，性能较差)</li>
+<li>最近最久未使用置换算法(LRU)：每次淘汰的页面都是最近最久未使用的页面<ul>
+<li>数组实现：用一个数组来存数据，每个数据有一个时间戳t，插入时将新数据t设为0，旧数据t加1，访问时将被访问数据t设为0，满内存时删除t最大的数据</li>
+<li>链表实现：插入时放在首部，访问时放在首部，满内存时删除最末尾的数据</li>
+</ul>
+</li>
+<li>时钟置换算法(CLOCK)：为每个页面加一个访问位(0为最近未访问，1为最近访问)，淘汰时先淘汰访问位为0的，遇到1就把它改为0，下一次循环遍历到再淘汰(淘汰一个页面最多两次扫描)<ul>
+<li>改进型：再多加一个修改位，即每个页面有(访问位，修改位)，淘汰顺序(0,0)&gt;(0,1)&gt;(1,0)&gt;(1,1),没有一个(0,0)时才淘汰一个(0,1)以此类推(淘汰一个页面最多四次扫描)</li>
+</ul>
+</li>
+</ul>
+<p>16.磁盘寻址</p>
+<ul>
+<li>根据“柱面号”移动磁壁，让磁头指向指定柱面</li>
+<li>激活指定盘面对应的磁头</li>
+<li>磁盘旋转过程中，指定的扇区会从磁头下面划过，完成对其的读写</li>
+</ul>
+<p>磁盘调度算法</p>
+<ul>
+<li>先来先服务：按磁盘请求顺序进行调度</li>
+<li>最短寻找时间优先：优先处理与当前磁头最近的磁道，易出现饥饿现象(最后两个磁道相距极远)</li>
+<li>电梯算法：优先处理与当前磁头最近的磁道，但磁头移动方向固定，只能一直往外侧磁道移，移到最外后只能一直往内侧磁道移，降低饥饿现象</li>
+</ul>
 
-<p>8.二维vector的初始化</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 第一种</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; nums(n,vector(m));</span><br><span class="line"># 第二种</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; nums;</span><br><span class="line">for(int i = 0; i &lt; m ; i++)&#123;</span><br><span class="line">    nums.push_back(vector&lt;int&gt;());</span><br><span class="line">    for(int j = 0; j &lt; n; j++)&#123;</span><br><span class="line">        nums[i].push_back(0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>9.使用以下形式赋vector初值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; hash = vector&lt;int&gt; (1000, 1);</span><br></pre></td></tr></table></figure>
-<p>可以避免产生歧义而编译不通过</p>
-<p>10.哈希表特殊用法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unordered_map &lt;TreeNode*, int&gt; f;</span><br></pre></td></tr></table></figure>
-<p>则有f[root]是一个int值，root是一个树节点指针</p>
-<p>11.数组用==、!=会比较首内存地址(即是不是指向同一内存)，而vector数组就可以用==、!=比较数组中包含的元素是否一样</p>
-<p>12.栈stack:push(), top(), pop(), empty(), size()</p>
-<p>队列queue:push(), front(), pop(), empty(), size()</p>
-<p>13.字符串find函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str=&quot;ABCDE&quot;;</span><br><span class="line">int idx = str.find(&#x27;E&#x27;, 0)</span><br><span class="line"># 0表示从str下标为0的位置往后开始查找</span><br><span class="line"># idx = 4</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -260,7 +363,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
-              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> 基础知识</a>
           </div>
 
         
@@ -269,13 +373,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/29/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Clion%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="prev" title="【工具】Clion环境搭建">
-      <i class="fa fa-chevron-left"></i> 【工具】Clion环境搭建
+    <a href="/2021/07/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】计算机网络笔记">
+      <i class="fa fa-chevron-left"></i> 【笔记】计算机网络笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Linux学习笔记">
-      【笔记】Linux学习笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
