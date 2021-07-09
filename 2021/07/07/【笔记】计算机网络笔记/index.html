@@ -28,7 +28,7 @@
 <meta property="og:description" content="1.TCP&#x2F;IP中包含一系列通信协议  TCP传输控制协议：应用程序之间通信 UDP用户数据包协议：应用程序之间简单通信 IP网际协议：计算机之间通信 ICMP因特网消息控制协议：针对错误和状态 DHCP动态主机配置协议：针对动态寻址  2.TCP使用固定连接  某应用程序发送一个通信请求，该请求必须被送到一个确定的地址 双方“握手” TCP在两个应用程序之间建立一个全双工的通信(半双工是双发可以">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-08T16:00:00.000Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
 <meta property="article:tag" content="记录">
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-08 00:00:00" itemprop="dateModified" datetime="2021-07-08T00:00:00+08:00">2021-07-08</time>
+                <time title="修改时间：2021-07-09 00:00:00" itemprop="dateModified" datetime="2021-07-09T00:00:00+08:00">2021-07-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,6 +323,81 @@
 <p>TIME_WAIT状态的意义是什么?</p>
 <p>答：TIME_WAIT是以防第四次挥手的ACK中途丢失而导致Server不知道要关闭连接，所以Client会在此状态多等2msl，在此期间若没有收到Server发送过来的回复则表明Server收到了ACK，明白此时关闭连接是安全的再关闭连接</p>
 <p>(ps：在连接建立与关闭的过程中，TCP具有超时重传机制，即若该端规定时间内没有收到预期报文，它会默认上一次自己发送的报文丢失从而再重新发一次)</p>
+<p>12.TCP长连接</p>
+<ul>
+<li>Client与Server先建立连接，建立后不断开，再进行报文传递，适用于操作频繁的通讯，可节省资源</li>
+<li>缺点是连接不关闭，随着Client数量增多，Server的负载承受不住</li>
+</ul>
+<p>TCP短连接</p>
+<ul>
+<li>每进行一次报文收发交易才通讯连接，交易完毕后立即断开，即存在的连接都是有效连接</li>
+<li>缺点是若操作频繁则会浪费时间、带宽</li>
+</ul>
+<p>13.TCP的拥塞控制</p>
+<ul>
+<li>发送方维护cwnd变量用来表示拥塞窗口<ul>
+<li>没有出现拥塞，cwnd增大</li>
+<li>出现拥塞，cwnd减小</li>
+</ul>
+</li>
+<li>发送方将当前拥塞窗口大小作为发送窗口大小，即swnd = cwnd</li>
+<li>发送方维护一个慢开始门限ssthresh<ul>
+<li>cwnd &lt; ssthresh时，采用慢开始算法</li>
+<li>cwnd = ssthresh时，采用两种算法都可以</li>
+<li>cwnd &gt; ssthresh时，采用拥塞避免算法 </li>
+</ul>
+</li>
+<li>拥塞控制的四种特性<ul>
+<li>慢开始算法：先发1，确认后发2，再确认后发4…(乘2)</li>
+<li>拥塞避免算法：先发1，确认后发2，再确认后发3…(线性加1)</li>
+<li>快速重传：收到连续3个重复确认后，立即重传(避免等RTO超时重传)</li>
+<li>快速恢复：收到连续3个重复确认后，将当前ssthresh和cwnd减半，并执行拥塞避免算法</li>
+</ul>
+</li>
+</ul>
+<p>14.TCP靠什么保证数据传输可靠?</p>
+<ul>
+<li>校验和：数据段当做整数加起来，进位补在末尾，最后取反</li>
+<li>序列号：每个字节的数据都有编号</li>
+<li>确认应答：有ACK报文机制</li>
+<li>超时重传</li>
+<li>连接管理：三次握手、四次挥手</li>
+<li>流量控制：滑动窗口，根据接受端能力决定发送速度</li>
+<li>拥塞控制</li>
+</ul>
+<p>15.TCP如何解决粘包、拆包问题？</p>
+<ul>
+<li>给数据包添加包首部，首部至少包括包的长度</li>
+<li>将数据包封装为固定长度，不够长的用0填充</li>
+<li>在数据包之间设置边界，如添加特殊符号</li>
+</ul>
+<p>16.UDP协议是面向无连接的通讯协议，UDP数据包括目的端口号和源端口号，由于通讯不需要连接，所以可以实现广播发送</p>
+<ul>
+<li>使用UDP协议的有:TFTP、SNMP、DNS、NFS、BOOTP</li>
+<li>TCP与UDP区别<ul>
+<li>TCP面向连接，是可靠的字节流服务</li>
+<li>UDP面向无连接，是不可靠的数据报服务</li>
+</ul>
+</li>
+<li>如何用UDP实现TCP可靠传输(已有的UDP可靠传输RUDP、RTP、UDT)<ul>
+<li>添加seq/ack机制(seq是序号)</li>
+<li>添加发送和接受缓冲区，实现超时重传条件</li>
+<li>添加超时重传机制</li>
+</ul>
+</li>
+</ul>
+<p>17.ip地址是ip协议提供的统一地址格式，为互联网上每个网络、每台主机分配的一个逻辑地址，由网络号和主机号组成(主机号为0的ip地址表示网络地址)</p>
+<p>什么是子网掩码?</p>
+<p>答：子网掩码用来识别两个IP地址是否同属于一个子网，1表示网络位，0表示主机位。若两IP地址与子网掩码经过位与计算后结果相同，则表明它们在同一子网。“0”地址和“1”地址一般不用来计算子网掩码，因为一个是网络地址、一个是广播地址</p>
+<p>18.DNS原理(以<a href="http://www.tmall.com为例):树状结构、迭代递归查询">www.tmall.com为例):树状结构、迭代递归查询</a></p>
+<ul>
+<li>先在本机DNS缓存查</li>
+<li>再到根服务器查</li>
+<li>再到com域DNS服务器查</li>
+<li>再到tmall.com域DNS服务器查</li>
+<li>最后到<a target="_blank" rel="noopener" href="http://www.tmall.com域dns服务器查/">www.tmall.com域DNS服务器查</a><br>(DNS使用别名CNAME是为了方便cdn配置，用于实现CDN加速效果)</li>
+</ul>
+<p>19.</p>
 
     </div>
 
@@ -484,7 +559,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约24.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约26.3k字</span>
 </div>
 
 <br/>
@@ -503,7 +578,7 @@
             mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
             seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
             snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-            document.getElementById("timeDate").innerHTML = "本站建立于2021年06月17日，已安全运行 "+dnum+" 天 ";
+            document.getElementById("timeDate").innerHTML = "本站建于2021年06月17日，已安全运行 "+dnum+" 天 ";
             document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
     }
     setInterval("createtime()",250);
