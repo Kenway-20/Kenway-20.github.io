@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录必背题 典型题 数据结构设计 解题通用思路 必背题1.传递信息  给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出">
+  <meta name="description" content="目录基础题 典型题 数据结构设计 解题通用思路 基础题1.传递信息 给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】算法刷题笔记">
 <meta property="og:url" content="http://kenway-20.github.io/2021/03/07/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39;s Blog">
-<meta property="og:description" content="目录必背题 典型题 数据结构设计 解题通用思路 必背题1.传递信息  给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出">
+<meta property="og:description" content="目录基础题 典型题 数据结构设计 解题通用思路 基础题1.传递信息 给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回0   示例：输入：n &#x3D; 5, relation &#x3D; [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k &#x3D; 3输出：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/%E7%AE%97%E6%B3%951.png">
 <meta property="article:published_time" content="2021-03-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-09T16:00:00.000Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
 <meta property="article:tag" content="C++">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-09 00:00:00" itemprop="dateModified" datetime="2021-07-09T00:00:00+08:00">2021-07-09</time>
+                <time title="修改时间：2021-07-10 00:00:00" itemprop="dateModified" datetime="2021-07-10T00:00:00+08:00">2021-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,12 +220,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>必背题</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>基础题</p>
 <p>典型题</p>
 <p>数据结构设计</p>
 <p>解题通用思路</p>
-<h2 id="必背题"><a href="#必背题" class="headerlink" title="必背题"></a>必背题</h2><p>1.传递信息</p>
-<blockquote>
+<h2 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h2><h3 id="1-传递信息"><a href="#1-传递信息" class="headerlink" title="1.传递信息"></a>1.传递信息</h3><blockquote>
 <p>给定总玩家数n，以及按[玩家编号,对应可传递玩家编号]关系组成的二维数组 relation。返回信息从编号0玩家经过k轮传递到编号为n-1玩家处的方案数；若不能到达，返回0</p>
 </blockquote>
 <blockquote>
@@ -236,40 +235,39 @@
 
 <span id="more"></span>
 
-<p>2.判断链表是否有环/找出链表中环起点问题</p>
-<p>解法:</p>
+<h3 id="2-判断链表是否有环-找出链表中环起点问题"><a href="#2-判断链表是否有环-找出链表中环起点问题" class="headerlink" title="2.判断链表是否有环/找出链表中环起点问题"></a>2.判断链表是否有环/找出链表中环起点问题</h3><p>解法:</p>
 <ul>
 <li>使用快慢指针，慢指针一次走一步，快指针一次走两步，两个指针同时从起点出发，若最后相遇则表示一定有环</li>
 <li>相遇时，一个指针原地不动，一个指针指向头节点，然后两个指针偶读改为一次走一步，它们再次相遇的地方就是环的起点</li>
 </ul>
 <p>证明：设慢指针走了k步与快指针走了2k步在O点相遇，2k-k=k则为环的长度，m为O点与头节点的距离</p>
 <p>此时无论是从头结点到环起点，还是O点到环起点的距离都为k-m，所以第二次相遇的地方即为环起点</p>
-<p>3.信封嵌套问题，即俄罗斯套娃，长、宽都大于才能装进去，求最多能嵌套几层</p>
+<h3 id="3-信封嵌套问题"><a href="#3-信封嵌套问题" class="headerlink" title="3.信封嵌套问题"></a>3.信封嵌套问题</h3><blockquote>
+<p>即俄罗斯套娃，长、宽都大于才能装进去，求最多能嵌套几层</p>
+</blockquote>
 <p>解法:</p>
 <ul>
 <li>以宽度为标准从下到大排序，若宽度相同则比较长度，长度大的在前，长度小的在后</li>
 <li>对排好序的数组，以长度为标准求最长递增子序列的长度即为答案</li>
 </ul>
-<p>4.连续子数组的最大和问题</p>
-<p>解法:</p>
+<h3 id="4-连续子数组的最大和问题"><a href="#4-连续子数组的最大和问题" class="headerlink" title="4.连续子数组的最大和问题"></a>4.连续子数组的最大和问题</h3><p>解法:</p>
 <ul>
 <li>dp[i]表示以nums[i]为结尾的连续最大子数组和，注意该和中把nums[i]也算进去了</li>
 <li>状态转移方程:dp[i] = max(dp[i-1]+nums[i], nums[i]);</li>
 <li>遍历dp[]找出最大值即为答案</li>
 </ul>
-<p>5.求二叉树最大值(没有负值)</p>
-<p>解法:</p>
+<h3 id="5-求二叉树最大值-没有负值"><a href="#5-求二叉树最大值-没有负值" class="headerlink" title="5.求二叉树最大值(没有负值)"></a>5.求二叉树最大值(没有负值)</h3><p>解法:</p>
 <ul>
 <li>采用递归法</li>
 <li>自顶向下，主干是根节点与两子树比较<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int maxVal(TreeNode root)&#123;</span><br><span class="line">    if(root == nullptr) return -1;</span><br><span class="line">    int left = maxVal(root-&gt;left);</span><br><span class="line">    int right = maxVal(root-&gt;right);</span><br><span class="line">    return max(root-&gt;val, left, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>6.二分查找框架</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while(left &lt;= right)&#123;</span><br><span class="line">    mid = (right - left) / 2 + left;</span><br><span class="line">    if(nums[mid] &lt; target) left = mid+1;</span><br><span class="line">    else if(nums[mid] &gt; target) right = mid-1;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-二分查找框架"><a href="#6-二分查找框架" class="headerlink" title="6.二分查找框架"></a>6.二分查找框架</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while(left &lt;= right)&#123;</span><br><span class="line">    mid = (right - left) / 2 + left;</span><br><span class="line">    if(nums[mid] &lt; target) left = mid+1;</span><br><span class="line">    else if(nums[mid] &gt; target) right = mid-1;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
-<p>7.有序数组查找最优思路</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;nums.size();i++) if(nums[i]&gt;=target) return i;</span><br><span class="line">return nums.size();</span><br></pre></td></tr></table></figure>
+<h3 id="7-有序数组查找最优思路"><a href="#7-有序数组查找最优思路" class="headerlink" title="7.有序数组查找最优思路"></a>7.有序数组查找最优思路</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;nums.size();i++) if(nums[i]&gt;=target) return i;</span><br><span class="line">return nums.size();</span><br></pre></td></tr></table></figure>
 
-<p>8.判断正则表达式是否匹配问题(s是目标字符串，p是正则表达式)</p>
+<h3 id="8-判断正则表达式是否匹配问题"><a href="#8-判断正则表达式是否匹配问题" class="headerlink" title="8.判断正则表达式是否匹配问题"></a>8.判断正则表达式是否匹配问题</h3><blockquote>
+<p>s是目标字符串，p是正则表达式</p>
+</blockquote>
 <ul>
 <li>建一个dp函数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool dp(string&amp;s, string&amp; p, int i, int j)</span><br></pre></td></tr></table></figure></li>
 <li>遍历时分两种情况<ul>
@@ -287,8 +285,7 @@
 </li>
 <li>加上特殊情况判定<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(j == p.size()) return i == s.size();</span><br><span class="line">if(i == s.size())&#123;</span><br><span class="line">    if((p.size()-j) % 2 == 1) return false;</span><br><span class="line">    for(; j+1 &lt; n; j+=2) if(p[j+1] != &#x27;*&#x27;) return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>9.原地移动零</p>
-<blockquote>
+<h3 id="9-原地移动零"><a href="#9-原地移动零" class="headerlink" title="9.原地移动零"></a>9.原地移动零</h3><blockquote>
 <p>给定一个数组nums，编写一个函数将所有0移动到数组的末尾，同时保持非零元素的相对顺序</p>
 </blockquote>
 <p>解法:</p>
@@ -298,15 +295,13 @@
 <li>一旦right指到一个非0的数，就交换right与left指到的值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int left = 0, right = 0;</span><br><span class="line">while(right &lt; nums.size())&#123;</span><br><span class="line">    if(nums[right] != 0) &#123;</span><br><span class="line">        swap(nums[left], nums[right]);</span><br><span class="line">        left++;</span><br><span class="line">        &#125;</span><br><span class="line">    right++;</span><br><span class="line">&#125;</span><br><span class="line">return;</span><br></pre></td></tr></table></figure>
 (还有一个双层遍历的方法，即一旦指到0就去后面找非0的和它交换，较简单不再赘叙)</li>
 </ul>
-<p>10.买卖股票最佳时机系列问题</p>
-<blockquote>
+<h3 id="10-买卖股票最佳时机系列问题"><a href="#10-买卖股票最佳时机系列问题" class="headerlink" title="10.买卖股票最佳时机系列问题"></a>10.买卖股票最佳时机系列问题</h3><blockquote>
 <p>初阶:给定一个数组prices，它的第i个元素 prices[i] 表示一支给定股票第 i 天的价格。你只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算你所能获取的最大利润。返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回0。</p>
 </blockquote>
 <p>解法：dp[i]表示在i天卖出能获得的最大利润,min_p存的是i天之前最低的买入价格</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if(prices.size() &lt;= 1) return 0;</span><br><span class="line">vector&lt;int&gt; dp(prices.size());</span><br><span class="line">int min_p = prices[0];</span><br><span class="line">dp[1] = -1;</span><br><span class="line">int ans = INT_MIN;</span><br><span class="line">for(int i = 1; i &lt; prices.size(); i++)&#123;</span><br><span class="line">    dp[i] = prices[i] - min_p;</span><br><span class="line">    ans = max(dp[i], ans);</span><br><span class="line">    min_p = min(prices[i], min_p);</span><br><span class="line">&#125;</span><br><span class="line">if(ans &lt; 0) return 0;</span><br><span class="line">return ans;</span><br></pre></td></tr></table></figure>
 
-<p>11.打家劫舍系列问题</p>
-<blockquote>
+<h3 id="11-打家劫舍系列问题"><a href="#11-打家劫舍系列问题" class="headerlink" title="11.打家劫舍系列问题"></a>11.打家劫舍系列问题</h3><blockquote>
 <p>初阶:你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。给定一个代表每个房屋存放金额的非负整数数组，计算你不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。</p>
 </blockquote>
 <p>解法:dp[i]表示偷i号房屋前提下能获得的最大利润</p>
@@ -332,8 +327,7 @@
 <li>用一个int box(TreeNode* root)函数作递归</li>
 <li>核心函数结构<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int box(TreeNode* root)&#123;</span><br><span class="line">    if(root == nullptr) return 0;</span><br><span class="line">    int do_it = root-&gt;val + box(root-&gt;left-&gt;left) + box(root-&gt;left-&gt;right) + box(root-&gt;right-&gt;left) + box(root-&gt;right-&gt;right);</span><br><span class="line">    int do_not = box(root-&gt;left) + box(root-&gt;right);</span><br><span class="line">    return max(do_it, do_not);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># do_it是偷该层, do_not是不偷该层</span><br><span class="line"># box()实际上就是表示以该点为根节点的最大利润</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>12.背包问题的固定框架</p>
-<ul>
+<h3 id="12-背包问题的固定框架"><a href="#12-背包问题的固定框架" class="headerlink" title="12.背包问题的固定框架"></a>12.背包问题的固定框架</h3><ul>
 <li>dp[i][w]表示对前i个物品进行选择，且当前背包容量为w时，能装下的最大价值</li>
 <li>核心<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[i][w]=max(dp[i-1][w], dp[i-1][w-wt[i-1]] + val[i-1])</span><br><span class="line"></span><br><span class="line"># dp[i-1][w]是不装当前物品</span><br><span class="line"># dp[i-1][w-wt[i-1]] + val[i-1]是装当前物品，i-1是因为下标从0开始的，wt是重量数组，val是价值数组</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -349,8 +343,7 @@
 <li>容量 = 整个数组和/2，dp[i][j]表示前i个物品能恰好填满容量为j的背包(即dp[i][j] = true，其他全初始化为false)</li>
 <li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(j - nums[j-1] &lt; 0) dp[i][j] = dp[i-1][j];</span><br><span class="line">else dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[j-1]];</span><br><span class="line"></span><br><span class="line"># j - nums[j-1] &lt; 0表示物品大于背包容量，直接不能装</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>13.零钱兑换问题</p>
-<blockquote>
+<h3 id="13-零钱兑换问题"><a href="#13-零钱兑换问题" class="headerlink" title="13.零钱兑换问题"></a>13.零钱兑换问题</h3><blockquote>
 <p>给定一个coins数组表示零钱的面额种类，每种零钱可以无限个使用</p>
 </blockquote>
 <p>解法:与背包问题框架类似</p>
@@ -358,8 +351,7 @@
 <li>dp[i][j]表示仅用前i种面额钱币时能凑出金额j的方法数(base:dp[i][0] = 1,其它全初始化为0)</li>
 <li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(j-coins[i-1] &lt; 0) dp[i][j] = dp[i-1][j];</span><br><span class="line">else dp[i][j] = dp[i-1][j] + dp[i][j-coins[i-1]];</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>14.跳跃游戏系列问题</p>
-<blockquote>
+<h3 id="14-跳跃游戏系列问题"><a href="#14-跳跃游戏系列问题" class="headerlink" title="14.跳跃游戏系列问题"></a>14.跳跃游戏系列问题</h3><blockquote>
 <p>初阶:给定一个非负整数数组nums，你最初位于数组的第一个下标。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个下标。</p>
 </blockquote>
 <p>解法:</p>
@@ -381,8 +373,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; memo;</span><br><span class="line">int jump(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    memo = vector&lt;int&gt;(nums.size(), nums.size());</span><br><span class="line">    return dp(nums, 0);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">int dp(vector&lt;int&gt;&amp; nums, int index)&#123;</span><br><span class="line">    if(memo[index] != nums.size()) return memo[index];</span><br><span class="line">    int n = nums.size()-1;</span><br><span class="line">    if(index &gt;= n) return 0;</span><br><span class="line">    for(int i = 1; i &lt;= nums[index]; i++)&#123;</span><br><span class="line">        int temp = dp(nums, index+i);</span><br><span class="line">        memo[index] = min(memo[index], temp+1);</span><br><span class="line">    &#125;</span><br><span class="line">    return memo[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>15.子数组的最大和系列问题</p>
-<blockquote>
+<h3 id="15-子数组的最大和系列问题"><a href="#15-子数组的最大和系列问题" class="headerlink" title="15.子数组的最大和系列问题"></a>15.子数组的最大和系列问题</h3><blockquote>
 <p>初阶:给定一个整数数组nums，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int dp = 0;</span><br><span class="line">int max_ans = INT_MIN;</span><br><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    dp = max(dp + nums[i], nums[i]);</span><br><span class="line">    max_ans = max(dp, max_ans);</span><br><span class="line">&#125;</span><br><span class="line">    return max_ans;</span><br></pre></td></tr></table></figure>
@@ -393,36 +384,57 @@
 <p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/%E7%AE%97%E6%B3%951.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 计算无环的情况</span><br><span class="line">int dp = 0;</span><br><span class="line">int max_ans = INT_MIN;</span><br><span class="line">int max_num = INT_MIN;</span><br><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    dp = max(dp + nums[i], nums[i]);</span><br><span class="line">    max_ans = max(dp, max_ans);</span><br><span class="line">    max_num = max(nums[i], max_num);</span><br><span class="line">&#125;</span><br><span class="line"># max_num用来识别全是负数的情况，需要特殊处理</span><br><span class="line">if(max_num &lt; 0) return max_num;</span><br><span class="line"></span><br><span class="line"># 计算有环的情况</span><br><span class="line"># 先求出连续子数组最小值，然后用sum去减就得到最大值</span><br><span class="line">dp = 0;</span><br><span class="line">int min_ans = INT_MAX;</span><br><span class="line">int sum = 0;</span><br><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    sum += nums[i];</span><br><span class="line">    dp = min(dp + nums[i], nums[i]);</span><br><span class="line">    min_ans = min(dp, min_ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 返回两种情况中的最大值</span><br><span class="line">max_ans = max(max_ans, sum - min_ans);</span><br><span class="line">return max_ans;</span><br></pre></td></tr></table></figure>
 
-<p>16.回溯法经典模板:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void backtrack(当前路径，选择列表)&#123;</span><br><span class="line">    if(满足结束条件)&#123;</span><br><span class="line">        reslut.add(当前路径);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for 选择 in 选择列表&#123;</span><br><span class="line">        描述做选择的语句;</span><br><span class="line">        backtrack(做完选择后的当前路径，还可选择的列表);</span><br><span class="line">        撤销选择(例:当前路径.pop());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="16-回溯法经典模板"><a href="#16-回溯法经典模板" class="headerlink" title="16.回溯法经典模板:"></a>16.回溯法经典模板:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void backtrack(当前路径，选择列表)&#123;</span><br><span class="line">    if(满足结束条件)&#123;</span><br><span class="line">        reslut.add(当前路径);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for 选择 in 选择列表&#123;</span><br><span class="line">        描述做选择的语句;</span><br><span class="line">        backtrack(做完选择后的当前路径，还可选择的列表);</span><br><span class="line">        撤销选择(例:当前路径.pop());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="典型题"><a href="#典型题" class="headerlink" title="典型题"></a>典型题</h2><p>1.求小岛数量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,1],</span><br><span class="line">[0,1,1],</span><br><span class="line">[1,0,0]]</span><br><span class="line"></span><br><span class="line"># 0表示水，1表示陆地</span><br><span class="line"># 该实例答案为2</span><br></pre></td></tr></table></figure>
+<h3 id="17-无重复字符的最长子串"><a href="#17-无重复字符的最长子串" class="headerlink" title="17.无重复字符的最长子串"></a>17.无重复字符的最长子串</h3><blockquote>
+<p>给定一个字符串s，请你找出其中不含有重复字符的最长子串的长度。<br>解法:</p>
+</blockquote>
+<ul>
+<li>用双指针形成一个滑动窗口</li>
+<li>用一个哈希表window来记录当前窗口内字符串的出现次数</li>
+<li>right遍历到不重复字符时，window[s[right]]++，right++</li>
+<li>right遍历到重复的字符时，left缩小，window[s[left]]++，left++直到重复字符消失<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">if(s.size() == 0) return 0;</span><br><span class="line">unordered_map&lt;char, int&gt; window;</span><br><span class="line">int left = 0, right = 0;</span><br><span class="line">int ans = 0;</span><br><span class="line">while(right &lt; s.size())&#123;</span><br><span class="line">    if(window[s[right]] == 0)&#123;</span><br><span class="line">        window[s[right]]++;</span><br><span class="line">        right++;</span><br><span class="line">        ans = max(ans, right-left);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        while(s[left] != s[right])&#123;</span><br><span class="line">            window[s[left]]--;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        window[s[left]]--;</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">return ans;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="18-乘积最大子数组"><a href="#18-乘积最大子数组" class="headerlink" title="18.乘积最大子数组"></a>18.乘积最大子数组</h3><blockquote>
+<p>给你一个整数数组nums，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+</blockquote>
+<p>解法:维持两个变量max_dp、min_dp</p>
+<ul>
+<li>本题难点在于原本最小的负数乘另一个负数就变成了很大的正数，很大的数乘一个负数就变成最小的数</li>
+<li>解法是维持两个变量max_dp、min_dp，分别代表当前最大乘积和当前最小乘积</li>
+<li>每次遍历都更新一次</li>
+<li>如何保证用的值都是连续的子数组呢，一是顺序遍历，二则关键在于选择时多了一个nums[i]，它表示有可能从这里抛开前面的子数组，重新开始算<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if(nums.size() == 0) return 0;</span><br><span class="line">if(nums.size() == 1) return nums[0];</span><br><span class="line">int min_dp = nums[0];</span><br><span class="line">int max_dp = nums[0];</span><br><span class="line">int ans = nums[0];</span><br><span class="line">for(int i = 1; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    int temple = max_dp;</span><br><span class="line">    max_dp = max(max(nums[i], nums[i]*temple), nums[i]*min_dp);</span><br><span class="line">    min_dp = min(min(nums[i], nums[i]*min_dp), nums[i]*temple);</span><br><span class="line">    ans = max(max_dp, ans);</span><br><span class="line">&#125;</span><br><span class="line">return ans;</span><br><span class="line"></span><br><span class="line"># 每次更新的max_dp、min_dp都是一样的，都是在nums[i]、nums[i]*max_dp和nums[i]*min_dp中去选，只不过一个用max()，一个用min()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="典型题"><a href="#典型题" class="headerlink" title="典型题"></a>典型题</h2><h3 id="1-求小岛数量"><a href="#1-求小岛数量" class="headerlink" title="1.求小岛数量"></a>1.求小岛数量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,1],</span><br><span class="line">[0,1,1],</span><br><span class="line">[1,0,0]]</span><br><span class="line"></span><br><span class="line"># 0表示水，1表示陆地</span><br><span class="line"># 该实例答案为2</span><br></pre></td></tr></table></figure>
 <p>解法:</p>
 <ul>
 <li>main()中双层循环遍历，每遇到一个1就调用一次dfs()且ans++</li>
 <li>dfs()中将数过的1变为0，然后对其上、下、左、右再分别判断，若为1就继续调用dfs()</li>
 <li>main()双层循环外return ans</li>
 </ul>
-<p>2.找出一个数组里的峰值元素(即前后元素都比它要小),不存在nums[i]==nums[i+1],nums[0]和nums[nums.size()-1]视为负无穷大</p>
+<h3 id="2-找出一个数组里的峰值元素"><a href="#2-找出一个数组里的峰值元素" class="headerlink" title="2.找出一个数组里的峰值元素"></a>2.找出一个数组里的峰值元素</h3><blockquote>
+<p>即前后元素都比它要小,不存在nums[i]==nums[i+1],nums[0]和nums[nums.size()-1]视为负无穷大</p>
+</blockquote>
 <p>解法：</p>
 <ul>
 <li>遍历数组nums:当nums[i] &gt; nums[i+1]时，return nums[i]</li>
 <li>若遍历结束仍未有符合条件nums[i]返回，则return nums[nums.size()-1]</li>
 </ul>
-<p>3.判断s中含有t的所有字符的最小子串问题</p>
+<h3 id="3-判断s中含有t的所有字符的最小子串问题"><a href="#3-判断s中含有t的所有字符的最小子串问题" class="headerlink" title="3.判断s中含有t的所有字符的最小子串问题"></a>3.判断s中含有t的所有字符的最小子串问题</h3><p>类似问题：找所有字母异位词、最长无重复子串、判断s中是否有某个子串是t的某全排列问题</p>
 <p>解法：</p>
 <ul>
 <li>使用滑动窗口，新建两个哈希表need(t中含有字符)、window(当前窗口含有字符)，用下述语句判断当前窗口是否符合要求<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(auto&amp; i:need) if(window[i.first]&lt;i.second) return false</span><br><span class="line">return true</span><br></pre></td></tr></table></figure></li>
 <li>符合就left+1，直到不符合，记录；不符合就right+1，直到再一次符合并重复上述循环(直到遍历到s末尾)</li>
 </ul>
-<p>4.给定一个int数组，求它的最长递增子序列</p>
+<h3 id="4-求数组它的最长递增子序列"><a href="#4-求数组它的最长递增子序列" class="headerlink" title="4.求数组它的最长递增子序列"></a>4.求数组它的最长递增子序列</h3><blockquote>
+<p>子序列即为可以不连续的子数组</p>
+</blockquote>
 <p>解法：</p>
 <ul>
 <li>用动态规划，dp[i]表示以nums[i]这个数结尾的最长递增子序列长度</li>
 <li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    for(int j = 0; j &lt; i; j++)&#123;   </span><br><span class="line">        if(nums[i]&gt;nums[j]) dp[i] = max(dp[i], dp[j]+1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>5.求两字符串的最长公共子序列问题(连线不能相交问题也是一模一样的解法)</p>
+<h3 id="5-求两字符串的最长公共子序列问题"><a href="#5-求两字符串的最长公共子序列问题" class="headerlink" title="5.求两字符串的最长公共子序列问题"></a>5.求两字符串的最长公共子序列问题</h3><p>类似问题：连线不能相交问题</p>
 <p>解法:</p>
 <ul>
 <li>dp[i][j]表示str1[0,1,…,i-1]与str2[0,1,…,j-1]的最长公共子序列长度(当i或j任一为0时，dp[i][j]=0，因为””与任何字符串的公共子序列长度都为0)</li>
@@ -438,8 +450,7 @@
 </li>
 <li>结果为dp[str1.size()][str2.size()]</li>
 </ul>
-<p>6.编辑距离题目</p>
-<blockquote>
+<h3 id="6-编辑距离题目"><a href="#6-编辑距离题目" class="headerlink" title="6.编辑距离题目"></a>6.编辑距离题目</h3><blockquote>
 <p>有两个字符串s1和s2，求将s1变成s2需要多少步操作?</p>
 </blockquote>
 <p>解法:</p>
@@ -462,8 +473,7 @@
 <li>双层循环嵌套:1&lt;=i&lt;=s1.size(), 1&lt;=j&lt;=s2.size()  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 表示不需要操作，直接到下一步</span><br><span class="line">if(s1[i-1] == s2[j-1]) dp[i][j] = dp[i-1][j-1];</span><br><span class="line"></span><br><span class="line">else dp[i][j] = min(删除，插入，替换);</span><br></pre></td></tr></table></figure></li>
 <li>最终答案为dp[s1.size()][s2.size()]</li>
 </ul>
-<p>7.最长回文子序列解法:</p>
-<ul>
+<h3 id="7-最长回文子序列解法"><a href="#7-最长回文子序列解法" class="headerlink" title="7.最长回文子序列解法:"></a>7.最长回文子序列解法:</h3><ul>
 <li>dp[i][j]表示从s[i]到s[j]包含的最长回文子序列长度，可得dp[i][j]=1,dp[i][j]=0(i&gt;j时)</li>
 <li>反着遍历  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(i=s.size()-1; i &gt;= 0; i--)&#123;</span><br><span class="line">    for(j = i+1; j &lt; s.size();j++)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># 外层其实可以从s.size()-2开始,因为s.size()-1没意义</span><br></pre></td></tr></table></figure></li>
 <li>核心代码:<ul>
@@ -477,8 +487,7 @@
 <ul>
 <li>方法同上一题一样，只需改成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(s[i] == s[j]) dp[i][j] = dp[i+1][j-1];</span><br><span class="line">else dp[i][j] = min(dp[i+1][j], dp[i][j-1])+1</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>9.旋转数组</p>
-<blockquote>
+<h3 id="9-旋转数组"><a href="#9-旋转数组" class="headerlink" title="9.旋转数组"></a>9.旋转数组</h3><blockquote>
 <p>给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数，要求使用空间复杂度为O(1)的原地算法</p>
 </blockquote>
 <p>解法:<br>一、环形替代</p>
@@ -492,8 +501,7 @@
 <p>二、取巧翻转</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int n = nums.size();</span><br><span class="line">if(n==1 || k == 0 || k == n) return;</span><br><span class="line">k = k % n;</span><br><span class="line">reverse(&amp;nums[0], &amp;nums[n]);</span><br><span class="line">reverse(&amp;nums[0], &amp;nums[k]);</span><br><span class="line">reverse(&amp;nums[k], &amp;nums[n]);</span><br><span class="line">return;</span><br></pre></td></tr></table></figure>
 
-<p>10.删除并获得点数</p>
-<blockquote>
+<h3 id="10-删除并获得点数"><a href="#10-删除并获得点数" class="headerlink" title="10.删除并获得点数"></a>10.删除并获得点数</h3><blockquote>
 <p>给你一个整数数组nums，你可以对它进行一些操作。每次操作中，选择任意一个 nums[i]，删除它并获得nums[i]的点数。之后，你必须删除所有等于nums[i]-1和nums[i]+1的元素。</p>
 </blockquote>
 <p>解法:</p>
@@ -502,12 +510,9 @@
 <li>将nums数组用哈希表记录下来，并构建成一个打家劫舍的数组house</li>
 <li>用打家劫舍的方法解出来<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;int, int&gt; f;</span><br><span class="line">int max_p = INT_MIN;</span><br><span class="line">for(int i = 0; i &lt; nums.size(); i++)&#123;</span><br><span class="line">    f[nums[i]]++;</span><br><span class="line">    max_p = max(max_p, nums[i]);</span><br><span class="line">&#125;</span><br><span class="line">vector&lt;int&gt; house(max_p+1);</span><br><span class="line">for(int i = 0; i &lt; max_p+1; i++)&#123;</span><br><span class="line">    house[i] = i * f[i];</span><br><span class="line">        &#125;</span><br><span class="line">vector&lt;int&gt; dp(max_p+1);</span><br><span class="line">dp[0] = house[0];</span><br><span class="line">if(house.size() == 1) return dp[0];</span><br><span class="line">dp[1] = house[1];</span><br><span class="line">if(house.size() == 2) return max(dp[0], dp[1]);</span><br><span class="line">dp[2] = house[0] + house[2];</span><br><span class="line">int ans = max(dp[1], dp[2]);</span><br><span class="line">for(int i = 3; i &lt; house.size(); i++)&#123;</span><br><span class="line">    dp[i] = max(dp[i-2], dp[i-3]) + house[i];</span><br><span class="line">    ans = max(ans, dp[i]);</span><br><span class="line">&#125;</span><br><span class="line">return ans;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol start="11">
-<li>高楼扔鸡蛋问题<blockquote>
+<h3 id="11-高楼扔鸡蛋问题"><a href="#11-高楼扔鸡蛋问题" class="headerlink" title="11. 高楼扔鸡蛋问题"></a>11. 高楼扔鸡蛋问题</h3><blockquote>
 <p>你面前有一栋从 1 到 N 共 N 层的楼，然后给你 K 个鸡蛋（K 至少为 1）。现在确定这栋楼存在楼层0&lt;=F&lt;=N，在这层楼将鸡蛋扔下去，鸡蛋恰好没摔碎（高于 F 的楼层都会碎，低于F的楼层都不会碎）。现在问你，最坏情况下，你至少要扔几次鸡蛋，才能确定这个楼层F呢？</p>
 </blockquote>
-</li>
-</ol>
 <p>解法:</p>
 <ul>
 <li>核心循环<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 1; i &lt; n+1; i++)&#123;</span><br><span class="line">    ans = min(ans, 碎和不碎中最坏情况);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># min表示在该次选择中，选哪层楼是最优解</span><br></pre></td></tr></table></figure></li>
@@ -524,8 +529,7 @@
 <li>dp[k][m]表示有k个鸡蛋，尝试扔了m次能测的楼层数(答案即为dp[k][m]=n时，m的值)</li>
 <li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while(dp[k][m]&lt;n)&#123;</span><br><span class="line">    m++; //增加m的值来逼近n</span><br><span class="line">    for(int i = 1; i &lt;= k; i++)&#123;</span><br><span class="line">        dp[i][m] = dp[i][m-1] + dp[i-1][m-1] + 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># dp[i][m-1]没碎，表示下面的楼层</span><br><span class="line"># + 1加的是本楼层 </span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>12.戳气球问题</p>
-<blockquote>
+<h3 id="12-戳气球问题"><a href="#12-戳气球问题" class="headerlink" title="12.戳气球问题"></a>12.戳气球问题</h3><blockquote>
 <p>有n个气球，编号为0到n-1，每个气球上都标有一个数字，这些数字存在数组 nums中。现在要求你戳破所有的气球。戳破第i个气球，你可以获得nums[i-1]*nums[i]*nums[i+1]枚硬币。这里的i-1和i+1代表和i相邻的两个气球的序号。如果i-1或 i+1超出了数组的边界，那么就当它是一个数字为1的气球。求所能获得硬币的最大数量。</p>
 </blockquote>
 <p>解法:</p>
@@ -534,8 +538,7 @@
 <li>作选择时假设最后戳破的气球是第k个，则dp[i][j] = dp[i][k] + dp[k][j] + 得分计算公式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(int k = i+1; k &lt; j; k++)&#123;</span><br><span class="line">    int temple = dp[i][k] + dp[k][j] + 得分计算公式;</span><br><span class="line">    dp[i][j] = max(dp[i][j], temple);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 用max()和for遍历i与j之间所有k的可能，最后得到正确的dp[i][j]</span><br></pre></td></tr></table></figure></li>
 <li>答案即为dp[0][new_nums.size()-1]</li>
 </ul>
-<p>13.目标和问题</p>
-<blockquote>
+<h3 id="13-目标和问题"><a href="#13-目标和问题" class="headerlink" title="13.目标和问题"></a>13.目标和问题</h3><blockquote>
 <p>给每个元素分配”+”、”-“，求最后和为target的组合方式数</p>
 </blockquote>
 <p>解法:</p>
@@ -549,8 +552,18 @@
 <li>dp[i][j]表示仅使用前i个物品的某几个恰好能填满容量为j的背包的方法数</li>
 <li>核心代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(j - nums[j-1] &lt; 0) dp[i][j] = dp[i-1][j];</span><br><span class="line">else dp[i][j] = dp[i-1][j] + dp[i-1][j - nums[j-1]];</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="数据结构设计"><a href="#数据结构设计" class="headerlink" title="数据结构设计"></a>数据结构设计</h2><p>1.实现一个LRU缓存</p>
-<p>解法:</p>
+<h3 id="14-乘积为正数的最长子数组长度"><a href="#14-乘积为正数的最长子数组长度" class="headerlink" title="14.乘积为正数的最长子数组长度"></a>14.乘积为正数的最长子数组长度</h3><p>解法：比较有意思的题，针对负数和0的情况分别处理</p>
+<ul>
+<li>代码包括主过程的for循环遍历g[]和一个调用函数max_lens()</li>
+<li>for循环遍历含有所有零下标的g[]，分别将其切分成多个不含零的连续子数组</li>
+<li>max_lens(vector<int>&amp; nums)则是算出传进来的子数组的乘积为正数的最长子数组长度(此时的子数组一定不含0，降低了处理难度)</li>
+<li>关键在于max_lens()中要根据负数的奇偶分情况<ul>
+<li>负数个数为偶数，返回nums.size()</li>
+<li>负数个数为奇数，不要第一个负数和不要最后一个负数两种情况，哪种的子数组最长就取哪种<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">int getMaxLen(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    vector&lt;int&gt; g;</span><br><span class="line">    int ans = 0;</span><br><span class="line">    for(int i = 0; i &lt; nums.size();i++) if(nums[i] == 0) g.push_back(i);</span><br><span class="line">    int left = 0, right = 0;</span><br><span class="line">    for(auto&amp; t:g)&#123;</span><br><span class="line">        right = t;</span><br><span class="line">        vector&lt;int&gt;::const_iterator First = nums.begin() + left;</span><br><span class="line">        vector&lt;int&gt;::const_iterator Second = nums.begin() + right;</span><br><span class="line">        vector&lt;int&gt; new_nums(First, Second);</span><br><span class="line">        ans = max(ans, max_lens(new_nums));</span><br><span class="line">        left = right + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(g.size() == 0) ans = max_lens(nums);</span><br><span class="line">    else if(left &lt; nums.size())&#123;</span><br><span class="line">        vector&lt;int&gt;::const_iterator First = nums.begin() + left;</span><br><span class="line">        vector&lt;int&gt;::const_iterator Second = nums.end();</span><br><span class="line">        vector&lt;int&gt; new_nums(First, Second);</span><br><span class="line">        ans = max(ans, max_lens(new_nums));</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int max_lens(vector&lt;int&gt;&amp; nums)&#123;</span><br><span class="line">    vector&lt;int&gt; f;</span><br><span class="line">    for(int i = 0; i &lt; nums.size();i++) if(nums[i] &lt; 0) f.push_back(i);</span><br><span class="line">    int n = f.size();</span><br><span class="line">    if(n % 2 == 0) return nums.size();</span><br><span class="line">    else&#123;</span><br><span class="line">        int left = f[f.size()-1] - f[0] + nums.size()-1 - f[f.size()-1];</span><br><span class="line">        int right = f[f.size()-1] - f[0] + f[0];</span><br><span class="line">        return max(left, right);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="数据结构设计"><a href="#数据结构设计" class="headerlink" title="数据结构设计"></a>数据结构设计</h2><h3 id="1-实现一个LRU缓存"><a href="#1-实现一个LRU缓存" class="headerlink" title="1.实现一个LRU缓存"></a>1.实现一个LRU缓存</h3><p>解法:</p>
 <ul>
 <li>由一个哈希表 + 一个双向链表实现<ul>
 <li>哈希表&lt;int, node&gt;提供快速访问，int是键</li>
@@ -566,8 +579,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"># 定义双向链表的节点结构</span><br><span class="line">struct Node&#123;</span><br><span class="line">    int key, val;</span><br><span class="line">    Node *next;</span><br><span class="line">    Node *prev;</span><br><span class="line">    Node(int k, int v)&#123;</span><br><span class="line">        this-&gt;key = k;</span><br><span class="line">        this-&gt;val = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"># 定义双向链表结构和一些方法，方便后续在LRU中实例化一个双向链表</span><br><span class="line">class DoubleList&#123;</span><br><span class="line">    private: </span><br><span class="line">    Node *head;</span><br><span class="line">    Node *tail;</span><br><span class="line">    int size;</span><br><span class="line">    </span><br><span class="line">    public:</span><br><span class="line">    DoubleList()&#123;</span><br><span class="line">        head = new Node(0,0);</span><br><span class="line">        tail = new Node(0,0);</span><br><span class="line">        head-&gt;next = tail;</span><br><span class="line">        tail-&gt;prev = head;</span><br><span class="line">        size = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void addLast(Node *x)&#123;</span><br><span class="line">        if(x == nullptr) return;</span><br><span class="line">        x -&gt; prev = tail -&gt; prev;</span><br><span class="line">        x -&gt; next = tail;</span><br><span class="line">        tail-&gt;prev-&gt;next = x;</span><br><span class="line">        tail-&gt;prev = x;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void remove(Node *x)&#123;</span><br><span class="line">        if(x == nullptr) return;</span><br><span class="line">        x -&gt; prev -&gt; next = x -&gt;next;</span><br><span class="line">        x -&gt; next -&gt; prev = x -&gt; prev;</span><br><span class="line">        size--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Node* removefirst()&#123;</span><br><span class="line">        if(head == tail) return nullptr;</span><br><span class="line">        Node *p =head-&gt;next;</span><br><span class="line">        remove(head-&gt;next);</span><br><span class="line">        return p;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int length()&#123;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"># LRU主要逻辑</span><br><span class="line">class LRUCache &#123;</span><br><span class="line">private:</span><br><span class="line">    unordered_map&lt;int, Node*&gt;map;</span><br><span class="line">    DoubleList cache;</span><br><span class="line">    int cap;</span><br><span class="line">public:</span><br><span class="line">    LRUCache(int capacity) &#123;</span><br><span class="line">        cap = capacity;</span><br><span class="line">        unordered_map&lt;int, Node*&gt;map;</span><br><span class="line">        DoubleList cache;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void makeup(int key)&#123;</span><br><span class="line">        Node *p = map[key];</span><br><span class="line">        cache.remove(p);</span><br><span class="line">        cache.addLast(p);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int get(int key) &#123;</span><br><span class="line">        if(map.count(key) == 0) return -1;</span><br><span class="line">        makeup(key);</span><br><span class="line">        if(map[key] == nullptr) return -1;</span><br><span class="line">        return map[key]-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void insert(int key, int value)&#123;</span><br><span class="line">        Node *p = new Node(key, value);</span><br><span class="line">        cache.addLast(p);</span><br><span class="line">        map[key] = p;</span><br><span class="line">        if(cache.length() &gt; cap) removeLeast();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void put(int key, int value) &#123;</span><br><span class="line">        if(map.count(key) == 0) insert(key, value);</span><br><span class="line">        cache.remove(map[key]);</span><br><span class="line">        insert(key, value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void removeLeast()&#123;</span><br><span class="line">        Node *p = cache.removefirst();</span><br><span class="line">        map.erase(p-&gt;key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"># 用法</span><br><span class="line"># LRUCache* obj = new LRUCache(capacity);</span><br><span class="line"># int param_1 = obj-&gt;get(key);</span><br><span class="line"># obj-&gt;put(key,value);</span><br></pre></td></tr></table></figure>
 
-<p>2.实现一个LFU缓存</p>
-<p>解法:</p>
+<h3 id="2-实现一个LFU缓存"><a href="#2-实现一个LFU缓存" class="headerlink" title="2.实现一个LFU缓存"></a>2.实现一个LFU缓存</h3><p>解法:</p>
 <ul>
 <li>满时删除访问次数(freq变量)最少的节点，若有多个相同节点则删除醉最旧的那个</li>
 <li>第一个哈希表&lt;int,int&gt;存key到val的映射</li>
@@ -586,7 +598,7 @@
 <ul>
 <li>box():用快慢指针将链表分成两段</li>
 <li>merge():将两个有序链表合并成一个更长的有序链表</li>
-<li>在box()里面写成return merge*=(box(第一段), box(第二段))</li>
+<li>在box()里面写成return merge(box(第一段), box(第二段))</li>
 </ul>
 <p>7.异或题重要规律</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a^b = b^a</span><br><span class="line">a^a = 0</span><br><span class="line">a^0 = a</span><br><span class="line">a^b = c =&gt; a^c = b</span><br></pre></td></tr></table></figure>
@@ -699,7 +711,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%83%8C%E9%A2%98"><span class="nav-text">必背题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E9%A2%98"><span class="nav-text">典型题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">数据结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E9%80%9A%E7%94%A8%E6%80%9D%E8%B7%AF"><span class="nav-text">解题通用思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%A2%98"><span class="nav-text">基础题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF"><span class="nav-text">1.传递信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E6%9C%89%E7%8E%AF-%E6%89%BE%E5%87%BA%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E8%B5%B7%E7%82%B9%E9%97%AE%E9%A2%98"><span class="nav-text">2.判断链表是否有环&#x2F;找出链表中环起点问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%A1%E5%B0%81%E5%B5%8C%E5%A5%97%E9%97%AE%E9%A2%98"><span class="nav-text">3.信封嵌套问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-text">4.连续子数组的最大和问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%A4%A7%E5%80%BC-%E6%B2%A1%E6%9C%89%E8%B4%9F%E5%80%BC"><span class="nav-text">5.求二叉树最大值(没有负值)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%A1%86%E6%9E%B6"><span class="nav-text">6.二分查找框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE%E6%9C%80%E4%BC%98%E6%80%9D%E8%B7%AF"><span class="nav-text">7.有序数组查找最优思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%88%A4%E6%96%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%98%AF%E5%90%A6%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-text">8.判断正则表达式是否匹配问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E5%8E%9F%E5%9C%B0%E7%A7%BB%E5%8A%A8%E9%9B%B6"><span class="nav-text">9.原地移动零</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98"><span class="nav-text">10.买卖股票最佳时机系列问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98"><span class="nav-text">11.打家劫舍系列问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%9B%BA%E5%AE%9A%E6%A1%86%E6%9E%B6"><span class="nav-text">12.背包问题的固定框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="nav-text">13.零钱兑换问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98"><span class="nav-text">14.跳跃游戏系列问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98"><span class="nav-text">15.子数组的最大和系列问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-%E5%9B%9E%E6%BA%AF%E6%B3%95%E7%BB%8F%E5%85%B8%E6%A8%A1%E6%9D%BF"><span class="nav-text">16.回溯法经典模板:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2"><span class="nav-text">17.无重复字符的最长子串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-text">18.乘积最大子数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E9%A2%98"><span class="nav-text">典型题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B1%82%E5%B0%8F%E5%B2%9B%E6%95%B0%E9%87%8F"><span class="nav-text">1.求小岛数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%89%BE%E5%87%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E5%B3%B0%E5%80%BC%E5%85%83%E7%B4%A0"><span class="nav-text">2.找出一个数组里的峰值元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%A4%E6%96%ADs%E4%B8%AD%E5%90%AB%E6%9C%89t%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E4%B8%B2%E9%97%AE%E9%A2%98"><span class="nav-text">3.判断s中含有t的所有字符的最小子串问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B1%82%E6%95%B0%E7%BB%84%E5%AE%83%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97"><span class="nav-text">4.求数组它的最长递增子序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B1%82%E4%B8%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98"><span class="nav-text">5.求两字符串的最长公共子序列问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB%E9%A2%98%E7%9B%AE"><span class="nav-text">6.编辑距离题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97%E8%A7%A3%E6%B3%95"><span class="nav-text">7.最长回文子序列解法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84"><span class="nav-text">9.旋转数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E5%88%A0%E9%99%A4%E5%B9%B6%E8%8E%B7%E5%BE%97%E7%82%B9%E6%95%B0"><span class="nav-text">10.删除并获得点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%AB%98%E6%A5%BC%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98"><span class="nav-text">11. 高楼扔鸡蛋问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E6%88%B3%E6%B0%94%E7%90%83%E9%97%AE%E9%A2%98"><span class="nav-text">12.戳气球问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E7%9B%AE%E6%A0%87%E5%92%8C%E9%97%AE%E9%A2%98"><span class="nav-text">13.目标和问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E4%B9%98%E7%A7%AF%E4%B8%BA%E6%AD%A3%E6%95%B0%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6"><span class="nav-text">14.乘积为正数的最长子数组长度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">数据结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALRU%E7%BC%93%E5%AD%98"><span class="nav-text">1.实现一个LRU缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AALFU%E7%BC%93%E5%AD%98"><span class="nav-text">2.实现一个LFU缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E9%80%9A%E7%94%A8%E6%80%9D%E8%B7%AF"><span class="nav-text">解题通用思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -776,7 +788,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约26.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约27.2k字</span>
 </div>
 
 <br/>

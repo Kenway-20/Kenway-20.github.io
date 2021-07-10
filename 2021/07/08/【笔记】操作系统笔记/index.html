@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个数据集上的程序执行，是一个动态实">
+  <meta name="description" content="目录基础部分 进阶部分 基础部分1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】操作系统笔记">
 <meta property="og:url" content="http://kenway-20.github.io/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39;s Blog">
-<meta property="og:description" content="1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个数据集上的程序执行，是一个动态实">
+<meta property="og:description" content="目录基础部分 进阶部分 基础部分1.进程与线程的区别  构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址) 功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位 开销上：每个进程有独立代码和数据空间，切换开销大；每个线程只有运行栈、PC是独立的，切换开销小  2.程序是一组指令的集合，是一个静态实体； 进程则是某个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-07T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-07-07T16:00:00.000Z">
@@ -210,7 +210,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1.进程与线程的区别</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>基础部分</p>
+<p>进阶部分</p>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><p>1.进程与线程的区别</p>
 <ul>
 <li>构成上：进程内部含有线程和和逻辑内存；线程内部含有栈、程序计数器PC(保存下一条指令的地址)</li>
 <li>功能上：进程是操作系统资源分配的基本单位，同一进程内共享资源；线程是操作系统任务执行的基本单位</li>
@@ -294,14 +296,16 @@
 </ul>
 </li>
 </ul>
-<p>11.操作系统的四个特性</p>
+<p>11.什么是内存?</p>
+<p>答：内存是一种高速存储设备，仅次于寄存器和缓存。因为CPU处理速度与外存读取程序速度存在差异，所以程序执行前要先放入内存后再被CPU处理，内存用于缓和CPU与外存的速度矛盾，提高CPU利用率</p>
+<h2 id="进阶部分"><a href="#进阶部分" class="headerlink" title="进阶部分"></a>进阶部分</h2><p>1.操作系统的四个特性</p>
 <ul>
 <li>并发：同一段时间内多个程序执行(并行指的是同一时刻)</li>
 <li>共享：系统中资源可以被内存中多个并发执行的进程共同使用</li>
 <li>虚拟：通过时分复用(分时系统)以及空分复用(虚拟内存)实现把一个物理实体虚拟成多个虚拟实体</li>
 <li>异步：系统中的进程以走走停停方式执行，且以一种不可预知的速度推进</li>
 </ul>
-<p>12.操作系统主要功能</p>
+<p>2.操作系统主要功能</p>
 <ul>
 <li>处理机管理</li>
 <li>存储器管理(又叫内存管理)</li>
@@ -309,9 +313,7 @@
 <li>文件管理</li>
 <li>提供用户接口</li>
 </ul>
-<p>13.什么是内存?</p>
-<p>答：内存是一种高速存储设备，仅次于寄存器和缓存。因为CPU处理速度与外存读取程序速度存在差异，所以程序执行前要先放入内存后再被CPU处理，内存用于缓和CPU与外存的速度矛盾，提高CPU利用率</p>
-<p>14.采用段页式存储，将进程按逻辑模块分段，再将各段分页，将内存空间分为大小相同的页框，将程序按页装入页框，分页分段都是为虚拟内存服务的。</p>
+<p>3.采用段页式存储，将进程按逻辑模块分段，再将各段分页，将内存空间分为大小相同的页框，将程序按页装入页框，分页分段都是为虚拟内存服务的。</p>
 <ul>
 <li>分页：指将内存空间分为一个个大小相等的分区，每个分区叫页框(一般为1kb)，将用户进程的地址空间分为与页框相等的一个个称为页的区域。<ul>
 <li>进程的每一个页都要放入一个页框里</li>
@@ -327,7 +329,7 @@
 </li>
 <li>缺页中断：当前指令想要访问的页面没有调入内存，而发生的中断</li>
 </ul>
-<p>15.页面置换算法</p>
+<p>4.页面置换算法</p>
 <ul>
 <li>最佳置换算法(OPT)：每次淘汰的页面都是最长时间内不再被访问的页面，保证最低缺页率(但因为一般无法预知页面访问序列，因此无法实现)</li>
 <li>先进先出算法(FIFO)：每次淘汰的页面都是最早进入内存的页面(较简单，性能较差)</li>
@@ -341,7 +343,7 @@
 </ul>
 </li>
 </ul>
-<p>16.磁盘寻址</p>
+<p>5.磁盘寻址</p>
 <ul>
 <li>根据“柱面号”移动磁壁，让磁头指向指定柱面</li>
 <li>激活指定盘面对应的磁头</li>
@@ -435,6 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86"><span class="nav-text">基础部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86"><span class="nav-text">进阶部分</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -511,7 +514,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约26.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约27.2k字</span>
 </div>
 
 <br/>
