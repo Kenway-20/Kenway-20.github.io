@@ -158,6 +158,387 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Echarts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Echarts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】Django框架及结合Echarts库的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-05 00:00:00" itemprop="dateModified" datetime="2021-07-05T00:00:00+08:00">2021-07-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>Django框架</p>
+<p>Echarts库</p>
+<h2 id="Django框架"><a href="#Django框架" class="headerlink" title="Django框架"></a>Django框架</h2><h3 id="初始文件介绍"><a href="#初始文件介绍" class="headerlink" title="初始文件介绍"></a>初始文件介绍</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">templates //HTML文件安置目录</span><br><span class="line">__init__.py //空文件</span><br><span class="line">asgi.py //异步</span><br><span class="line">settings.py //主配置文件</span><br><span class="line">urls.py //主路由文件</span><br><span class="line">wsgi.py //网关接口</span><br><span class="line">manage.py //项目管理脚本</span><br></pre></td></tr></table></figure>
+
+<h3 id="一个简单的Django程序"><a href="#一个简单的Django程序" class="headerlink" title="一个简单的Django程序"></a>一个简单的Django程序</h3><h4 id="一、新建一个APP"><a href="#一、新建一个APP" class="headerlink" title="一、新建一个APP"></a>一、新建一个APP</h4><p>在每个Django项目中可能会包含多个APP，APP共享项目资源</p>
+<p>在Pycharm下方的Terminal中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py start login</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Echarts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】图数据库Neo4j和py2neo库的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>图数据库Neo4j</p>
+<p>py2neo库</p>
+<h2 id="图数据库Neo4j"><a href="#图数据库Neo4j" class="headerlink" title="图数据库Neo4j"></a>图数据库Neo4j</h2><p>图形数据库也被称为图形数据库管理系统（GDBMS），现发展比较成熟的图数据库有Neo4j、OracleNoSQL、OrientDB、HypherGraphDB和GraphBase等</p>
+<p>其中Neo4j是基于Java语言编写的图形数据库，它采用节点和关系的形式存储信息，并在此基础上提供界面友好的可视化演示，Neo4j图形数据库的主要组成有：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【笔记】C++语言学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-30T00:00:00+08:00">2021-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-13 00:00:00" itemprop="dateModified" datetime="2021-07-13T00:00:00+08:00">2021-07-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>语法规范</p>
+<p>声明定义与作用域</p>
+<p>指针专题</p>
+<p>类型转换</p>
+<p>常用函数方法</p>
+<p>STL使用相关</p>
+<h2 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h2><ol>
+<li>C++中主程序要写成<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    return 0；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+不能写成void main，这是不规范的有些g++编译器会报错，return 0表示已经执行完成了</li>
+</ol>
+<p>且C++规定：不明确标明返回值的，默认返回值为int，也就是说main()等同于int main()，但会被警告</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91C++%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【笔记】Linux学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-30T00:00:00+08:00">2021-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ubuntu常用命令"><a href="#Ubuntu常用命令" class="headerlink" title="Ubuntu常用命令"></a>Ubuntu常用命令</h1><p><em><strong>常用命令</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sudo apt install 软件名</td>
+<td>安装软件命令（有root权限）</td>
+</tr>
+<tr>
+<td>sudo apt remove 软件名</td>
+<td>删除软件命令（有root权限）</td>
+</tr>
+<tr>
+<td>sudo nautilus</td>
+<td>打开文件（有root权限）</td>
+</tr>
+<tr>
+<td>su root</td>
+<td>切换到“root”</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>列出当前目录文件（不包括隐含文件）</td>
+</tr>
+<tr>
+<td>ls -a</td>
+<td>列出当前目录文件（包括隐含文件）</td>
+</tr>
+<tr>
+<td>ls -l</td>
+<td>列出当前目录下文件的详细信息</td>
+</tr>
+<tr>
+<td>cd …</td>
+<td>回当前目录的上一级目录</td>
+</tr>
+<tr>
+<td>cd -</td>
+<td>回上一次所在的目录</td>
+</tr>
+<tr>
+<td>cd ~ 或 cd</td>
+<td>回当前用户的宿主目录</td>
+</tr>
+<tr>
+<td>kill 进程ID或进程名</td>
+<td>终止该进程</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/29/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Clion%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,336 +597,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/06/29/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Clion%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/28/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96BGCN%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/28/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96BGCN%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【实战】事件抽取BGCN笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-28T00:00:00+08:00">2021-06-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>Batch大小是在更新模型之前处理的多个样本</p>
-</li>
-<li><p>Epoch大小是通过训练数据集的完整传递次数，可以理解为Epoch=重复多少次完整的训练集批处理，Epoch大小必须大于或等于1且小于或等于训练数据集中的样本数。可以将Epoch设置为1和无穷大之间的整数值。</p>
-</li>
-<li><p>模型权重更新次数= Epoch* (数据集样本数/每个Batch大小)</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/28/%E3%80%90%E5%AE%9E%E6%88%98%E3%80%91%E4%BA%8B%E4%BB%B6%E6%8A%BD%E5%8F%96BGCN%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/28/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Pytorch%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/28/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Pytorch%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】Pytorch的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-28T00:00:00+08:00">2021-06-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>torch.cat()用于将多个张量在某维拼接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># C为A和B在0维拼接的张量</span><br><span class="line">C=torch.cat((A,B),0)</span><br><span class="line"></span><br><span class="line">即</span><br><span class="line">A=torch.ones(2,3)</span><br><span class="line"># A = [[ 1.,  1.,  1.],[ 1.,  1.,  1.]]</span><br><span class="line"></span><br><span class="line">B=2*torch.ones(4,3)</span><br><span class="line"># B = [[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.]]</span><br><span class="line"></span><br><span class="line">C=torch.cat((A,B),0)</span><br><span class="line"># C = [[ 1.,  1.,  1.],[ 1.,  1.,  1.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.],[ 2.,  2.,  2.]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/28/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Pytorch%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">【工具】深度学习框架Pytorch的环境搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-25T00:00:00+08:00">2021-06-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-26 00:00:00" itemprop="dateModified" datetime="2021-06-26T00:00:00+08:00">2021-06-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">环境搭建</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>一、安装Anaconda</p>
-<p>二、安装Pytorch</p>
-<h2 id="一、安装Anaconda"><a href="#一、安装Anaconda" class="headerlink" title="一、安装Anaconda"></a>一、安装Anaconda</h2><p>进入<br><a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual">Anaconda官网</a><br>下载Anaconda</p>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/pytorch1.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/25/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6Pytorch%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">【工具】使用Hexo+Github搭建个人博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-20 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-20T00:00:00+08:00">2021-06-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-22 00:00:00" itemprop="dateModified" datetime="2021-06-22T00:00:00+08:00">2021-06-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">备忘录</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>一、前期环境准备</p>
-<p>二、建站</p>
-<p>三、Hexo主题配置</p>
-<p>四、发布一篇新博客步骤</p>
-<h2 id="一、前期环境准备"><a href="#一、前期环境准备" class="headerlink" title="一、前期环境准备"></a>一、前期环境准备</h2><ul>
-<li>一个github账号</li>
-<li>安装node.js</li>
-<li>安装npm</li>
-<li>安装git for windows</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/20/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E4%BD%BF%E7%94%A8Hexo+Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -636,7 +687,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -649,7 +700,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -697,7 +748,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约27.2k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约33.4k字</span>
 </div>
 
 <br/>
