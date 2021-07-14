@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"kenway-20.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="目录图数据库Neo4j py2neo库 图数据库Neo4j图形数据库也被称为图形数据库管理系统（GDBMS），现发展比较成熟的图数据库有Neo4j、OracleNoSQL、OrientDB、HypherGraphDB和GraphBase等 其中Neo4j是基于Java语言编写的图形数据库，它采用节点和关系的形式存储信息，并在此基础上提供界面友好的可视化演示，Neo4j图形数据库的主要组成有：">
+  <meta name="description" content="目录基础概念 Redis的运行 API的使用 基础概念1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成 2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失 3.Redis用C语言实现，使用单线程架构 Red">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【工具】图数据库Neo4j和py2neo库的使用">
-<meta property="og:url" content="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="【笔记】Redis学习笔记">
+<meta property="og:url" content="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Kenway&#39;s Blog">
-<meta property="og:description" content="目录图数据库Neo4j py2neo库 图数据库Neo4j图形数据库也被称为图形数据库管理系统（GDBMS），现发展比较成熟的图数据库有Neo4j、OracleNoSQL、OrientDB、HypherGraphDB和GraphBase等 其中Neo4j是基于Java语言编写的图形数据库，它采用节点和关系的形式存储信息，并在此基础上提供界面友好的可视化演示，Neo4j图形数据库的主要组成有：">
+<meta property="og:description" content="目录基础概念 Redis的运行 API的使用 基础概念1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成 2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失 3.Redis用C语言实现，使用单线程架构 Red">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-01T16:00:00.000Z">
+<meta property="article:published_time" content="2021-07-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-14T09:05:37.757Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="开发">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>【工具】图数据库Neo4j和py2neo库的使用 | Kenway's Blog</title>
+  <title>【笔记】Redis学习笔记 | Kenway's Blog</title>
   
 
 
@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j%E5%92%8Cpy2neo%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -177,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【工具】图数据库Neo4j和py2neo库的使用
+          【笔记】Redis学习笔记
         </h1>
 
         <div class="post-meta">
@@ -187,8 +187,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+              <time title="创建时间：2021-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-13T00:00:00+08:00">2021-07-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-14 17:05:37" itemprop="dateModified" datetime="2021-07-14T17:05:37+08:00">2021-07-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -210,28 +217,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>图数据库Neo4j</p>
-<p>py2neo库</p>
-<h2 id="图数据库Neo4j"><a href="#图数据库Neo4j" class="headerlink" title="图数据库Neo4j"></a>图数据库Neo4j</h2><p>图形数据库也被称为图形数据库管理系统（GDBMS），现发展比较成熟的图数据库有Neo4j、OracleNoSQL、OrientDB、HypherGraphDB和GraphBase等</p>
-<p>其中Neo4j是基于Java语言编写的图形数据库，它采用节点和关系的形式存储信息，并在此基础上提供界面友好的可视化演示，Neo4j图形数据库的主要组成有：</p>
-<span id="more"></span>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>基础概念</p>
+<p>Redis的运行</p>
+<p>API的使用</p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成</p>
+<p>2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失</p>
+<p>3.Redis用C语言实现，使用单线程架构</p>
+<h2 id="Redis的运行"><a href="#Redis的运行" class="headerlink" title="Redis的运行"></a>Redis的运行</h2><p>1.因为Redis非常轻量，执行以下命令进行源码安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 下载Redis指定版本的源码压缩包到当前目录</span><br><span class="line">wget http://download.redis.io/releases/redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压缩</span><br><span class="line">tar xzf redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 建立一个redis到redis-3.0.7的软连接</span><br><span class="line">ln -s redis-3.0.7 redis</span><br><span class="line"></span><br><span class="line"># 切换工作目录到redis</span><br><span class="line">cd redis</span><br><span class="line"></span><br><span class="line"># 编译(事先得先安装gcc)</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 安装新版本redis后只需将新版本的文件夹与redis建立新的软连接即可</span><br><span class="line"># 将Redis的相关运行文件放到/usr/local/bin/下，这样就可以在任意目录下执行Redis的命令。例如安装后，可以在任何目录执行redis-cli–v查看Redis的版本。</span><br></pre></td></tr></table></figure>
 
+<p>2.redis\src里的redis开头可执行脚本说明<br>图1</p>
+<p>3.redis的启动方式</p>
 <ul>
-<li>节点：即实体，用于表示一个单独存在的个体，节点一般包含多个属性</li>
-<li>关系：也就是“边”，两个节点靠关系才能连接，每个关系也具有它自己的名词，可以通过Cypher检索关系名称来查找具有该关系的所有节点</li>
-<li>属性：可以看作是节点的扩展描述，id、名称这些也属于节点的属性，详细的属性需要通过数据浏览器的Text标签进行查看</li>
-<li>标签：即分组，Neo4j在建立节点或关系时要求事先分组</li>
-<li>数据浏览器：Neo4j自己的可视化界面，用于提供用户执行Cypher查询命令并查看输出文本和图形</li>
+<li>以默认配置启动：运行redis-server</li>
+<li>以自定义配置启动：redis-server加上要修改配置名和值（可以是多对），没有设置的配置将使用默认配置  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-server --port 6380</span><br><span class="line"># 表示以6380端口启动</span><br></pre></td></tr></table></figure></li>
+<li>以配置文件启动(常用)：表示以该路径的.conf文件为配置启动<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /opt/redis/redis.conf</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>Neo4j采用声明式查询语言Cypher，常用的增删查改指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 删除以往的所有节点和关系，MATCH是匹配操作，()表示一个节点，n是标识符</span><br><span class="line">MATCH (n) DETACH DELETE n</span><br><span class="line"></span><br><span class="line"># 创建一个标签为Person的节点，节点有一个name属性，属性值为&#x27;John&#x27;</span><br><span class="line">CREATE (n:Person&#123;name:&#x27;John&#x27;&#125;) RETURN n</span><br><span class="line"></span><br><span class="line"># 从a到b建立起FRIENDS关系，关系有一个since属性，属性值为2001</span><br><span class="line">MATCH (a:Person&#123;name:&#x27;Liz&#x27;&#125;),(b:Person&#123;name:&#x27;Mike&#x27;&#125;)MERGE (a)-[:FRIENDS&#123;since:2001&#125;]-&gt;b</span><br><span class="line"></span><br><span class="line"># 查询在Boston出生的所有Person</span><br><span class="line">MATCH (a:Person)-[:BORN_IN]-&gt;(b:location&#123;city:&#x27;Boston&#x27;&#125;) RETURN a,b</span><br><span class="line"></span><br><span class="line"># 查询所有具有对外关系的节点</span><br><span class="line">MATCH (a)--&gt;() RETURN a</span><br><span class="line"></span><br><span class="line"># 查询所有具有关系的节点</span><br><span class="line">MATH (a)--() RETURN a</span><br><span class="line"></span><br><span class="line"># 查询所有具有对外关系的节点，并返回节点的name属性值和关系类型</span><br><span class="line">MATCH (a)-[r]-&gt;() RETURN a.name, type(r)</span><br><span class="line"></span><br><span class="line"># 给a节点设置一个age属性，属性值为34</span><br><span class="line">MATCH (a:Person&#123;name:&#x27;Liz&#x27;&#125;) SET a.age = 34</span><br><span class="line"></span><br><span class="line"># 删除a节点的test属性</span><br><span class="line">MATCH ... REMOVE a.test</span><br><span class="line"></span><br><span class="line"># 删除a节点</span><br><span class="line">MATCH ... DELETE a</span><br></pre></td></tr></table></figure>
+<p>4.连接redis服务器(注意要在启动redis-server的嵌套下才能连接)</p>
+<ul>
+<li><p>交互式:即建立一个持续连接，然后直接在连接上多次使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:redis-cli -h 127.0.0.1 -p 6379</span><br><span class="line">输出:127.0.0.1:6379&gt; 输入:set hello world</span><br><span class="line">输出:OK</span><br><span class="line">输出:127.0.0.1:6379&gt; 输入:get hello</span><br><span class="line">输出:&quot;world&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>命令式：即只执行一个命令后就关闭连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入:redis-cli -h 127.0.0.1 -p 6379 get hello</span><br><span class="line"></span><br><span class="line">输出:&quot;world&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>-h默认127.0.0.1 -p默认6379</p>
+</li>
+</ul>
+<p>5.中断redis服务：断开与客户端的连接、持久化文件生成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown nosave</span><br><span class="line"></span><br><span class="line"># nosave可换成save，该参数不写的话默认保存</span><br></pre></td></tr></table></figure>
 
-<p>当数据量过大时，可以将数据转变成UTF-8编码格式的.csv文件批量导入Neo4j</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 创建节点语法</span><br><span class="line"># 从import文件夹中读取genre.csv</span><br><span class="line"># 创建标签为genre的节点，节点有两个属性genre_id、genre_name，属性值为genre.csv中的genre_id、genre_name</span><br><span class="line">load csv with headers from &quot;file:///genre.csv&quot; as line create (a:genre&#123;genre_id:line.genre_id, genre_name:line.genre_name&#125;)</span><br><span class="line"></span><br><span class="line"># 创建关系语法</span><br><span class="line"># 从import文件夹中读取actor_to_movie.csv</span><br><span class="line"># 根据actor_to_movie.csv中的数据匹配a和m节点，并在它们之间建立ACTED_IN关系</span><br><span class="line">load csv with headers from &quot;file:///actor_to_movie.csv&quot; as line match (a:Actor), (m:Movie) where a.actor_id = line[1] and m.movie_id = line[2] create (a)-[:ACTED_IN]-&gt;(m)</span><br><span class="line"></span><br><span class="line"># PS：上述载入关系有时会因数据规模太大产生笛卡尔积而Neo4j不予通过，可改用以下形式分三次执行,结果一样</span><br><span class="line">load csv with headers from &quot;file:///actor_to_movie.csv&quot; as line create (a:actor_to_movie&#123;actor_id:line.actor_id, movie_id:line.movie_id&#125;)</span><br><span class="line">match (a:actor), (m:movie), (n:actor_to_movie) where a.actor_id = n.actor_id and m.movie_id = n.movie_id create (a)-[:ACTED_IN]-&gt;(m)</span><br><span class="line">match (n:actor_to_movie) delete n</span><br></pre></td></tr></table></figure>
+<h2 id="API的使用"><a href="#API的使用" class="headerlink" title="API的使用"></a>API的使用</h2><p>1.全局命令</p>
+<ul>
+<li>查看所有键(遍历，规模较大时禁用)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keys *</span><br></pre></td></tr></table></figure></li>
+<li>查看键总数(不用遍历，获取内置的键总数变量)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbsize</span><br></pre></td></tr></table></figure></li>
+<li>查询键xx是否存在，存在为1，不存在为0<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exits xx</span><br></pre></td></tr></table></figure></li>
+<li>删除键xx1和xx2(也可删除其它数据结构)，会返回删除的数目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del xx1 xx2</span><br></pre></td></tr></table></figure></li>
+<li>设置键存活时间(默认秒)，到时间会自动删除<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire xx 10</span><br></pre></td></tr></table></figure></li>
+<li>查询键剩余存活时间(-1是永不过期，-2是不存在该键)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ttl xx</span><br><span class="line">~~</span><br><span class="line">- 查看键的数据结构(none表示键不存在)</span><br></pre></td></tr></table></figure>
+type xx<br>~~~</li>
+</ul>
 
-<h2 id="py2neo库"><a href="#py2neo库" class="headerlink" title="py2neo库"></a>py2neo库</h2><p>py2neo库是Neo4j图数据库的python驱动<br>使用py2neo操作Neo4j有两种形式，一种是直接采用py2neo自己创建好的函数，另一种是采用Cypher语言</p>
-<p>由于上文已经学习了Cypher语言的基本操作，本文在这里介绍第二种形式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 导入py2neo库</span><br><span class="line">form py2neo import Graph</span><br><span class="line"></span><br><span class="line"># 配置链接到Neo4j的参数</span><br><span class="line">graph = Graph(&#x27;http://localhost:7474&#x27;, usename=&#x27;neo4j&#x27;, password=&#x27;123456&#x27;)</span><br><span class="line"># sql是符合Cypher语言的字符串，注意要return你需要的数据</span><br><span class="line">sql = &quot;match (n:rocket&#123;roket_id:&#x27;1&#x27;&#125; return n.rocket_name&quot;</span><br><span class="line"># 链接到Neo4j中执行Cypher语句，会返回一个字典类型</span><br><span class="line">result = graph.run(sql).data()</span><br><span class="line"># 从字典中抽取数据</span><br><span class="line">deal_result = result[&#x27;n.rocket_name&#x27;]</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -241,7 +265,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fa fa-tag"></i> 开发</a>
               <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
           </div>
 
@@ -251,13 +275,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Socket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Socket学习笔记">
-      <i class="fa fa-chevron-left"></i> 【笔记】Socket学习笔记
+    <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Go语言学习笔记">
+      <i class="fa fa-chevron-left"></i> 【笔记】Go语言学习笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/07/02/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Django%E6%A1%86%E6%9E%B6%E5%8F%8A%E7%BB%93%E5%90%88Echarts%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="【工具】Django框架及结合Echarts库的使用">
-      【工具】Django框架及结合Echarts库的使用 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -316,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93Neo4j"><span class="nav-text">图数据库Neo4j</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#py2neo%E5%BA%93"><span class="nav-text">py2neo库</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="nav-text">Redis的运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">API的使用</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
