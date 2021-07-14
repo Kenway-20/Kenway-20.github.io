@@ -28,7 +28,7 @@
 <meta property="og:description" content="目录基础概念 Redis的运行 API的使用 基础概念1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成 2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失 3.Redis用C语言实现，使用单线程架构 Red">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-14T09:05:37.757Z">
+<meta property="article:modified_time" content="2021-07-14T09:08:56.978Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
 <meta property="article:tag" content="开发">
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-14 17:05:37" itemprop="dateModified" datetime="2021-07-14T17:05:37+08:00">2021-07-14</time>
+                <time title="修改时间：2021-07-14 17:08:56" itemprop="dateModified" datetime="2021-07-14T17:08:56+08:00">2021-07-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,8 +252,8 @@
 <li>查询键xx是否存在，存在为1，不存在为0<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exits xx</span><br></pre></td></tr></table></figure></li>
 <li>删除键xx1和xx2(也可删除其它数据结构)，会返回删除的数目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del xx1 xx2</span><br></pre></td></tr></table></figure></li>
 <li>设置键存活时间(默认秒)，到时间会自动删除<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire xx 10</span><br></pre></td></tr></table></figure></li>
-<li>查询键剩余存活时间(-1是永不过期，-2是不存在该键)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ttl xx</span><br><span class="line">~~</span><br><span class="line">- 查看键的数据结构(none表示键不存在)</span><br></pre></td></tr></table></figure>
-type xx<br>~~~</li>
+<li>查询键剩余存活时间(-1是永不过期，-2是不存在该键)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ttl xx</span><br></pre></td></tr></table></figure></li>
+<li>查看键的数据结构(none表示键不存在)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type xx</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -275,10 +275,13 @@ type xx<br>~~~</li>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Go语言学习笔记">
-      <i class="fa fa-chevron-left"></i> 【笔记】Go语言学习笔记
+    <a href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Docker%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="【工具】Docker的使用">
+      <i class="fa fa-chevron-left"></i> 【工具】Docker的使用
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Go语言学习笔记">
+      【笔记】Go语言学习笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
