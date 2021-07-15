@@ -248,6 +248,9 @@
 <li>类的静态成员和静态函数：这个类的所有对象都有，注意静态函数只能引用类中的静态成员(静态成员：类和子类的所有方法都可以访问)</li>
 </ul>
 <p>总结：static与extern相反，static意味着该变量、函数在被声明的文件之外是不可见的，除非引入声明的文件作为头文件，但是这样的话会每一个引入该头文件的文件都会定义一个自己的变量造成内存浪费，所以一般用extern在头文件中声明才是正确的方式</p>
+<p>2.全局声明，局部定义vector实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; temple;</span><br><span class="line">    int main(int k)&#123;</span><br><span class="line">        temple = vector&lt;int&gt; (k);</span><br><span class="line">        box;</span><br><span class="line">        ......</span><br><span class="line">&#125;</span><br><span class="line">    void box()&#123;</span><br><span class="line">        int n = temple.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"># 此时n为2        </span><br></pre></td></tr></table></figure>
+
 <h2 id="指针专题"><a href="#指针专题" class="headerlink" title="指针专题"></a>指针专题</h2><p>1.指针和引用的区别</p>
 <ul>
 <li>指针有自己的一块空间，用sizeof看一个指针大小是4；引用知识一个别名不占空间，用sizeof看引用大小是被引用对象的大小</li>
@@ -338,12 +341,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】Linux学习笔记">
-      <i class="fa fa-chevron-left"></i> 【笔记】Linux学习笔记
+    <a href="/2021/06/29/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Clion%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="prev" title="【工具】Clion环境搭建">
+      <i class="fa fa-chevron-left"></i> 【工具】Clion环境搭建
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/01/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Socket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Socket学习笔记">
-      【笔记】Socket学习笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/30/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Linux学习笔记">
+      【笔记】Linux学习笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -480,7 +483,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约35.2k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约36.7k字</span>
 </div>
 
 <br/>
