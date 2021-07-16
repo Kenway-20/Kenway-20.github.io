@@ -28,11 +28,11 @@
 <meta property="og:description" content="目录理论 基础操作 在Ubuntu上配置Docker 理论1.容器的概念：容器是对应用程序及其依赖关系的封装，可以看成是一个轻量级的虚拟机环境。  容器能与主机的操作系统共享资源 运行容器开销小，可以大数量多开 容器具有强可移植性，换个电脑也能跑 虚拟机的目的是要完整地模拟另一个环境；而容器的目的则是使应用程序能够移植，并把所有依赖关系包含进去(这一点有点像yum)  2.Docker利用的是Li">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-16T09:02:36.119Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
-<meta property="article:tag" content="开发">
 <meta property="article:tag" content="Linux">
+<meta property="article:tag" content="开发">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://kenway-20.github.io/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Docker%E7%9A%84%E4%BD%BF%E7%94%A8/">
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-13 00:00:00" itemprop="dateModified" datetime="2021-07-13T00:00:00+08:00">2021-07-13</time>
+                <time title="修改时间：2021-07-16 17:02:36" itemprop="dateModified" datetime="2021-07-16T17:02:36+08:00">2021-07-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,6 +249,21 @@
 
 <span id="more"></span>
 
+<p>4.查看正在运行的容器信息，会出现容器id和名称(这两个字段都可以用作inspect的参数)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">doker ps</span><br><span class="line"></span><br><span class="line"># docker ps -a 会显示所有容器</span><br></pre></td></tr></table></figure>
+
+<p>5.显示某容器的详细信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker inspect xx</span><br><span class="line"></span><br><span class="line"># docker inspect xx1 | grep xx2 会显示容器xx1含有xx2字段的属性</span><br></pre></td></tr></table></figure>
+
+<p>6.显示某容器哪些文件被改动过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker diff xx</span><br></pre></td></tr></table></figure>
+
+<p>7.显示容器中发生的一切操作记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs xx</span><br></pre></td></tr></table></figure>
+
+<p>8.删除容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm xx</span><br><span class="line"></span><br><span class="line"># 常用命令docker rm -v $(docker ps -aq -f status=exited)删除所有已停止的容器</span><br></pre></td></tr></table></figure>
+
 <h2 id="在Ubuntu上配置Docker"><a href="#在Ubuntu上配置Docker" class="headerlink" title="在Ubuntu上配置Docker"></a>在Ubuntu上配置Docker</h2><p>1.安装Docker</p>
 <ul>
 <li>更新apt源索引<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></li>
@@ -277,8 +292,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
-              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fa fa-tag"></i> 开发</a>
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fa fa-tag"></i> 开发</a>
           </div>
 
         
@@ -287,12 +302,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" rel="prev" title="【笔记】操作系统笔记">
-      <i class="fa fa-chevron-left"></i> 【笔记】操作系统笔记
+    <a href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="【工具】Git和Github的使用">
+      <i class="fa fa-chevron-left"></i> 【工具】Git和Github的使用
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="【工具】Git和Github的使用">
-      【工具】Git和Github的使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="【笔记】Go语言学习笔记">
+      【笔记】Go语言学习笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -429,7 +444,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约36.7k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约37.5k字</span>
 </div>
 
 <br/>

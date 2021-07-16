@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="Kenway&#39;s Blog">
 <meta property="og:description" content="目录基础概念 Redis的运行 API的使用 基础概念1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成 2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失 3.Redis用C语言实现，使用单线程架构 Red">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/Redis1.jpg">
 <meta property="article:published_time" content="2021-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-15T09:02:41.746Z">
+<meta property="article:modified_time" content="2021-07-16T09:02:45.707Z">
 <meta property="article:author" content="Kenway">
 <meta property="article:tag" content="技术">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/Redis1.jpg">
 
 <link rel="canonical" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
@@ -194,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-15 17:02:41" itemprop="dateModified" datetime="2021-07-15T17:02:41+08:00">2021-07-15</time>
+                <time title="修改时间：2021-07-16 17:02:45" itemprop="dateModified" datetime="2021-07-16T17:02:45+08:00">2021-07-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +228,10 @@
 <h2 id="Redis的运行"><a href="#Redis的运行" class="headerlink" title="Redis的运行"></a>Redis的运行</h2><p>1.因为Redis非常轻量，执行以下命令进行源码安装</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 下载Redis指定版本的源码压缩包到当前目录</span><br><span class="line">wget http://download.redis.io/releases/redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压缩</span><br><span class="line">tar xzf redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 建立一个redis到redis-3.0.7的软连接</span><br><span class="line">ln -s redis-3.0.7 redis</span><br><span class="line"></span><br><span class="line"># 切换工作目录到redis</span><br><span class="line">cd redis</span><br><span class="line"></span><br><span class="line"># 编译(事先得先安装gcc)</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 安装新版本redis后只需将新版本的文件夹与redis建立新的软连接即可</span><br><span class="line"># 将Redis的相关运行文件放到/usr/local/bin/下，这样就可以在任意目录下执行Redis的命令。例如安装后，可以在任何目录执行redis-cli–v查看Redis的版本。</span><br></pre></td></tr></table></figure>
 
-<p>2.redis\src里的redis开头可执行脚本说明<br>图1</p>
+<p>2.redis\src里的redis开头可执行脚本说明</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/Redis1.jpg"></p>
+<span id="more"></span>
+
 <p>3.redis的启动方式</p>
 <ul>
 <li>以默认配置启动：运行redis-server</li>
@@ -282,6 +287,27 @@
 <li>raw：大于39字节的字符串</li>
 </ul>
 </li>
+</ul>
+<p>4.常用方案MySql作存储层，Redis作缓存层。一般业务先去缓存层找，找不到再向MySql发出请求</p>
+<p>5.哈希类型：哈希类型的键就相当于一个范围，范围里面的field:值就相当于一个键值对</p>
+<ul>
+<li>建立哈希类型<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hset 键名 filed名 值</span><br></pre></td></tr></table></figure></li>
+<li>获取某键的某个filed值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hget 键名 filed名</span><br></pre></td></tr></table></figure></li>
+<li>删除某键的某个filed<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdel 键名 filed名</span><br></pre></td></tr></table></figure></li>
+<li>获取某键的filed个数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen 键名</span><br></pre></td></tr></table></figure></li>
+<li>获得所有信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 获得所有filed名</span><br><span class="line">hvals 键名</span><br><span class="line"></span><br><span class="line"># 获得所有filed名和值</span><br><span class="line">hgetall 键名</span><br></pre></td></tr></table></figure></li>
+<li>其他操作和字符串一样就是加个h(hmget、hmset等待)</li>
+<li>内部编码有两种<ul>
+<li>ziplist压缩列表:小规模数据时(元素个数少，值小)更节省内存</li>
+<li>hashttable哈希表:不满足使用ziplist时才使用</li>
+</ul>
+</li>
+</ul>
+<p>6.列表类型</p>
+<ul>
+<li>列表里元素是有序的、可重复的</li>
+<li>push、pop分别是添加删除元素<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lpush 列表名 xx1 xx2</span><br><span class="line">lpop 列表名</span><br><span class="line"></span><br><span class="line"># rpush、lpop同理</span><br></pre></td></tr></table></figure></li>
+<li>在某元素前后插入元素<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">linsert 列表名 before(after) xx1 xx2</span><br><span class="line"></span><br><span class="line"># 在xx1前(后)插入xx2，会返回一个当前列表长度</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -442,7 +468,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约36.7k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约37.5k字</span>
 </div>
 
 <br/>
