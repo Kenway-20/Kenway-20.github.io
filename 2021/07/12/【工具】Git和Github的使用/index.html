@@ -241,11 +241,11 @@
 <p>会出现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-rsa 公钥 universeeddy@outlook.com</span><br></pre></td></tr></table></figure>
 
-<p>3.登录github在ssh设置里添加一个新的ssh，title任意，把“ssh-rsa 公钥 <a href="mailto:&#117;&#x6e;&#x69;&#x76;&#x65;&#x72;&#115;&#101;&#x65;&#x64;&#100;&#x79;&#x40;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#x6d;">&#117;&#x6e;&#x69;&#x76;&#x65;&#x72;&#115;&#101;&#x65;&#x64;&#100;&#x79;&#x40;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#x6d;</a>”复制粘贴到Key中</p>
+<p>3.登录github在ssh设置里添加一个新的ssh，title任意，把“ssh-rsa 公钥 <a href="mailto:&#117;&#x6e;&#105;&#118;&#101;&#114;&#115;&#x65;&#101;&#x64;&#x64;&#121;&#64;&#x6f;&#x75;&#116;&#x6c;&#x6f;&#111;&#107;&#x2e;&#99;&#111;&#109;">&#117;&#x6e;&#105;&#118;&#101;&#114;&#115;&#x65;&#101;&#x64;&#x64;&#121;&#64;&#x6f;&#x75;&#116;&#x6c;&#x6f;&#111;&#107;&#x2e;&#99;&#111;&#109;</a>”复制粘贴到Key中</p>
 <p>4.为一台电脑配置多个ssh：在～/.ssh目录下新建一个config文件，下面是参考内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 第一个ssh账户</span><br><span class="line">Host home.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_home</span><br><span class="line"></span><br><span class="line"># 第二个ssh账户</span><br><span class="line">Host company.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_company</span><br></pre></td></tr></table></figure>
 <p>Host后面填的是你ssh的别称，相当于给他取了个名字，HostName填的是你服务器的地址，PreferredAuthentications选项按照上面那样填就行了，IdentityFile是你密钥的位置</p>
-<p>上面一台电脑配置多个ssh的例子中配置了两个github账户的ssh。当远程仓库为<a href="mailto:&#103;&#x69;&#x74;&#x40;&#104;&#111;&#x6d;&#101;&#46;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#104;&#111;&#x6d;&#101;&#46;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a>就会以密钥id_rsa_home与服务器github.com建立连接，当远程仓库为<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x63;&#111;&#109;&#x70;&#x61;&#110;&#x79;&#46;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x63;&#111;&#109;&#x70;&#x61;&#110;&#x79;&#46;&#103;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>就会以密钥id_rsa_company与服务器github.com建立连接</p>
+<p>上面一台电脑配置多个ssh的例子中配置了两个github账户的ssh。当远程仓库为<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x68;&#x6f;&#x6d;&#101;&#46;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x68;&#x6f;&#x6d;&#101;&#46;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>就会以密钥id_rsa_home与服务器github.com建立连接，当远程仓库为<a href="mailto:&#x67;&#x69;&#x74;&#64;&#99;&#x6f;&#x6d;&#x70;&#x61;&#x6e;&#121;&#46;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#99;&#x6f;&#x6d;&#x70;&#x61;&#x6e;&#121;&#46;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a>就会以密钥id_rsa_company与服务器github.com建立连接</p>
 <h2 id="clone线上项目"><a href="#clone线上项目" class="headerlink" title="clone线上项目"></a>clone线上项目</h2><p>1.查看该项目的SSH，在目的文件夹加上git clone</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:csw1997/BGCN_test.git</span><br></pre></td></tr></table></figure>
 
@@ -516,7 +516,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约38.7k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约39.3k字</span>
 </div>
 
 <br/>
