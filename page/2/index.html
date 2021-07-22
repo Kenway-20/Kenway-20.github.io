@@ -158,97 +158,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Kenway">
-      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kenway's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【笔记】Redis学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-13T00:00:00+08:00">2021-07-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-21 11:56:25" itemprop="dateModified" datetime="2021-07-21T11:56:25+08:00">2021-07-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>基础概念</p>
-<p>Redis的运行</p>
-<p>API的使用</p>
-<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成</p>
-<p>2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失</p>
-<p>3.Redis用C语言实现，使用单线程架构</p>
-<h2 id="Redis的运行"><a href="#Redis的运行" class="headerlink" title="Redis的运行"></a>Redis的运行</h2><p>1.因为Redis非常轻量，执行以下命令进行源码安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 下载Redis指定版本的源码压缩包到当前目录</span><br><span class="line">wget http://download.redis.io/releases/redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压缩</span><br><span class="line">tar xzf redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 建立一个redis到redis-3.0.7的软连接</span><br><span class="line">ln -s redis-3.0.7 redis</span><br><span class="line"></span><br><span class="line"># 切换工作目录到redis</span><br><span class="line">cd redis</span><br><span class="line"></span><br><span class="line"># 编译(事先得先安装gcc)</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 安装新版本redis后只需将新版本的文件夹与redis建立新的软连接即可</span><br><span class="line"># 将Redis的相关运行文件放到/usr/local/bin/下，这样就可以在任意目录下执行Redis的命令。例如安装后，可以在任何目录执行redis-cli–v查看Redis的版本。</span><br></pre></td></tr></table></figure>
-
-<p>2.redis\src里的redis开头可执行脚本说明</p>
-<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/Redis1.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -343,7 +252,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -357,7 +266,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】Git和Github的使用</a>
+            <a href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">【笔记】Redis学习笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -367,14 +276,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-12T00:00:00+08:00">2021-07-12</time>
+              <time title="创建时间：2021-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-13T00:00:00+08:00">2021-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-19 17:06:02" itemprop="dateModified" datetime="2021-07-19T17:06:02+08:00">2021-07-19</time>
+                <time title="修改时间：2021-07-22 20:12:47" itemprop="dateModified" datetime="2021-07-22T20:12:47+08:00">2021-07-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -397,21 +306,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>全局配置</p>
-<p>Github部分</p>
-<p>clone线上项目</p>
-<p>一个git仓库的建立</p>
-<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p>1.配置每次提交你的默认名字和邮箱，若某个项目想改此项则在该项目git中去掉–global即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Kenway&quot;</span><br><span class="line">git config --global user.email &quot;universeeddy@outlook.com&quot;</span><br></pre></td></tr></table></figure>
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>基础概念</p>
+<p>Redis的运行</p>
+<p>API的使用</p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>1.Redis是一种基于键值对的NoSQL数据库，Redis键值对中的值可以是由string、hash、list、set、zset(有序集合)、Bitmaps(位图)等多种数据结构和算法组成</p>
+<p>2.Redis把所有的数据放在内存中，所有读写性能高，还会把数据用快照和日志的形式保存到硬盘上以防丢失</p>
+<p>3.Redis用C语言实现，使用单线程架构</p>
+<h2 id="Redis的运行"><a href="#Redis的运行" class="headerlink" title="Redis的运行"></a>Redis的运行</h2><p>1.因为Redis非常轻量，执行以下命令进行源码安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 下载Redis指定版本的源码压缩包到当前目录</span><br><span class="line">wget http://download.redis.io/releases/redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压缩</span><br><span class="line">tar xzf redis-3.0.7.tar.gz</span><br><span class="line"></span><br><span class="line"># 建立一个redis到redis-3.0.7的软连接</span><br><span class="line">ln -s redis-3.0.7 redis</span><br><span class="line"></span><br><span class="line"># 切换工作目录到redis</span><br><span class="line">cd redis</span><br><span class="line"></span><br><span class="line"># 编译(事先得先安装gcc)</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"># 安装新版本redis后只需将新版本的文件夹与redis建立新的软连接即可</span><br><span class="line"># 将Redis的相关运行文件放到/usr/local/bin/下，这样就可以在任意目录下执行Redis的命令。例如安装后，可以在任何目录执行redis-cli–v查看Redis的版本。</span><br></pre></td></tr></table></figure>
 
-<p>2.将color.ui设为auto让命令输出具有更高可读性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui auto</span><br></pre></td></tr></table></figure>
-
-<p>3.查看当前git的全局配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<p>2.redis\src里的redis开头可执行脚本说明</p>
+<p><img src="https://raw.githubusercontent.com/Kenway-20/For-picgo/master/img/Redis1.jpg"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2021/07/13/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -544,6 +452,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Kenway">
+      <meta itemprop="description" content="这世界上的东西，<br>你不去搬它，它就不动 。<br>一张桌子，你不搬它，它不走;<br>一把茶壶，你不拿它，它起不来。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kenway's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">【工具】Git和Github的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-12T00:00:00+08:00">2021-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-19 17:06:02" itemprop="dateModified" datetime="2021-07-19T17:06:02+08:00">2021-07-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>全局配置</p>
+<p>Github部分</p>
+<p>clone线上项目</p>
+<p>一个git仓库的建立</p>
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p>1.配置每次提交你的默认名字和邮箱，若某个项目想改此项则在该项目git中去掉–global即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Kenway&quot;</span><br><span class="line">git config --global user.email &quot;universeeddy@outlook.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>2.将color.ui设为auto让命令输出具有更高可读性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui auto</span><br></pre></td></tr></table></figure>
+
+<p>3.查看当前git的全局配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/12/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91Git%E5%92%8CGithub%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://kenway-20.github.io/2021/07/08/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -627,7 +627,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -695,7 +695,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -756,7 +756,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">感谢你的阅读，全站内容约41.3k字</span>
+  <span class="post-count">感谢你的阅读，全站内容约43.6k字</span>
 </div>
 
 <br/>
